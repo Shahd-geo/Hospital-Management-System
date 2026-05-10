@@ -27,6 +27,7 @@ public class Patient extends Person {
     }
     @Override
     public void displayInfo() {
+        super.displayInfo();
         System.out.println("patientId: " + patientId);
         System.out.println("bloodGroup: " + bloodGroup);
         System.out.println("allergies: " + allergies);
@@ -35,7 +36,6 @@ public class Patient extends Person {
         System.out.println("insuranceId: " + insuranceId);
         System.out.println("medicalRecords: " + medicalRecords);
         System.out.println("appointments: " + appointments);
-
     }
 
 
