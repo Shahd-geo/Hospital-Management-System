@@ -16,6 +16,15 @@ public class DoctorService {
             d.displayInfo();
         }
     }
+    public Doctor getDoctorById(String doctorId){
+        for (Doctor d : doctors){
+            if (d.getDoctorId().equals(doctorId)){
+                return d;
+            }
+        }
+        return null;
+    }
+
 
 
 }
