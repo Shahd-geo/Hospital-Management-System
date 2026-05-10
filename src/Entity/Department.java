@@ -94,6 +94,9 @@ public class Department {
     public void assignNurse(String nurse) {
         nurses.add(nurse);
     }
+    public void updateBedAvailability(int beds) {
+        this.availableBeds = beds;
+    }
 
 
 }
