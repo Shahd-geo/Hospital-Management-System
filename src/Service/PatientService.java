@@ -3,8 +3,10 @@ package Service;
 import Entity.Patient;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class PatientService {
+    Scanner scanner = new Scanner(System.in);
     private static List<Patient> patients = new ArrayList<>();
     public void addPatient(Patient patient){
         patients.add(patient);
