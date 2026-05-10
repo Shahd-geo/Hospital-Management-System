@@ -1,6 +1,4 @@
 package Service;
-
-import Entity.Doctor;
 import Entity.Nurse;
 
 import java.util.ArrayList;
@@ -10,10 +8,9 @@ public class NurseService {
     private static List<Nurse> nurses = new ArrayList<>();
     public void addNurse(Nurse n) {
         nurses.add(n);
-        System.out.println("----------------");
     }
 
-    public void displayAllNurse() {
+    public void displayAllNurses() {
         for (Nurse n : nurses) {
             n.displayInfo();
             System.out.println("----------------");
@@ -70,9 +67,6 @@ public class NurseService {
             }
         }
     }
-
-
-
 
 
 
