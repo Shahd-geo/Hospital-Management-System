@@ -59,4 +59,7 @@ public class Nurse extends Person{
     public void setAssignedPatients(List<String> assignedPatients) {
         this.assignedPatients = assignedPatients;
     }
+
+    @Override
+
 }

@@ -108,7 +108,8 @@ public class Doctor extends Person{
     public void  removePatient(String patient){
         assignedPatients.remove(patient);
     }
-    public void updateAvailability(List<String> slots{
+    public void updateAvailability(List<String> slots) {
         this.availableSlots=slots;
     }
+
 }
