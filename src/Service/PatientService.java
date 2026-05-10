@@ -25,6 +25,11 @@ public class PatientService {
         System.out.println("Enter patient DOB (yyyy-mm-dd): ");
         String dateOfBirth = scanner.nextLine();
         LocalDate DOB = LocalDate.parse(dateOfBirth);
+        System.out.println("Enter patient gender :");
+        String gender = scanner.nextLine();
+        System.out.println("Enter patient phone number :");
+        String phone = scanner.nextLine();
+
 
     }
     public void displayAllPatients() {
