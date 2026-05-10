@@ -88,4 +88,8 @@ public class Department {
         System.out.println("Bed Capacity: " + bedCapacity);
         System.out.println("Available Beds: " + availableBeds);
     }
+    public void assignDoctor(String doctor) {
+        doctors.add(doctor);
+    }
+
 }
