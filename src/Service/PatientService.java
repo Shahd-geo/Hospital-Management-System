@@ -33,11 +33,12 @@ public class PatientService {
         System.out.println("Enter patient gender :");
         String gender = scanner.nextLine();
         System.out.println("Enter patient phone number :");
-        String phone = scanner.nextLine();
+        String phone= scanner.nextLine();
         System.out.println("Enter patient email :");
         String email = scanner.nextLine();
         System.out.println("Enter patient address :");
         String address =scanner.nextLine();
+
         System.out.println("Enter patient id :");
         String patientID = scanner.nextLine();
         System.out.println("Enter patient blood group :");
@@ -45,8 +46,8 @@ public class PatientService {
         System.out.println("Enter emergency contact :");
         String emergencyContact=scanner.nextLine();
         System.out.println("Enter registration date (yyyy-mm-dd): ");
-        String dateOfRegistration = scanner.nextLine();
-        LocalDate DOR = LocalDate.parse(dateOfRegistration);
+        String registrationDate = scanner.nextLine();
+        LocalDate DOR = LocalDate.parse(registrationDate);
         System.out.println("Enter insurance id :");
         String insuranceId=scanner.nextLine();
         List<String> allergies = new ArrayList<>();
@@ -62,9 +63,23 @@ public class PatientService {
                 allergiesloop = false;
             }
         }
-        Patient patient = new Patient (id,fristPatientName,lastPatientName,DOB,gender,phone,email,address,patientID,bloodGroup,allergies,emergencyContact,DOR,medicalRecords,insuranceId,appointments);
-
-        return patient;
+        Patient patient = new Patient  ( id,
+                fristPatientName,
+                lastPatientName,
+                DOB,
+                gender,
+                phone,
+                email,
+                address,
+                DOR,
+                patientID,
+                medicalRecords,
+                insuranceId,
+                emergencyContact,
+                bloodGroup,
+                appointments,
+                allergies
+        );
 
         }
 

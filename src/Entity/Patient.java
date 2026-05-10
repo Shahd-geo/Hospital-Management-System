@@ -11,12 +11,12 @@ public class Patient extends Person {
     private String emergencyContact;
    private LocalDate registrationDate;
     private String insuranceId;
-   private List<String> medicalRecords = new ArrayList<>();
-    private List<String> appointments = new ArrayList<>();
+    private List<MedicalRecord> medicalRecords;
+    private  List<Appointment> appointments;
 
 
 
-    public Patient(String id, String firstName, String lastName,  LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<String> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<String>  appointments, List<String> allergies) {
+    public Patient(String id, String firstName, String lastName,  LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<MedicalRecord> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<Appointment> appointments, List<String> allergies) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.registrationDate = registrationDate;
         this.patientId = patientId;
@@ -62,19 +62,19 @@ public class Patient extends Person {
         this.insuranceId = insuranceId;
     }
 
-    public List<String> getMedicalRecords() {
+    public List<MedicalRecord> getMedicalRecords() {
         return medicalRecords;
     }
 
-    public void setMedicalRecords(List<String> medicalRecords) {
+    public void setMedicalRecords(List<MedicalRecord> medicalRecords) {
         this.medicalRecords = medicalRecords;
     }
 
-    public List<String> getAppointments() {
+    public List<Appointment> getAppointments() {
         return appointments;
     }
 
-    public void setAppointments(List<String> appointments) {
+    public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
 
@@ -106,11 +106,11 @@ public class Patient extends Person {
         System.out.println("medicalRecords: " + medicalRecords);
         System.out.println("appointments: " + appointments);
     }
-    public void  addMedicalRecord(String record){
+    public void  addMedicalRecord(MedicalRecord record){
         medicalRecords.add(record);
 
     }
-    public void   addAppointment(String appointment){
+    public void   addAppointment(Appointment  appointment){
         appointments.add(appointment);
     }
     public void updateInsurance(String newInsuranceId){
