@@ -29,9 +29,70 @@ public class PatientService {
         String gender = scanner.nextLine();
         System.out.println("Enter patient phone number :");
         String phone = scanner.nextLine();
+        System.out.println("Enter patient email :");
+        String email = scanner.nextLine();
+        System.out.println("Enter patient address :");
+        String address =scanner.nextLine();
+        System.out.println("Enter patient blood group :");
+        String bloodGroup = scanner.nextLine();
+        System.out.println("Enter emergency contact :");
+        String emergencyContact=scanner.nextLine();
+        System.out.println("Enter registration date (yyyy-mm-dd): ");
+        String dateOfRegistration = scanner.nextLine();
+        LocalDate DOR = LocalDate.parse(dateOfRegistration);
+        System.out.println("Enter insurance id :");
+        String insuranceid=scanner.nextLine();
+        List<String> allergies = new ArrayList<>();
 
+        boolean allergiesloop = true;
+        while (allergiesloop) {
+            System.out.println("Enter allergy :");
+            allergies.add(scanner.nextLine());
+            System.out.println(  "Enter c to continue or q to quit");
+            if (scanner.nextLine()
+                    .equalsIgnoreCase("q")) {
+
+                allergiesloop = false;
+            }
+        }
+
+        List<String> allergies = new ArrayList<>();
+
+
+
+    public List<Patient> addPatients(){
+
+        Boolean continueFlag = true;
+        while (continueFlag) {
+
+            patients.add(addPatient());
+            System.out.println("Patient add successfully");
+
+            System.out.println("Enter c to add more , and q to exit");
+            if (scanner.nextLine().equalsIgnoreCase("q")) {
+                continueFlag = false;
+            }
+        }
+        return patients;
 
     }
+
+
+        while (allergiesloop) {
+
+            System.out.println("Enter allergy :");
+            allergies.add(scanner.nextLine());
+
+            System.out.println("Enter c to continue or q to quit");
+
+            if (scanner.nextLine().equalsIgnoreCase("q")) {
+                allergiesloop = false;
+            }
+        }
+
+
+
+}
     public void displayAllPatients() {
         for (Patient Patient : patients){
             Patient.displayInfo();
