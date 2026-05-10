@@ -12,18 +12,16 @@ public class Appointment {
     private String reason;
     private String notes;
 
-    public Appointment(String appointmentId, String patientId, LocalDate appointmentDate, String doctorId, String appointmentTime, String status, String reason, String notes) {
+    public Appointment(String appointmentId, String patientId, String doctorId, LocalDate appointmentDate, String appointmentTime, String status, String reason, String notes) {
         this.appointmentId = appointmentId;
         this.patientId = patientId;
-        this.appointmentDate = appointmentDate;
         this.doctorId = doctorId;
+        this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.status = status;
         this.reason = reason;
         this.notes = notes;
-
-
-}
+    }
 
     public String getAppointmentId() {
         return appointmentId;
@@ -98,6 +96,11 @@ public class Appointment {
         System.out.println("Status: " + status);
         System.out.println("Reason: " + reason);
         System.out.println("Notes: " + notes);
+    }
+    public void reschedule(LocalDate newDate , String newTime){
+        this.appointmentDate=newDate;
+        this.appointmentTime=newTime;
+        this.status="Rescheduled";
     }
 }
 
