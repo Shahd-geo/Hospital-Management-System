@@ -41,6 +41,10 @@ public class Patient extends Person {
         medicalRecords.add(record);
 
     }
+    public void   addAppointment(String appointment){
+        appointments.add(appointment);
+    }
+
 
 
 
