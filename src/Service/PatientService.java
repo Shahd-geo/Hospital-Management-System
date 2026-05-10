@@ -9,4 +9,9 @@ public class PatientService {
     public void addPatient(Patient patient){
         patients.add(patient);
     }
+    public void displayAllPatients() {
+        for (Patient Patient : patients){
+            Patient.displayInfo();
+        }
+    }
 }
