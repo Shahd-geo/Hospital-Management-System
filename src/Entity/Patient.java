@@ -11,6 +11,8 @@ public class Patient extends Person {
     String emergencyContact;
     LocalDate registrationDate;
     String insuranceId;
+    List<String> medicalRecords = new ArrayList<>();
+    List<String> appointments = new ArrayList<>();
 
     L
 }
