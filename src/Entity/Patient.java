@@ -93,7 +93,7 @@ public class Patient extends Person {
     }
 
     @Override
-    public static void displayInfo() {
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("patientId: " + patientId);
         System.out.println("bloodGroup: " + bloodGroup);
