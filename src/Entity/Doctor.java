@@ -105,5 +105,7 @@ public class Doctor extends Person{
     public void  assignPatient(String patient){
         assignedPatients.add(patient);
     }
-    public void
+    public void  removePatient(String patient){
+        assignedPatients.remove(patient);
+    }
 }
