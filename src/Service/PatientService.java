@@ -123,7 +123,7 @@ public class PatientService {
 
 
 //
-public void editPatient() {
+public void createUpdatedPatient(){
 
     System.out.println("Enter patient ID to update:");
     String patientId = scanner.nextLine();
