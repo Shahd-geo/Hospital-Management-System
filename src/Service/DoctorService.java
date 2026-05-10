@@ -11,6 +11,11 @@ public class DoctorService {
     public void aaddDoctor(Doctor d){
         doctors.add(d);
     }
+    public void ddisplayAllDoctors(){
+        for(Doctor d: doctors){
+            d.displayInfo();
+        }
+    }
 
 
 }
