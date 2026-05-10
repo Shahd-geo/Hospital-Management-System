@@ -161,49 +161,70 @@ public void editPatient() {
 
     System.out.println("Patient not found");
 }
+    // remove patient by ID
+    public void removePatient(String patientId){
 
+        boolean removed =
+                patients.removeIf(
+                        b -> b.getPatientId()
+                                .equals(patientId)
+                );
 
+        if (removed){
 
-}
-    public void displayAllPatients() {
-        for (Patient Patient : patients){
-            Patient.displayInfo();
+            System.out.println(
+                    "Patient removed successfully");
+
+        } else {
+
+            System.out.println("Patient not found");
         }
     }
+    //retrieve patient
     public Patient getPatientById(String patientId){
-        for (Patient patient : patients) {
 
-            if (patient.getPatientId().equals(patientId)) {
-
+        for(Patient patient: patients){
+            if(patient.getPatientId().equals(patientId)){
                 return patient;
             }
-        }
 
+        }
+        System.out.println("patient not found");
         return null;
     }
-    public void removePatient(String patientId) {
-        Patient patient = getPatientById(patientId);
 
-        if (patient != null) {
+    //display all patients with formatted output
+    public void displayAllPatients(){
 
-            patients.remove(patient);
+        for(Patient patient: patients){
+            patient.displayInfo();
         }
+
     }
 
+    //search functionality
     public void searchPatientsByName(String name) {
 
-        for (Patient patient : patients) {
+        boolean found = false;
+
+
+        for(Patient patient : patients){
 
             String fullName = patient.getFirstName() + " " + patient.getLastName();
 
-            if (fullName.toLowerCase().contains(name.toLowerCase())) {
-
+            if(fullName.toLowerCase().contains(name.toLowerCase())){
                 patient.displayInfo();
-
-                System.out.println("----------------");
+                found = true;
             }
         }
+
+        if(!found){
+            System.out.println("No patients found with this name");
+        }
+
     }
 
-
 }
+
+
+
