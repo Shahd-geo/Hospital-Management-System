@@ -105,5 +105,8 @@ public class Appointment {
     public void  cancel(){
         this.status="Cancelled";
     }
+    public void complete(){
+        this.status= "Completed";
+    }
 }
 
