@@ -10,6 +10,7 @@ public class Patient extends Person {
     List<String> allergies = new ArrayList<>();
     String emergencyContact;
     LocalDate registrationDate;
+    String insuranceId;
 
     L
 }
