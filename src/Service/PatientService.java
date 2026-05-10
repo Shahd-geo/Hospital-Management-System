@@ -1,6 +1,8 @@
 package Service;
 
 import Entity.Patient;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,8 +10,22 @@ import java.util.Scanner;
 public class PatientService {
     Scanner scanner = new Scanner(System.in);
     private static List<Patient> patients = new ArrayList<>();
-    public void addPatient(Patient patient){
-        patients.add(patient);
+
+
+
+
+    //add new patient
+    public void addPatient(){
+        System.out.println("Enter Patient ID : ");
+        String id = scanner.nextLine();
+        System.out.println("Enter Patient First Name : ");
+        String fristPatientName = scanner.nextLine();
+        System.out.println("Enter Patient Last  Name : ");
+        String lastPatientName = scanner.nextLine();
+        System.out.println("Enter patient DOB (yyyy-mm-dd): ");
+        String dateOfBirth = scanner.nextLine();
+        LocalDate DOB = LocalDate.parse(dateOfBirth);
+
     }
     public void displayAllPatients() {
         for (Patient Patient : patients){
