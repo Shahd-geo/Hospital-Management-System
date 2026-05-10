@@ -37,6 +37,11 @@ public class Patient extends Person {
         System.out.println("medicalRecords: " + medicalRecords);
         System.out.println("appointments: " + appointments);
     }
+    public void  addMedicalRecord( String record){
+        medicalRecords.add(record);
+
+    }
+
 
 
 
