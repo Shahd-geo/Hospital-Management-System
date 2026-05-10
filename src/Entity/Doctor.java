@@ -89,4 +89,17 @@ public class Doctor extends Person{
     public void setAssignedPatients(List<String> assignedPatients) {
         this.assignedPatients = assignedPatients;
     }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("doctorId: " + doctorId);
+        System.out.println("specialization: " + specialization);
+        System.out.println("qualification: " + qualification);
+        System.out.println("experienceYears: " + experienceYears);
+        System.out.println("departmentId: " + departmentId);
+        System.out.println("consultationFee: " + consultationFee);
+        System.out.println("availableSlots: " + availableSlots);
+        System.out.println("assignedPatients: " + assignedPatients);
+    }
 }
