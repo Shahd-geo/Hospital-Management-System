@@ -1,11 +1,11 @@
 package Entity;
 
 public class Doctor extends Person{
-    String doctorId;
-    String specialization;
-    int experienceYears;
-    String departmentId;
-    Double consultationFee;
+    private String doctorId;
+    private String specialization;
+   private int experienceYears;
+   private String departmentId;
+   private Double consultationFee;
 
 
 }
