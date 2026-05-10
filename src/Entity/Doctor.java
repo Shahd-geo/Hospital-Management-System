@@ -5,6 +5,7 @@ public class Doctor extends Person{
     String specialization;
     int experienceYears;
     String departmentId;
+    Double consultationFee;
 
 
 }
