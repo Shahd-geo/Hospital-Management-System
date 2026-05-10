@@ -25,6 +25,13 @@ public class PatientService {
 
         return null;
     }
+    public void removePatient(String patientId) {
+        Patient patient = getPatientById(patientId);
+
+        if (patient != null) {
+
+            patients.remove(patient);
+        }
 
 
 }
