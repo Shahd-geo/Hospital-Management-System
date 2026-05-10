@@ -10,7 +10,7 @@ public class Doctor extends Person{
     private String qualification;
    private int experienceYears;
    private String departmentId;
-   private Double consultationFee;
+   private double consultationFee;
    private List<String> availableSlots =new ArrayList<>();
    private List<String> assignedPatients = new ArrayList<>();
 
@@ -102,4 +102,8 @@ public class Doctor extends Person{
         System.out.println("availableSlots: " + availableSlots);
         System.out.println("assignedPatients: " + assignedPatients);
     }
+    public void  assignPatient(String patient){
+        assignedPatients.add(patient);
+    }
+    public void
 }
