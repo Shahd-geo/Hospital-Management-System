@@ -8,5 +8,9 @@ import java.util.List;
 
 public class DoctorService {
     private static List<Doctor> doctors = new ArrayList<>();
+    public void aaddDoctor(Doctor d){
+        doctors.add(d);
+    }
+
 
 }
