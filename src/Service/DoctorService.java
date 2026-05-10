@@ -40,10 +40,21 @@ public class DoctorService {
             System.out.println("----------------");
         }
     }
-    public  void getDoctorsBySpecialization(String specialization){
-        for (Doctor d : doctors){
+    public  void getDoctorsBySpecialization(String specialization) {
+        for (Doctor d : doctors) {
             if (d.getSpecialization()
-                    .equalsIgnoreCase(specialization)){
+                    .equalsIgnoreCase(specialization)) {
+                d.displayInfo();
+                System.out.println("----------------");
+            }
+        }
+    }
+    public void getAvailableDoctors(){
+
+        for (Doctor d : doctors){
+
+            if (!d.getAvailableSlots().isEmpty()){
+
                 d.displayInfo();
 
                 System.out.println("----------------");
