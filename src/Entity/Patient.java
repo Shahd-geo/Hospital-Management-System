@@ -44,6 +44,9 @@ public class Patient extends Person {
     public void   addAppointment(String appointment){
         appointments.add(appointment);
     }
+    public void updateInsurance(String newInsuranceId){
+        this.insuranceId=newInsuranceId;
+    }
 
 
 
