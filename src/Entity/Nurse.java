@@ -61,5 +61,14 @@ public class Nurse extends Person{
     }
 
     @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("nurseId: " + nurseId);
+        System.out.println("departmentId: " + departmentId);
+        System.out.println("shift: " + shift);
+        System.out.println("qualification: " + qualification);
+        System.out.println("assignedPatients: " + assignedPatients);
+    }
+
 
 }
