@@ -91,5 +91,9 @@ public class Department {
     public void assignDoctor(String doctor) {
         doctors.add(doctor);
     }
+    public void assignNurse(String nurse) {
+        nurses.add(nurse);
+    }
+
 
 }
