@@ -62,14 +62,11 @@ public class PatientService {
                 allergiesloop = false;
             }
         }
-        Patient patient = new Patient (id,fristPatientName,DOB,lastPatientName,gender,phone,email,address,patientID,bloodGroup,allergies,emergencyContact,DOR,medicalRecords,insuranceId,appointments);
+        Patient patient = new Patient (id,fristPatientName,lastPatientName,DOB,gender,phone,email,address,patientID,bloodGroup,allergies,emergencyContact,DOR,medicalRecords,insuranceId,appointments);
 
         return patient;
 
-
         }
-
-
 
     public List<Patient> addPatients(){
 
@@ -89,17 +86,6 @@ public class PatientService {
     }
 
 
-        while (allergiesloop) {
-
-            System.out.println("Enter allergy :");
-            allergies.add(scanner.nextLine());
-
-            System.out.println("Enter c to continue or q to quit");
-
-            if (scanner.nextLine().equalsIgnoreCase("q")) {
-                allergiesloop = false;
-            }
-        }
 
 
 
