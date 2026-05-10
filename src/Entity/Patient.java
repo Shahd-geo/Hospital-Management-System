@@ -14,7 +14,7 @@ public class Patient extends Person {
    private List<String> medicalRecords = new ArrayList<>();
     private List<String> appointments = new ArrayList<>();
 
-    public Patient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<String> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<String> appointments, List<String> allergies) {
+    public Patient(String id, String firstName, LocalDate lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String registrationDate, String patientId, List<String> medicalRecords, String insuranceId, LocalDate emergencyContact, List<MedicalRecord> bloodGroup, String appointments, List<Appointment> allergies) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.registrationDate = registrationDate;
         this.patientId = patientId;

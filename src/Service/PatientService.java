@@ -1,5 +1,7 @@
 package Service;
 
+import Entity.Appointment;
+import Entity.MedicalRecord;
 import Entity.Patient;
 
 import java.time.LocalDate;
@@ -10,13 +12,16 @@ import java.util.Scanner;
 public class PatientService {
     Scanner scanner = new Scanner(System.in);
     private static List<Patient> patients = new ArrayList<>();
+    List<MedicalRecord> medicalRecords = new ArrayList<>();
+    List<Appointment> appointments = new ArrayList<>();
+
 
 
 
 
     //add new patient
-    public void addPatient(){
-        System.out.println("Enter Patient ID : ");
+    public Patient addPatient(){
+        System.out.println("Enter ID : ");
         String id = scanner.nextLine();
         System.out.println("Enter Patient First Name : ");
         String fristPatientName = scanner.nextLine();
@@ -33,6 +38,8 @@ public class PatientService {
         String email = scanner.nextLine();
         System.out.println("Enter patient address :");
         String address =scanner.nextLine();
+        System.out.println("Enter patient id :");
+        String patientID = scanner.nextLine();
         System.out.println("Enter patient blood group :");
         String bloodGroup = scanner.nextLine();
         System.out.println("Enter emergency contact :");
@@ -41,7 +48,7 @@ public class PatientService {
         String dateOfRegistration = scanner.nextLine();
         LocalDate DOR = LocalDate.parse(dateOfRegistration);
         System.out.println("Enter insurance id :");
-        String insuranceid=scanner.nextLine();
+        String insuranceId=scanner.nextLine();
         List<String> allergies = new ArrayList<>();
 
         boolean allergiesloop = true;
@@ -55,8 +62,12 @@ public class PatientService {
                 allergiesloop = false;
             }
         }
+        Patient patient = new Patient (id,fristPatientName,DOB,lastPatientName,gender,phone,email,address,patientID,bloodGroup,allergies,emergencyContact,DOR,medicalRecords,insuranceId,appointments);
 
-        List<String> allergies = new ArrayList<>();
+        return patient;
+
+
+        }
 
 
 
