@@ -102,5 +102,8 @@ public class Appointment {
         this.appointmentTime=newTime;
         this.status="Rescheduled";
     }
+    public void  cancel(){
+        this.status="Cancelled";
+    }
 }
 
