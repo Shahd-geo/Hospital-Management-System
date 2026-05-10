@@ -11,7 +11,7 @@ public class DoctorService {
     public void aaddDoctor(Doctor d){
         doctors.add(d);
     }
-    public void ddisplayAllDoctors(){
+    public void displayAllDoctors() {
         for(Doctor d: doctors){
             d.displayInfo();
         }
@@ -23,6 +23,14 @@ public class DoctorService {
             }
         }
         return null;
+    }
+    public void removeDoctor(String doctorId){
+        Doctor d = getDoctorById(doctorId);
+        if (d != null) {
+            doctors.remove(d);
+        }
+    }
+
     }
 
 
