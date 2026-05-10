@@ -32,6 +32,31 @@ public class PatientService {
 
             patients.remove(patient);
         }
+    }
+    public void editPatient(String patientId, Patient updatedPatient) {
+        Patient patient = getPatientById(patientId);
+
+        if (patient != null) {
+
+            patients.remove(patient);
+
+            patients.add(updatedPatient);
+        }
+    }
+    public void searchPatientsByName(String name) {
+
+        for (Patient patient : patients) {
+
+            String fullName = patient.getFirstName() + " " + patient.getLastName();
+
+            if (fullName.toLowerCase().contains(name.toLowerCase())) {
+
+                patient.displayInfo();
+
+                System.out.println("----------------");
+            }
+        }
+    }
 
 
 }
