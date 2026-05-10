@@ -13,6 +13,12 @@ public  abstract class Person {
     private String email;
     private String address;
 
+
+    //empty constructor
+
+    public Person() {
+    }
+
     // Full constructor
     public Person(String id, String firstName, String lastName, LocalDate dateOfBirth,
                   String gender, String phoneNumber, String email, String address) {
