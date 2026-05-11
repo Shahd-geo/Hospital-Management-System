@@ -216,31 +216,56 @@ public class AppointmentService {
                 String appointmentId = scanner.nextLine();
                 removeAppointment(appointmentId);
             }
-
             case 4 -> {
-                System.out.println("Enter appointmentId to getAppointment");
-                String appointmentId = scanner.nextLine();
-                getAppointment(appointmentId);
 
+            System.out.println("Enter appointmentId to getAppointment");
+
+            String appointmentId = scanner.nextLine();
+
+            Appointment appointment = getAppointment(appointmentId);
+
+            if (appointment != null){
+                appointment.displayInfo();
             }
-            case 5 -> {
-                System.out.println("Enter patient Id to  get Appointments");
-                String patientId = scanner.nextLine();
-                getAppointmentsByPatient(patientId);
+        }
+
+        case 5 -> {
+
+            System.out.println("Enter patient Id to get Appointments");
+
+            String patientId = scanner.nextLine();
+
+            List<Appointment> appointments = getAppointmentsByPatient(patientId);
+
+            for (Appointment appointment : appointments){
+
+                appointment.displayInfo();
             }
+        }
+
 
             case 6 -> {
-                System.out.println("Enter Doctor Id  to get Appointment ");
+                System.out.println("Enter Doctor Id to get Appointment");
+
                 String doctorId = scanner.nextLine();
-                getAppointmentsByDoctor(doctorId);
+
+                List<Appointment> appointments = getAppointmentsByDoctor(doctorId);
+
+                for (Appointment appointment : appointments){
+                    appointment.displayInfo();
+                }
 
             }
             case 7 -> {
-                System.out.println("Enter data to get appointment");
+                System.out.println("Enter date to get appointment");
+
                 String date = scanner.nextLine();
-                getAppointmentsByDate(LocalDate.parse(date));
 
+                List<Appointment> appointments = getAppointmentsByDate(LocalDate.parse(date));
 
+                for (Appointment appointment : appointments){
+                    appointment.displayInfo();
+                }
             }
             case 8 -> {
                 System.out.println("Enter  appointmentId to reschedule  appointment");
