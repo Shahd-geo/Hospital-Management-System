@@ -29,7 +29,17 @@ public class MedicalRecordService {
         String testResults = scanner.nextLine();
         System.out.println("Enter notes :");
         String notes = scanner.nextLine();
-        MedicalRecord medicalRecord = new MedicalRecord(recordId,patientId,doctorId,date,diagnosis,testResults,prescription,notes);
+        MedicalRecord medicalRecord =
+                new MedicalRecord(
+                        recordId,
+                        patientId,
+                        doctorId,
+                        date,
+                        diagnosis,
+                        prescription,
+                        testResults,
+                        notes
+                );
 
         return medicalRecord;
     }
@@ -98,7 +108,7 @@ public class MedicalRecordService {
         if (removed){
 
             System.out.println(
-                    "Recored removed successfully");
+                    "Record removed successfully");
 
         } else {
 
