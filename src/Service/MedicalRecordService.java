@@ -29,4 +29,8 @@ public class MedicalRecordService {
         String testResults = scanner.nextLine();
         System.out.println("Enter notes :");
         String notes = scanner.nextLine();
+        MedicalRecord medicalRecord = new MedicalRecord(recordId,patientId,doctorId,date,diagnosis,testResults,prescription,notes);
+
+        return medicalRecord;
+    }
 }
