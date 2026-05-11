@@ -116,6 +116,22 @@ public class AppointmentService {
         return null;
     }
 
+    //get Appointments By Patient
+
+    public List<Appointment> getAppointmentsByPatient(String patientId){
+        List<Appointment> patientAppointments = new ArrayList<>();
+
+        for(Appointment appointment : appointmentList){
+
+            if(appointment.getPatientId().equals(patientId)){
+                patientAppointments.add(appointment);
+
+            }
+        }
+        return patientAppointments;
+    }
+
+
 
 
 
