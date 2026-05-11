@@ -57,6 +57,35 @@ public class MainApp {
                         }
                     }
                 }
+                case 2 -> {
+
+                    boolean doctorMenu = true;
+
+                    while (doctorMenu){
+
+                        System.out.println(
+                                MenuMessages.DOCTOR_MENU_MESSAGE
+                        );
+
+                        int doctorOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (doctorOption == 8){
+
+                            doctorMenu = false;
+
+                        } else {
+
+                            DoctorService
+                                    .handleDectorMenu(
+                                            doctorOption
+                                    );
+                        }
+                    }
+                }
                 case 7 -> {
 
                     System.out.println(
