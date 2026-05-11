@@ -60,7 +60,7 @@ public class NurseService {
         return nurseList;
 
     }
-    public void editNurse(String nurseId) {
+    public static void editNurse(String nurseId) {
 
         for (Nurse nurse : nurseList){
 
@@ -126,7 +126,7 @@ public class NurseService {
         }
     }
     //retrieve nurse
-    public Nurse getNurseById(String nurseId){
+    public static Nurse getNurseById(String nurseId){
 
         for(Nurse nurse: nurseList){
             if(nurse.getNurseId().equals(nurseId)){
@@ -138,14 +138,14 @@ public class NurseService {
         return null;
     }
     //display all nurses
-    public void displayAllNurses(){
+    public static void displayAllNurses(){
 
         for(Nurse nurse: nurseList){
             nurse.displayInfo();
         }
 
     }
-    public List<Nurse> getNursesByDepartment(String department){
+    public static List<Nurse> getNursesByDepartment(String department){
         List<Nurse> departmentNurse = new ArrayList<>();
         for(Nurse nurse : nurseList){
             if(nurse.getDepartmentId().equals(department)){
@@ -166,6 +166,51 @@ public class NurseService {
         }
         return shiftNurse;
     }
+
+
+    public static boolean handleNurseMenu(Integer NurseOption) {
+
+
+        switch (NurseOption) {
+            case 1 -> {
+                addNurse();
+            }
+            case 2 -> {
+                editNurse(null);
+            }
+            case 3 -> {
+                System.out.println("Enter nurse Id to remove");
+                String nurseId = scanner.nextLine();
+                removeNurse(nurseId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter nurse Id to getNurseById");
+                String nurseId = scanner.nextLine();
+                getNurseById(nurseId);
+
+            }
+            case 5 -> {
+                displayAllNurses();
+            }
+
+            case 6 -> {
+                System.out.println("Enter Department to search ");
+                String department = scanner.nextLine();
+                getNursesByDepartment(department);
+
+            }
+            case 7 -> {
+                getAvailableDoctors();
+
+
+            }
+
+        }
+        return false;
+    }
+
+}
 
 
 
