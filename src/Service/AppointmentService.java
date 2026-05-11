@@ -236,7 +236,6 @@ public class AppointmentService {
                 String newTime =scanner.nextLine();
                 rescheduleAppointment(appointmentId,newDate,newTime);
 
-
             }
             case 9 -> {
                 System.out.println("Enter appointmentId to cancel appointment");

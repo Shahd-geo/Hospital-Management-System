@@ -72,6 +72,23 @@ public class MenuMessages {
 
         """;
 
+    public static String APPOINTMENT_MENU_MESSAGE = """
+
+        ===== Appointment Menu =====
+
+        1- Add Appointment
+        2- Update Appointment
+        3- Remove Appointment
+        4- Get Appointment By ID
+        5- Get Appointments By Patient ID
+        6- Get Appointments By Doctor ID
+        7- Get Appointments By Date
+        8- Reschedule Appointment
+        9- Cancel Appointment
+        10- Go Back To Main Menu
+
+        """;
+
 
 }
 
