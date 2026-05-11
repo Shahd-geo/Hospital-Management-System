@@ -56,7 +56,7 @@ public class PatientService {
         while (allergiesloop) {
             System.out.println("Enter allergy :");
             allergies.add(scanner.nextLine());
-            System.out.println("Enter c to continue or q to quit");
+            System.out.println("Enter c to continue  inter allergy or q to exist");
             if (scanner.nextLine()
                     .equalsIgnoreCase("q")) {
 
