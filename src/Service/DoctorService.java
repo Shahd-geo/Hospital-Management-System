@@ -38,10 +38,12 @@ public class DoctorService {
         String qualification = scanner.nextLine();
         System.out.println("Enter experienceYears");
         int experienceYears = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Enter departmentId :");
         String departmentId = scanner.nextLine();
         System.out.println("Enter consultationFee :");
         double consultationFee = scanner.nextDouble();
+        scanner.nextLine();
         List<String> availableSlots =
                 new ArrayList<>();
 
@@ -141,12 +143,14 @@ public class DoctorService {
 
                 System.out.println("Enter updated Doctor experienceYears :");
                 doctor.setExperienceYears(scanner.nextInt());
+                scanner.nextLine();
 
                 System.out.println("Enter updated Doctor departmentId :");
                 doctor.setDepartmentId(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor consultationFee :");
                 doctor.setConsultationFee(scanner.nextDouble());
+                scanner.nextLine();
 
                 System.out.println("doctor updated successfully");
 
@@ -237,8 +241,15 @@ public class DoctorService {
                 addDoctors();
             }
             case 2 -> {
-                editDoctor(null);
-            }
+
+                System.out.println("Enter Doctor ID to update");
+
+                    String doctorId =
+                            scanner.nextLine();
+
+                    editDoctor(doctorId);
+                }
+
             case 3 -> {
                 System.out.println("Enter dector Id to remove");
                 String doctorId = scanner.nextLine();
@@ -246,27 +257,38 @@ public class DoctorService {
             }
 
             case 4 -> {
-                System.out.println("Enter dector Id to getDoctorById");
+                System.out.println("Enter doctor Id to getDoctorById");
                 String doctorId = scanner.nextLine();
-                getDoctorById(doctorId);
 
+                Doctor doctor = getDoctorById(doctorId);
+
+                if (doctor != null){
+
+                    doctor.displayInfo();
+                }
             }
+
             case 5 -> {
                 displayAllDoctors();
             }
 
             case 6 -> {
-                System.out.println("Enter specialization to search ");
+                System.out.println("Enter specialization to search");
                 String specialization = scanner.nextLine();
-                getDoctorsBySpecialization(specialization);
-
-
+                List<Doctor> doctorsList = getDoctorsBySpecialization (specialization);
+                for (Doctor doctor : doctorsList){
+                    doctor.displayInfo();
+                }
             }
+
             case 7 -> {
-                getAvailableDoctors();
+                List<Doctor> doctorsList = getAvailableDoctors();
+                for (Doctor doctor : doctorsList){
 
-
+                    doctor.displayInfo();
+                }
             }
+
 
         }
         return false;
