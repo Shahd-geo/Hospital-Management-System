@@ -25,6 +25,7 @@ public class DepartmentService {
         int bedCapacity = scanner.nextInt();
         System.out.println("Enter department available Beds :");
         int availableBeds = scanner.nextInt();
+        scanner.nextLine();
         Department department = new Department(departmentId,departmentName,headDoctorId,doctors,nurses,bedCapacity,availableBeds);
 
         return department;
@@ -65,6 +66,8 @@ public class DepartmentService {
 
                 System.out.println("Enter updated department available Beds :");
                 department.setAvailableBeds(scanner.nextInt());
+                scanner.nextLine();
+
 
                 System.out.println("department updated successfully");
 
