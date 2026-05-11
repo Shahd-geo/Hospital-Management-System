@@ -17,9 +17,9 @@ public class DoctorService {
         System.out.println("Enter ID : ");
         String id = scanner.nextLine();
         System.out.println("Enter Patient First Name : ");
-        String fristPatientName = scanner.nextLine();
+        String firstDoctorName = scanner.nextLine();
         System.out.println("Enter Patient Last  Name : ");
-        String lastPatientName = scanner.nextLine();
+        String lastDoctorName = scanner.nextLine();
         System.out.println("Enter patient DOB (yyyy-mm-dd): ");
         String dateOfBirth = scanner.nextLine();
         LocalDate DOB = LocalDate.parse(dateOfBirth);
@@ -32,7 +32,7 @@ public class DoctorService {
         System.out.println("Enter patient address :");
         String address = scanner.nextLine();
         System.out.println(" Enter doctorId;");
-        String dectorId=scanner.nextLine();
+        String doctorId=scanner.nextLine();
         System.out.println(" Enter specialization:");
         String specialization=scanner.nextLine();
         System.out.println("Enter qualification");
@@ -43,49 +43,69 @@ public class DoctorService {
         String departmentId=scanner.nextLine();
         System.out.println("Enter consultationFee :");
         double consultationFee=scanner.nextDouble();
-        s
+        List<String> availableSlots =
+                new ArrayList<>();
+
+        boolean slotsLoop = true;
+
+        while (slotsLoop){
+
+            System.out.println(
+                    "Enter available slot :");
+
+            availableSlots.add(
+                    scanner.nextLine());
+
+            System.out.println(
+                    "Enter c to continue or q to quit");
+
+            if (scanner.nextLine()
+                    .equalsIgnoreCase("q")){
+
+                slotsLoop = false;
+            }
+        }
 
 
+        // assigned patients
+        List<String> assignedPatients =
+                new ArrayList<>();
 
-        Doctor doctor = new Doctor(id,
-                fristPatientName,
-                lastPatientName,
+
+        Doctor doctor = new Doctor(
+                id,
+                firstDoctorName,
+                lastDoctorName,
                 DOB,
                 gender,
                 phone,
                 email,
                 address,
-                dectorId,
+                doctorId,
                 specialization,
                 qualification,
                 experienceYears,
                 departmentId,
                 consultationFee,
-
+                availableSlots,
+                assignedPatients
         );
+
         return doctor;
     }
 
-    public static List<Doctor> addDectores(){
 
-        Boolean continueFlag = true;
-        while (continueFlag) {
+    // add doctor
+    public void addDoctor(Doctor doctor){
 
-            patients.add(addPatient());
-            System.out.println("Patient add successfully");
+        doctors.add(doctor);
 
-            System.out.println("Enter c to add more , and q to exit");
-            if (scanner.nextLine().equalsIgnoreCase("q")) {
-                continueFlag = false;
-            }
-        }
-        return patients;
-
+        System.out.println(
+                "Doctor added successfully");
     }
 
 
 
-
 }
 
-}
+
