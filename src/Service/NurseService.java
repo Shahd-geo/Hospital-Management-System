@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class NurseService {
     static Scanner scanner = new Scanner(System.in);
     static List<Nurse> nurseList = new ArrayList<>();
-    List<String> assignedPatients = new ArrayList<>();
+    static List<String> assignedPatients = new ArrayList<>();
 
 
     public static Nurse addNurse() {
@@ -39,6 +39,9 @@ public class NurseService {
         String shift = scanner.nextLine();
         System.out.println("Enter Nurse qualification :");
         String qualification = scanner.nextLine();
+        Nurse nurse = new Nurse(id, firstNurseName,lastNurseName, DOB,  gender, phone, email, address, nurseId, departmentId, shift, qualification, assignedPatients);
+
+        return nurse;
     }
 
 }
