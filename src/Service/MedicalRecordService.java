@@ -196,23 +196,44 @@ public class MedicalRecordService {
             }
 
             case 4 -> {
-                System.out.println("Enter nurse Id to getMedicalRecord");
-                String recordId = scanner.nextLine();
-                getMedicalRecord(recordId);
 
-            }
+                    System.out.println("Enter record Id to getMedicalRecord");
+
+                    String recordId = scanner.nextLine();
+
+                    MedicalRecord medicalRecord = getMedicalRecord(recordId);
+                    if (medicalRecord != null){
+
+                        medicalRecord.displayInfo();
+                    }
+                }
+
             case 5 -> {
-                System.out.println("Enter patient Id to  getRecordsByPatientId");
+                System.out.println("Enter patient Id to getRecordsByPatientId");
+
                 String patientId = scanner.nextLine();
-                getRecordsByPatientId(patientId);
+
+                List<MedicalRecord> records = getRecordsByPatientId(patientId);
+
+                for (MedicalRecord medicalRecord : records){
+
+                    medicalRecord.displayInfo();
+                }
             }
 
             case 6 -> {
-                System.out.println("Enter Doctor Id  to get record ");
-                String doctorId = scanner.nextLine();
-                getRecordsByDoctorId(doctorId);
+                System.out.println("Enter Doctor Id to get record");
 
+                String doctorId = scanner.nextLine();
+
+                List<MedicalRecord> records = getRecordsByDoctorId(doctorId);
+
+                for (MedicalRecord medicalRecord : records){
+
+                    medicalRecord.displayInfo();
+                }
             }
+
             case 7 -> {
                 System.out.println("Enter patientId to show history ");
                 String patientId = scanner.nextLine();
