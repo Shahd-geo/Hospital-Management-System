@@ -130,6 +130,20 @@ public class AppointmentService {
         }
         return patientAppointments;
     }
+    // get Appointments By Doctor
+
+    public List<Appointment> getAppointmentsByDoctor(String doctorId) {
+
+        List<Appointment> doctorAppointments = new ArrayList<>();
+
+        for(Appointment appointment : appointmentList){
+            if(appointment.getDoctorId().equals(doctorId)){
+
+                doctorAppointments.add(appointment);
+            }
+        }
+        return doctorAppointments;
+    }
 
 
 
