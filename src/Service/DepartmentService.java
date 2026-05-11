@@ -73,6 +73,22 @@ public class DepartmentService {
         }
 
     }
+    // remove department by ID
+    public static void removeDepartment(String departmentId){
+        boolean removed = departmentList.removeIf(
+                b -> b.getDepartmentId()
+                        .equals(departmentId)
+        );
+
+        if (removed){
+
+            System.out.println(
+                    "Department removed successfully");
+
+        } else {
+
+            System.out.println("No Department found");
+        }
 
 
 
