@@ -1,8 +1,5 @@
 import Entity.Doctor;
-import Service.DoctorService;
-import Service.MedicalRecordService;
-import Service.NurseService;
-import Service.PatientService;
+import Service.*;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -143,6 +140,36 @@ public class MainApp {
                             MedicalRecordService
                                     .handleMedicalRecoredMenu(
                                             recordOption
+                                    );
+                        }
+                    }
+                }
+                case 5 -> {
+
+                    boolean appointmentMenu = true;
+
+                    while (appointmentMenu){
+
+                        System.out.println(
+                                MenuMessages
+                                        .APPOINTMENT_MENU_MESSAGE
+                        );
+
+                        int appointmentOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (appointmentOption == 10){
+
+                            appointmentMenu = false;
+
+                        } else {
+
+                            AppointmentService
+                                    .handleAppointmentdMenu(
+                                            appointmentOption
                                     );
                         }
                     }

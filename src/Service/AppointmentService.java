@@ -165,8 +165,9 @@ public class AppointmentService {
             if(appointment.getAppointmentId().equals(appointmentId)){
                 appointment.setAppointmentDate(newDate);
                 appointment.setAppointmentTime(newTime);
+                System.out.println("Appointment rescheduled successfully");
             }
-            System.out.println("Appointment rescheduled successfully");
+
         }
 
     }
