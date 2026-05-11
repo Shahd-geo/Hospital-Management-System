@@ -74,13 +74,13 @@ public class DepartmentService {
 
     }
     // remove department by ID
-    public static void removeDepartment(String departmentId){
+    public static void removeDepartment(String departmentId) {
         boolean removed = departmentList.removeIf(
                 b -> b.getDepartmentId()
                         .equals(departmentId)
         );
 
-        if (removed){
+        if (removed) {
 
             System.out.println(
                     "Department removed successfully");
@@ -89,6 +89,21 @@ public class DepartmentService {
 
             System.out.println("No Department found");
         }
+    }
+    //retrieve department
+    public Department getDepartment(String departmentId){
+
+        for(Department department: departmentList){
+
+            if(department.getDepartmentId().equals(departmentId)){
+                return department;
+            }
+
+        }
+        System.out.println("department not found");
+        return null;
+    }
+
 
 
 
