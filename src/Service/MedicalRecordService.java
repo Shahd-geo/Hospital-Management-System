@@ -147,6 +147,16 @@ public class MedicalRecordService {
 
         return doctorMedicalRecords;
     }
+    //display PatientHistory
 
+    public void displayPatientHistory(String patientId) {
 
+        for(MedicalRecord medicalRecord : medicalRecordList){
+            if(medicalRecord.getPatientId().equals(patientId)){
+                medicalRecord.displayInfo();
+            }
+        }
+    }
 }
+
+
