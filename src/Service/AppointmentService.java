@@ -169,6 +169,18 @@ public class AppointmentService {
         }
 
     }
+    // cancel Appointment
+
+    public void cancelAppointment(String appointmentId){
+
+        for(Appointment appointment : appointmentList){
+
+            if(appointment.getAppointmentId().equals(appointmentId)){
+                appointment.setStatus("Cancelled");
+            }
+        }
+
+    }
 
 
 
