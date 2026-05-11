@@ -103,6 +103,14 @@ public class DepartmentService {
         System.out.println("department not found");
         return null;
     }
+    // display All Departments
+    public void displayAllDepartments(){
+
+        for(Department department : departmentList){
+            department.displayInfo();
+        }
+    }
+
 
 
 
