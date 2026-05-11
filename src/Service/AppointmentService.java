@@ -103,6 +103,18 @@ public class AppointmentService {
             System.out.println("No Appointment found");
         }
     }
+    //retrieve appointment
+    public Appointment getAppointment(String appointmentId){
+
+        for(Appointment appointment: appointmentList){
+            if(appointment.getAppointmentId().equals(appointmentId)){
+                return appointment;
+            }
+
+        }
+        System.out.println("appointment Record not found");
+        return null;
+    }
 
 
 
