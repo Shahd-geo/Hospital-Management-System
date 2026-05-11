@@ -33,4 +33,20 @@ public class MedicalRecordService {
 
         return medicalRecord;
     }
+    public List<MedicalRecord> addMedicalRecords() {
+
+        Boolean continueFlag = true;
+        while (continueFlag) {
+
+            medicalRecordList.add(addMedicalRecord());
+            System.out.println("Medical record add successfully");
+
+            System.out.println("Enter c to add more , and q to exit");
+            if (scanner.nextLine().equalsIgnoreCase("q")) {
+                continueFlag = false;
+            }
+        }
+        return medicalRecordList;
+
+    }
 }
