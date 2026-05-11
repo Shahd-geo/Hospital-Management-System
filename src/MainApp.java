@@ -1,9 +1,9 @@
-import Service.PatientService;
+import Entity.Doctor;
+import Service.DoctorService;
 
 import java.awt.*;
 import java.util.Scanner;
 
-import static Service.PatientService.handlePatientMenu;
 
 public class MainApp {
     static Menu menu = new Menu();
@@ -11,10 +11,48 @@ public class MainApp {
 
 
     static void main(String[] args) {
-        Object handlePatientMenu;
-        handlePatientMenu();
+        //Object handlePatientMenu;12
+       // handlePatientMenu();
 
-        PatientService PatientService = new PatientService();
+        //DoctorService PatientService = new PatientService();
+        Scanner scanner = new Scanner(System.in);
+        DoctorService DoctorService = new DoctorService();
+        DoctorService.addDector();
+
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

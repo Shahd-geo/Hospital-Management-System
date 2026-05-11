@@ -17,9 +17,6 @@ public class PatientService {
     static List<Appointment> appointments = new ArrayList<>();
 
 
-
-
-
     //add new patient
     public static Patient addPatient() {
         System.out.println("Enter ID : ");
@@ -66,7 +63,9 @@ public class PatientService {
                 allergiesloop = false;
             }
         }
-        Patient patient = new Patient(id,
+        String patientID = "";
+        Patient patient;
+        patient = new Patient(id,
                 fristPatientName,
                 lastPatientName,
                 DOB,
@@ -86,7 +85,7 @@ public class PatientService {
         return patient;
     }
 
-    public static List<Patient> addPatients(){
+    public static List<Patient> addPatients() {
 
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -135,7 +134,7 @@ public class PatientService {
 
 
     // remove patient by ID
-    public static void removePatient(String patientId){
+    public static void removePatient(String patientId) {
 
         boolean removed =
                 patients.removeIf(
@@ -143,7 +142,7 @@ public class PatientService {
                                 .equals(patientId)
                 );
 
-        if (removed){
+        if (removed) {
 
             System.out.println(
                     "Patient removed successfully");
@@ -153,11 +152,12 @@ public class PatientService {
             System.out.println("Patient not found");
         }
     }
-    //PatientByIdpatient
-    public static Patient getPatientById(String patientId){
 
-        for(Patient patient: patients){
-            if(patient.getPatientId().equals(patientId)){
+    //PatientByIdpatient
+    public static Patient getPatientById(String patientId) {
+
+        for (Patient patient : patients) {
+            if (patient.getPatientId().equals(patientId)) {
                 return patient;
             }
 
@@ -167,9 +167,9 @@ public class PatientService {
     }
 
     //display all patients with formatted output
-    public static void displayAllPatients(){
+    public static void displayAllPatients() {
 
-        for(Patient patient: patients){
+        for (Patient patient : patients) {
             patient.displayInfo();
         }
 
@@ -181,55 +181,25 @@ public class PatientService {
         boolean found = false;
 
 
-        for(Patient patient : patients){
+        for (Patient patient : patients) {
 
             String fullName = patient.getFirstName() + " " + patient.getLastName();
 
-            if(fullName.toLowerCase().contains(name.toLowerCase())){
+            if (fullName.toLowerCase().contains(name.toLowerCase())) {
                 patient.displayInfo();
                 found = true;
             }
         }
 
-        if(!found){
+        if (!found) {
             System.out.println("No patients found with this name");
         }
 
     }
-
-
-    public static boolean handlePatientMenu(Integer PatientOption) {
-
-
-
-        switch (PatientOption) {
-            case 1 -> {
-                addPatients();
-            }
-            case 2 -> {
-                UpdatePatient(0,"sh");
-            }
-            case 3 -> {
-                removePatient(patients.getPatientId);            }
-
-            case 4 -> {
-                getPatientById();
-            }
-            case 5 -> {
-                displayAllPatients();
-
-            }
-
-            case 6 -> {
-                searchPatientsByName(n);
-
-
-            }
-        }
-        return false;
-    }
-
 }
+
+
+
 
 
 
