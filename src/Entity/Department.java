@@ -7,13 +7,13 @@ public class Department {
     private String departmentId;
     private String departmentName;
     private String headDoctorId;
-    private List<String> doctors = new ArrayList<>();
-    private List<String> nurses = new ArrayList<>();
+    private List<Doctor> doctors = new ArrayList<>();
+    private List<Nurse> nurses = new ArrayList<>();
     private int bedCapacity;
     private int availableBeds;
 
 
-    public Department(String departmentId, String departmentName, String headDoctorId, List<String> doctors, List<String> nurses, int bedCapacity, int availableBeds) {
+    public Department(String departmentId, String departmentName, String headDoctorId, List<Doctor> doctors, List<Nurse> nurses, int bedCapacity, int availableBeds) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
         this.headDoctorId = headDoctorId;
@@ -47,19 +47,19 @@ public class Department {
         this.headDoctorId = headDoctorId;
     }
 
-    public List<String> getDoctors() {
+    public List<Doctor> getDoctors() {
         return doctors;
     }
 
-    public void setDoctors(List<String> doctors) {
+    public void setDoctors(List<Doctor> doctors) {
         this.doctors = doctors;
     }
 
-    public List<String> getNurses() {
+    public List<Nurse> getNurses() {
         return nurses;
     }
 
-    public void setNurses(List<String> nurses) {
+    public void setNurses(List<Nurse> nurses) {
         this.nurses = nurses;
     }
 
@@ -88,10 +88,10 @@ public class Department {
         System.out.println("Bed Capacity: " + bedCapacity);
         System.out.println("Available Beds: " + availableBeds);
     }
-    public void assignDoctor(String doctor) {
+    public void assignDoctor(Doctor doctor) {
         doctors.add(doctor);
     }
-    public void assignNurse(String nurse) {
+    public void assignNurse(Nurse nurse) {
         nurses.add(nurse);
     }
     public void updateBedAvailability(int beds) {
