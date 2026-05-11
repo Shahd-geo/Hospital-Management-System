@@ -104,7 +104,7 @@ public class DoctorService {
         System.out.println(
                 "Doctor added successfully");
     }
-    public void editDoctor(String doctorId){
+    public static void editDoctor(String doctorId){
 
         for(Doctor doctor : doctors){
 
@@ -156,7 +156,7 @@ public class DoctorService {
     }
 
     // remove doctor by ID
-    public void removeDoctor(String doctorId){
+    public static void removeDoctor(String doctorId){
 
         boolean removed = doctors.removeIf(
                 b -> b.getDoctorId()
@@ -176,7 +176,7 @@ public class DoctorService {
     }
 
     //retrieve doctor
-    public Doctor getDoctorById(String doctorId) {
+    public static Doctor getDoctorById(String doctorId) {
 
         for (Doctor doctor : doctors) {
             if (doctor.getDoctorId().equals(doctorId)) {
@@ -190,7 +190,7 @@ public class DoctorService {
 
 
     //display all doctors with formatted output
-    public void displayAllDoctors(){
+    public static void displayAllDoctors(){
 
         for(Doctor doctor: doctors){
             doctor.displayInfo();
@@ -199,7 +199,7 @@ public class DoctorService {
     }
 
     //get Doctors By Specialization
-    public List<Doctor> getDoctorsBySpecialization(String specialization) {
+    public static List<Doctor> getDoctorsBySpecialization(String specialization) {
 
         List<Doctor> specializationDoctors = new ArrayList<>();
 
@@ -213,7 +213,7 @@ public class DoctorService {
     }
 
     //get Available Doctors()
-    public List<Doctor> getAvailableDoctors(){
+    public static List<Doctor> getAvailableDoctors(){
 
         List<Doctor> availableDoctors = new ArrayList<>();
 
@@ -227,6 +227,53 @@ public class DoctorService {
 
         return availableDoctors;
     }
+
+
+    public static boolean handleDectorMenu(Integer DectorOption) {
+
+
+        switch (DectorOption) {
+            case 1 -> {
+                addDector();
+            }
+            case 2 -> {
+                editDoctor(null);
+            }
+            case 3 -> {
+                System.out.println("Enter dector Id to remove");
+                String doctorId = scanner.nextLine();
+                removeDoctor(doctorId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter dector Id to getDoctorById");
+                String doctorId = scanner.nextLine();
+                getDoctorById(doctorId);
+
+            }
+            case 5 -> {
+                displayAllDoctors();
+            }
+
+            case 6 -> {
+                System.out.println("Enter specialization to search ");
+                String specialization = scanner.nextLine();
+                getDoctorsBySpecialization(specialization);
+
+
+            }
+            case 7 -> {
+                getAvailableDoctors();
+
+
+            }
+
+        }
+        return false;
+    }
+
+}
+
 
 
 }
