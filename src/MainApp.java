@@ -1,5 +1,6 @@
 import Entity.Doctor;
 import Service.DoctorService;
+import Service.NurseService;
 import Service.PatientService;
 
 import java.awt.*;
@@ -82,6 +83,35 @@ public class MainApp {
                             DoctorService
                                     .handleDectorMenu(
                                             doctorOption
+                                    );
+                        }
+                    }
+                }
+                case 3 -> {
+
+                    boolean nurseMenu = true;
+
+                    while (nurseMenu){
+
+                        System.out.println(
+                                MenuMessages.NURSE_MENU_MESSAGE
+                        );
+
+                        int nurseOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (nurseOption == 8){
+
+                            nurseMenu = false;
+
+                        } else {
+
+                            NurseService
+                                    .handleNurseMenu(
+                                            nurseOption
                                     );
                         }
                     }
