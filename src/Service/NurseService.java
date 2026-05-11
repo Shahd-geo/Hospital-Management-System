@@ -155,7 +155,7 @@ public class NurseService {
         return departmentNurse;
     }
     // add  Nurse By Shift
-    public List<Nurse> getNursesByShift(String shift){
+    public static List<Nurse> getNursesByShift(String shift){
 
         List<Nurse> shiftNurse = new ArrayList<>();
 
@@ -201,7 +201,9 @@ public class NurseService {
 
             }
             case 7 -> {
-                getAvailableDoctors();
+                System.out.println("Enter shift time ");
+                String shift = scanner.nextLine();
+                getNursesByShift(shift);
 
 
             }
@@ -213,5 +215,3 @@ public class NurseService {
 }
 
 
-
-}
