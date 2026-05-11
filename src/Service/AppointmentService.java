@@ -86,6 +86,24 @@ public class AppointmentService {
         }
 
     }
+    // Remove appointment by ID
+    public void removeAppointment(String appointmentId ){
+        boolean removed = appointmentList.removeIf(
+                b -> b.getAppointmentId()
+                        .equals(appointmentId)
+        );
+
+        if (removed){
+
+            System.out.println(
+                    "Appointment removed successfully");
+
+        } else {
+
+            System.out.println("No Appointment found");
+        }
+    }
+
 
 
 
