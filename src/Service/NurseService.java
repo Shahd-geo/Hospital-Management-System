@@ -1,6 +1,5 @@
 package Service;
 
-import Entity.Doctor;
 import Entity.Nurse;
 
 import java.time.LocalDate;
@@ -144,6 +143,17 @@ public class NurseService {
         for(Nurse nurse: nurseList){
             nurse.displayInfo();
         }
+
+    }
+    public List<Nurse> getNursesByDepartment(String department){
+        List<Nurse> departmentNurse = new ArrayList<>();
+        for(Nurse nurse : nurseList){
+            if(nurse.getDepartmentId().equals(department)){
+                departmentNurse.add(nurse);
+            }
+        }
+        return departmentNurse;
+    }
 
     }
 
