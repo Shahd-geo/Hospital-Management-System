@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class DepartmentService {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static List<Department> departmentList = new ArrayList<>();
-    List<Doctor> doctors = new ArrayList<>();
-    List<Nurse> nurses = new ArrayList<>();
+    static List<Doctor> doctors = new ArrayList<>();
+    static List<Nurse> nurses = new ArrayList<>();
 
 
-    public Department addDepartment(){
+    public static Department addDepartment(){
         System.out.println("Enter Department Id :");
         String departmentId = scanner.nextLine();
         System.out.println("Enter department Name :");
@@ -49,7 +49,7 @@ public class DepartmentService {
     }
     // UPDATE department
 
-    public void editDepartment(String departmentId){
+    public static void editDepartment(String departmentId){
 
         for(Department department : departmentList){
             if(department.getDepartmentId().equals(departmentId)){
@@ -91,7 +91,7 @@ public class DepartmentService {
         }
     }
     //retrieve department
-    public Department getDepartment(String departmentId){
+    public static Department getDepartment(String departmentId){
 
         for(Department department: departmentList){
 
@@ -104,7 +104,7 @@ public class DepartmentService {
         return null;
     }
     // display All Departments
-    public void displayAllDepartments(){
+    public static void displayAllDepartments(){
 
         for(Department department : departmentList){
             department.displayInfo();
@@ -112,7 +112,7 @@ public class DepartmentService {
     }
     // assign Doctor To Department(String doctorId, String departmentId)
 
-    public void assignDoctorToDepartment(String doctorId, String departmentId) {
+    public static void assignDoctorToDepartment(String doctorId, String departmentId) {
 
         Doctor doctor = DoctorService.getDoctorById(doctorId);
 
@@ -124,6 +124,53 @@ public class DepartmentService {
             }
         }
     }
+    public static boolean handleDepartmentMenu(Integer departmentOption) {
+
+
+        switch (departmentOption) {
+            case 1 -> {
+                addDepartment();
+            }
+            case 2 -> {
+                System.out.println(
+                        "Enter Department ID to update");
+
+                String departmentId =
+                        scanner.nextLine();
+
+                editDepartment(departmentId);
+            }
+
+            case 3 -> {
+                System.out.println("Enter department Id to remove");
+                String departmentId = scanner.nextLine();
+                removeDepartment(departmentId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter department  Id to get department");
+                String departmentId = scanner.nextLine();
+                getDepartment(departmentId);
+
+            }
+            case 5 -> {
+                displayAllDepartments();
+            }
+
+            case 6 -> {
+                System.out.println("Enter Doctor Id  to assign doctor to department ");
+                String doctorId = scanner.nextLine();
+                System.out.println("Enter department Id  to assign doctor to department ");
+                String departmentId = scanner.nextLine();
+                assignDoctorToDepartment(doctorId, departmentId);
+            }
+
+        }
+        return false;
+    }
+
+}
+
 
 
 
