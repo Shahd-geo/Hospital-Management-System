@@ -88,7 +88,19 @@ public class MenuMessages {
         10- Go Back To Main Menu
 
         """;
+    public static String DEPARTMENT_MENU_MESSAGE = """
 
+        ===== Department Menu =====
+
+        1- Add Department
+        2- Update Department
+        3- Remove Department
+        4- Get Department By ID
+        5- Display All Departments
+        6- Assign Doctor To Department
+        7- Go Back To Main Menu
+
+        """;
 
 }
 
