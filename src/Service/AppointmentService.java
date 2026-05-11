@@ -48,6 +48,45 @@ public class AppointmentService {
         return appointmentList;
 
     }
+    // edit appointment by ID
+
+    public void editAppointment(String appointmentId){
+
+        for(Appointment appointment : appointmentList){
+            if(appointment.getAppointmentId().equals(appointmentId)){
+
+                System.out.println("Enter updated patient Id :");
+                appointment.setPatientId(scanner.nextLine());
+
+                System.out.println("Enter updated doctor Id :");
+                appointment.setDoctorId(scanner.nextLine());
+
+                System.out.println("Enter updated appointment Date :");
+                String appointmentDate = scanner.nextLine();
+                LocalDate date = LocalDate.parse(appointmentDate);
+                appointment.setAppointmentDate(date);
+
+                System.out.println("Enter updated appointment Time :");
+                appointment.setAppointmentTime(scanner.nextLine());
+
+                System.out.println("Enter updated status :");
+                appointment.setStatus(scanner.nextLine());
+
+                System.out.println("Enter updated reason :");
+                appointment.setReason(scanner.nextLine());
+
+                System.out.println("Enter updated notes :");
+                appointment.setNotes(scanner.nextLine());
+
+                System.out.println("Appointment updated successfully");
+
+
+            }
+
+        }
+
+    }
+
 
 
 }
