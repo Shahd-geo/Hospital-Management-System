@@ -57,5 +57,21 @@ public class MenuMessages {
         """;
 
 
+    public static String MEDICAL_RECORD_MENU_MESSAGE = """
+
+        ===== Medical Record Menu =====
+
+        1- Add Medical Record
+        2- Update Medical Record
+        3- Remove Medical Record
+        4- Get Medical Record By ID
+        5- Get Records By Patient ID
+        6- Get Records By Doctor ID
+        7- Display Patient History
+        8- Go Back To Main Menu
+
+        """;
+
+
 }
 
