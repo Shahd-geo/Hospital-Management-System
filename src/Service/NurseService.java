@@ -107,5 +107,26 @@ public class NurseService {
         }
 
     }
+    //remove nurses
+    public static void removeNurse(String nurseId){
+
+        boolean removed = nurseList.removeIf(
+                b -> b.getNurseId()
+                        .equals(nurseId)
+        );
+
+        if (removed){
+
+            System.out.println(
+                    "Nurse removed successfully");
+
+        } else {
+
+            System.out.println(
+                    "Nurse not found");
+        }
+    }
+
+
 
 }
