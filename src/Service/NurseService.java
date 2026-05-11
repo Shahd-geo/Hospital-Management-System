@@ -193,23 +193,38 @@ public class NurseService {
             case 4 -> {
                 System.out.println("Enter nurse Id to getNurseById");
                 String nurseId = scanner.nextLine();
-                getNurseById(nurseId);
+                Nurse nurse = getNurseById(nurseId);
+                if (nurse != null){
 
+                    nurse.displayInfo();
+                }
             }
+
             case 5 -> {
                 displayAllNurses();
             }
 
             case 6 -> {
-                System.out.println("Enter Department to search ");
-                String department = scanner.nextLine();
-                getNursesByDepartment(department);
+                System.out.println("Enter Department  Id to search ");
 
+                String department = scanner.nextLine();
+
+                List<Nurse> nurses = getNursesByDepartment(department);
+                for (Nurse nurse : nurses){
+
+                    nurse.displayInfo();
+                }
             }
+
             case 7 -> {
                 System.out.println("Enter shift time ");
                 String shift = scanner.nextLine();
-                getNursesByShift(shift);
+
+                List<Nurse> nurses = getNursesByShift(shift);
+                for (Nurse nurse : nurses){
+
+                    nurse.displayInfo();
+                }
 
 
             }
