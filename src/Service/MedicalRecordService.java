@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static Service.NurseService.editNurse;
+
 public class MedicalRecordService {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
     public MedicalRecord addMedicalRecord() {
 
@@ -43,7 +45,7 @@ public class MedicalRecordService {
 
         return medicalRecord;
     }
-    public List<MedicalRecord> addMedicalRecords() {
+    public static List<MedicalRecord> addMedicalRecords() {
 
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -60,7 +62,7 @@ public class MedicalRecordService {
 
     }
     //update function
-    public void editMedicalRecord(String recordId) {
+    public static void editMedicalRecord(String recordId) {
 
         for(MedicalRecord medicalRecord : medicalRecordList){
 
@@ -117,7 +119,7 @@ public class MedicalRecordService {
         }
     }
     //retrieve medical record
-    public MedicalRecord getMedicalRecord(String recordId){
+    public static MedicalRecord getMedicalRecord(String recordId){
 
         for(MedicalRecord medicalRecord: medicalRecordList){
             if(medicalRecord.getRecordId().equals(recordId)){
@@ -129,7 +131,7 @@ public class MedicalRecordService {
         return null;
     }
     //Records By PatientId
-    public List<MedicalRecord> getRecordsByPatientId(String patientId){
+    public static List<MedicalRecord> getRecordsByPatientId(String patientId){
 
         List<MedicalRecord> patientMedicalRecords = new ArrayList<>();
 
@@ -144,7 +146,7 @@ public class MedicalRecordService {
     }
     // getRecordsByDoctorId(String doctorId)
 
-    public List<MedicalRecord> getRecordsByDoctorId(String doctorId){
+    public static List<MedicalRecord> getRecordsByDoctorId(String doctorId){
 
         List<MedicalRecord> doctorMedicalRecords = new ArrayList<>();
 
@@ -159,7 +161,7 @@ public class MedicalRecordService {
     }
     //display PatientHistory
 
-    public void displayPatientHistory(String patientId) {
+    public static void displayPatientHistory(String patientId) {
 
         for(MedicalRecord medicalRecord : medicalRecordList){
             if(medicalRecord.getPatientId().equals(patientId)){
@@ -167,6 +169,64 @@ public class MedicalRecordService {
             }
         }
     }
+
+
+
+
+    public static boolean handleMedicalRecoredMenu(Integer RecordOption) {
+
+
+        switch (RecordOption) {
+            case 1 -> {
+                addMedicalRecords();
+            }
+            case 2 -> {
+                System.out.println(
+                        "Enter Record ID to update");
+
+                String recordId =
+                        scanner.nextLine();
+
+                editMedicalRecord(recordId);
+            }
+            case 3 -> {
+                System.out.println("Enter record Id to remove");
+                String recordId = scanner.nextLine();
+                removeRecored(recordId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter nurse Id to getMedicalRecord");
+                String recordId = scanner.nextLine();
+                getMedicalRecord(recordId);
+
+            }
+            case 5 -> {
+                System.out.println("Enter patient Id to  getRecordsByPatientId");
+                String patientId = scanner.nextLine();
+                getRecordsByPatientId(patientId);
+            }
+
+            case 6 -> {
+                System.out.println("Enter Doctor Id  to get record ");
+                String doctorId = scanner.nextLine();
+                getRecordsByDoctorId(doctorId);
+
+            }
+            case 7 -> {
+                System.out.println("Enter patientId to show history ");
+                String patientId = scanner.nextLine();
+                displayPatientHistory(patientId);
+
+
+            }
+
+        }
+        return false;
+    }
+
+}
+
 }
 
 
