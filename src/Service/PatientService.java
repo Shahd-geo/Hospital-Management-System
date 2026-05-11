@@ -104,32 +104,38 @@ public class PatientService {
 
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
-        System.out.println("enter patient Id");
-        String pId = scanner.nextLine();
-        if (pId != null) {
-            for (Patient p : patients) {
-                if (p.getId().equals(pId)) {
-                    System.out.println("Enter new phone number:");
-                    p.setPhoneNumber(scanner.nextLine());
+        for (Patient p : patients) {
 
-                    System.out.println("Enter new Email ");
-                    p.setEmail(scanner.nextLine());
+            if (p.getPatientId()
+                    .equals(patientId)) {
 
-                    System.out.println("Enter new Address Line:");
-                    p.setAddress(scanner.nextLine());
+                p.setPhoneNumber(
+                        updatedPatient.getPhoneNumber());
 
-                    System.out.println("Enter new Emergency Contact Name:");
-                    p.setEmergencyContact(scanner.nextLine());
+                p.setEmail(
+                        updatedPatient.getEmail());
 
-                    System.out.println("Enter new Insurance ID:");
-                    p.setInsuranceId(scanner.nextLine());
+                p.setAddress(
+                        updatedPatient.getAddress());
 
-                    System.out.println("Enter new Registration Date (YYYY-MM-DD):");
-                    p.setRegistrationDate(LocalDate.parse(scanner.nextLine()));
+                p.setEmergencyContact(
+                        updatedPatient.getEmergencyContact());
 
-                }
+                p.setInsuranceId(
+                        updatedPatient.getInsuranceId());
+
+                p.setRegistrationDate(
+                        updatedPatient.getRegistrationDate());
+
+                System.out.println(
+                        "Patient updated successfully");
+
+                return;
             }
         }
+
+        System.out.println(
+                "Patient not found");
     }
 
 
