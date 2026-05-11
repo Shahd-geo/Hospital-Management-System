@@ -106,5 +106,18 @@ public class MedicalRecordService {
                     "Recored not found");
         }
     }
+    //retrieve medical record
+    public MedicalRecord getMedicalRecord(String recordId){
+
+        for(MedicalRecord medicalRecord: medicalRecordList){
+            if(medicalRecord.getRecordId().equals(recordId)){
+                return medicalRecord;
+            }
+
+        }
+        System.out.println("medical Record not found");
+        return null;
+    }
+
 
 }
