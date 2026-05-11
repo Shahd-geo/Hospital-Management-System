@@ -1,6 +1,7 @@
 package Service;
 
 import Entity.Appointment;
+import Entity.Department;
 import Entity.MedicalRecord;
 import Entity.Patient;
 
@@ -216,7 +217,11 @@ public class PatientService {
             case 4 -> {
                 System.out.println("Enter patient Id to getDoctorById");
                 String patientId = scanner.nextLine();
-                getPatientById(patientId);
+                Patient patient = getPatientById(patientId);
+
+                if (patient != null){
+                    patient.displayInfo();
+                }
 
             }
             case 5 -> {

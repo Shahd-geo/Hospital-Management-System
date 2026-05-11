@@ -152,7 +152,6 @@ public class DepartmentService {
 
             case 4 -> {
                 System.out.println("Enter department Id to get department");
-
                 String departmentId = scanner.nextLine();
 
                 Department department = getDepartmentById(departmentId);
