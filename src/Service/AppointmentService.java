@@ -33,5 +33,21 @@ public class AppointmentService {
         Appointment appointment = new Appointment(appointmentId, patientId, doctorId, date, appointmentTime, status, reason, notes);
         return appointment;
     }
+    public List<Appointment> addAppointments(){
+        Boolean continueFlag = true;
+        while (continueFlag) {
+
+            appointmentList.add(addAppointment());
+            System.out.println("Appointment add successfully");
+
+            System.out.println("Enter c to add more , and q to exit");
+            if (scanner.nextLine().equalsIgnoreCase("q")) {
+                continueFlag = false;
+            }
+        }
+        return appointmentList;
+
+    }
+
 
 }
