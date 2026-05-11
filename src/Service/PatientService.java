@@ -10,17 +10,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
-    Scanner scanner = new Scanner(System.in);
-    private static List<Patient> patients = new ArrayList<>();
-    List<MedicalRecord> medicalRecords = new ArrayList<>();
-    List<Appointment> appointments = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+    public static List<Patient> patients = new ArrayList<>();
+
+    static List<MedicalRecord> medicalRecords = new ArrayList<>();
+    static List<Appointment> appointments = new ArrayList<>();
 
 
 
 
 
     //add new patient
-    public Patient addPatient() {
+    public static Patient addPatient() {
         System.out.println("Enter ID : ");
         String id = scanner.nextLine();
         System.out.println("Enter Patient First Name : ");
@@ -40,7 +41,9 @@ public class PatientService {
         String address = scanner.nextLine();
 
         System.out.println("Enter patient id :");
-        String patientID = scanner.nextLine();
+        String patientId = scanner.nextLine();
+
+
         System.out.println("Enter patient blood group :");
         String bloodGroup = scanner.nextLine();
         System.out.println("Enter emergency contact :");
@@ -83,7 +86,7 @@ public class PatientService {
         return patient;
     }
 
-    public List<Patient> addPatients(){
+    public static List<Patient> addPatients(){
 
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -101,68 +104,38 @@ public class PatientService {
     }
 
     //update existing patient
-    public void editPatient(String patientId, Patient updatedPatient){
+    public static void UpdatePatient(String patientId, Patient updatedPatient) {
+        System.out.println("enter patient Id");
+        String pId = scanner.nextLine();
+        if (pId != null) {
+            for (Patient p : patients) {
+                if (p.getId().equals(pId)) {
+                    System.out.println("Enter new phone number:");
+                    p.setPhoneNumber(scanner.nextLine());
 
-        for (int i = 0; i < patients.size(); i++){
+                    System.out.println("Enter new Email ");
+                    p.setEmail(scanner.nextLine());
 
-            if (patients.get(i)
-                    .getPatientId()
-                    .equals(patientId)){
+                    System.out.println("Enter new Address Line:");
+                    p.setAddress(scanner.nextLine());
 
-                patients.set(i, updatedPatient);
+                    System.out.println("Enter new Emergency Contact Name:");
+                    p.setEmergencyContact(scanner.nextLine());
 
-                System.out.println(
-                        "Patient updated successfully");
+                    System.out.println("Enter new Insurance ID:");
+                    p.setInsuranceId(scanner.nextLine());
 
-                return;
+                    System.out.println("Enter new Registration Date (YYYY-MM-DD):");
+                    p.setRegistrationDate(LocalDate.parse(scanner.nextLine()));
+
+                }
             }
         }
-
-        System.out.println("Patient not found");
     }
 
 
-//
-public void createUpdatedPatient(){
-
-    System.out.println("Enter patient ID to update:");
-    String patientId = scanner.nextLine();
-
-    for (Patient patient : patients) {
-
-        if (patient.getPatientId().equalsIgnoreCase(patientId)) {
-
-            System.out.println("Enter updated first name:");
-            patient.setFirstName(scanner.nextLine());
-
-            System.out.println("Enter updated last name:");
-            patient.setLastName(scanner.nextLine());
-
-            System.out.println("Enter updated phone number:");
-            patient.setPhoneNumber(scanner.nextLine());
-
-            System.out.println("Enter updated email:");
-            patient.setEmail(scanner.nextLine());
-
-            System.out.println("Enter updated address:");
-            patient.setAddress(scanner.nextLine());
-
-            System.out.println("Enter updated blood group:");
-            patient.setBloodGroup(scanner.nextLine());
-
-            System.out.println("Enter updated insurance id:");
-            patient.setInsuranceId(scanner.nextLine());
-
-            System.out.println("Patient updated successfully");
-
-            return;
-        }
-    }
-
-    System.out.println("Patient not found");
-}
     // remove patient by ID
-    public void removePatient(String patientId){
+    public static void removePatient(String patientId){
 
         boolean removed =
                 patients.removeIf(
@@ -180,8 +153,8 @@ public void createUpdatedPatient(){
             System.out.println("Patient not found");
         }
     }
-    //retrieve patient
-    public Patient getPatientById(String patientId){
+    //PatientByIdpatient
+    public static Patient getPatientById(String patientId){
 
         for(Patient patient: patients){
             if(patient.getPatientId().equals(patientId)){
@@ -194,7 +167,7 @@ public void createUpdatedPatient(){
     }
 
     //display all patients with formatted output
-    public void displayAllPatients(){
+    public static void displayAllPatients(){
 
         for(Patient patient: patients){
             patient.displayInfo();
@@ -203,7 +176,7 @@ public void createUpdatedPatient(){
     }
 
     //search functionality
-    public void searchPatientsByName(String name) {
+    public static void searchPatientsByName(String name) {
 
         boolean found = false;
 
@@ -224,7 +197,40 @@ public void createUpdatedPatient(){
 
     }
 
+
+    public static boolean handlePatientMenu(Integer PatientOption) {
+
+
+
+        switch (PatientOption) {
+            case 1 -> {
+                addPatients();
+            }
+            case 2 -> {
+                UpdatePatient(0,"sh");
+            }
+            case 3 -> {
+                removePatient(patients.getPatientId);            }
+
+            case 4 -> {
+                getPatientById();
+            }
+            case 5 -> {
+                displayAllPatients();
+
+            }
+
+            case 6 -> {
+                searchPatientsByName(n);
+
+
+            }
+        }
+        return false;
+    }
+
 }
+
 
 
 
