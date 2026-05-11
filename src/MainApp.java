@@ -1,8 +1,11 @@
 import Entity.Doctor;
 import Service.DoctorService;
+import Service.PatientService;
 
 import java.awt.*;
 import java.util.Scanner;
+
+import static Service.PatientService.scanner;
 
 
 public class MainApp {
@@ -11,26 +14,69 @@ public class MainApp {
 
 
     static void main(String[] args) {
-        //Object handlePatientMenu;12
-       // handlePatientMenu();
+        boolean running = true;
 
-        //DoctorService PatientService = new PatientService();
-        Scanner scanner = new Scanner(System.in);
-        DoctorService DoctorService = new DoctorService();
-        DoctorService.addDector();
+        while (running) {
+
+            System.out.println(
+                    MenuMessages.MAIN_MENU_MESSAGE
+            );
+            int mainOption =
+                    scanner.nextInt();
+
+            scanner.nextLine();
 
 
+            switch (mainOption) {
+                case 1 -> {
 
+                    boolean patientMenu = true;
+
+                    while (patientMenu) {
+
+                        System.out.println(
+                                MenuMessages.PATIENT_MENU_MESSAGE
+                        );
+
+                        int patientOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (patientOption == 7) {
+
+                            patientMenu = false;
+
+                        } else {
+
+                            PatientService
+                                    .handlePatientMenu(
+                                            patientOption
+                                    );
+                        }
+                    }
+                }
+                case 7 -> {
+
+                    System.out.println(
+                            "Exiting system..."
+                    );
+
+                    running = false;
+                }
+
+
+                default -> {
+
+                    System.out.println(
+                            "Invalid option"
+                    );
+                }
+            }
+        }
     }
 }
-
-
-
-
-
-
-
-
 
 
 

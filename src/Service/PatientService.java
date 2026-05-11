@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
-    static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
     public static List<Patient> patients = new ArrayList<>();
 
     static List<MedicalRecord> medicalRecords = new ArrayList<>();

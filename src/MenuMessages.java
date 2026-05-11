@@ -27,5 +27,20 @@ public class MenuMessages {
             7- Go Back To Main Menu
             
             """;
+    public static String DOCTOR_MENU_MESSAGE = """
+
+            ===== Doctor Menu =====
+
+            1- Add Doctor
+            2- Update Doctor
+            3- Remove Doctor
+            4- Display All Doctors
+            5- Get Doctor By ID
+            6- Get Doctors By Specialization
+            7- Get Available Doctors
+            8- Go Back To Main Menu
+
+            """;
+
 }
 
