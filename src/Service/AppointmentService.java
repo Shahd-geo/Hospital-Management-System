@@ -144,6 +144,20 @@ public class AppointmentService {
         }
         return doctorAppointments;
     }
+    // get Appointments By Date
+
+    public List<Appointment> getAppointmentsByDate(LocalDate date){
+
+        List<Appointment> dateAppointments = new ArrayList<>();
+
+        for(Appointment appointment : appointmentList){
+            if(appointment.getAppointmentDate().equals(date)){
+                dateAppointments.add(appointment);
+            }
+
+        }
+        return dateAppointments;
+    }
 
 
 
