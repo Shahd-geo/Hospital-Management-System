@@ -6,8 +6,8 @@ public class MenuMessages {
             1- Patient Menu
             2- Doctor Menu
             3- Nurse Menu
-            4- Appointment Menu
-            5- Medical Record Menu
+            4- Medical Record Menu 
+            5- Appointment Menu
             6- Department Menu
             7- Exit
             

@@ -1,5 +1,6 @@
 import Entity.Doctor;
 import Service.DoctorService;
+import Service.MedicalRecordService;
 import Service.NurseService;
 import Service.PatientService;
 
@@ -112,6 +113,36 @@ public class MainApp {
                             NurseService
                                     .handleNurseMenu(
                                             nurseOption
+                                    );
+                        }
+                    }
+                }
+                case 4 -> {
+
+                    boolean medicalRecordMenu = true;
+
+                    while (medicalRecordMenu){
+
+                        System.out.println(
+                                MenuMessages
+                                        .MEDICAL_RECORD_MENU_MESSAGE
+                        );
+
+                        int recordOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (recordOption == 8){
+
+                            medicalRecordMenu = false;
+
+                        } else {
+
+                            MedicalRecordService
+                                    .handleMedicalRecoredMenu(
+                                            recordOption
                                     );
                         }
                     }
