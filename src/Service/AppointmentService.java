@@ -175,13 +175,27 @@ public class AppointmentService {
 
     public static void cancelAppointment(String appointmentId){
 
-        for(Appointment appointment : appointmentList){
+        for(Appointment appointment
+                : appointmentList){
 
-            if(appointment.getAppointmentId().equals(appointmentId)){
-                appointment.setStatus("Cancelled");
+            if(appointment.getAppointmentId()
+                    .equals(appointmentId)){
+
+                appointment.setStatus(
+                        "Cancelled"
+                );
+
+                System.out.println(
+                        "Appointment cancelled successfully"
+                );
+
+                return;
             }
         }
 
+        System.out.println(
+                "Appointment not found"
+        );
     }
     public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
         switch (AppointmantOption) {
