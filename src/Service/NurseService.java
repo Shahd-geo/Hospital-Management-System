@@ -44,7 +44,7 @@ public class NurseService {
         return nurse;
     }
     // add doctor
-    public List<Nurse> addNurses() {
+    public static List<Nurse> addNurses() {
 
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -173,10 +173,16 @@ public class NurseService {
 
         switch (NurseOption) {
             case 1 -> {
-                addNurse();
+                addNurses();
             }
             case 2 -> {
-                editNurse(null);
+                System.out.println(
+                        "Enter nurse ID to update");
+
+                String nurseId =
+                        scanner.nextLine();
+
+                editNurse(nurseId);
             }
             case 3 -> {
                 System.out.println("Enter nurse Id to remove");

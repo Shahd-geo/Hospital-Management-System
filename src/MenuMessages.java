@@ -41,6 +41,21 @@ public class MenuMessages {
             8- Go Back To Main Menu
 
             """;
+    public static String NURSE_MENU_MESSAGE = """
+
+        ===== Nurse Menu =====
+
+        1- Add Nurse
+        2- Update Nurse
+        3- Remove Nurse
+        4- Get Nurse By ID
+        5- Display All Nurses
+        6- Get Nurses By Department
+        7- Get Nurses By Shift
+        8- Go Back To Main Menu
+
+        """;
+
 
 }
 
