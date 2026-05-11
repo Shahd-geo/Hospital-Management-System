@@ -110,10 +110,22 @@ public class DepartmentService {
             department.displayInfo();
         }
     }
+    // assign Doctor To Department(String doctorId, String departmentId)
 
+    public void assignDoctorToDepartment(String doctorId, String departmentId) {
 
+        Doctor doctor = DoctorService.getDoctorById(doctorId);
 
+        for (Department department : departmentList) {
+
+            if (department.getDepartmentId().equals(departmentId)) {
+
+                department.getDoctors().add(doctor);
+            }
+        }
+    }
 
 
 
 }
+
