@@ -12,7 +12,7 @@ import static Service.NurseService.editNurse;
 public class MedicalRecordService {
     static Scanner scanner = new Scanner(System.in);
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
-    public MedicalRecord addMedicalRecord() {
+    public static MedicalRecord addMedicalRecord() {
 
         System.out.println("Enter record Id :");
         String recordId = scanner.nextLine();
@@ -224,8 +224,6 @@ public class MedicalRecordService {
         }
         return false;
     }
-
-}
 
 }
 
