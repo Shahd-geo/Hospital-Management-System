@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class AppointmentService {
     static List<Appointment> appointmentList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     //add new appointment
-    public Appointment addAppointment() {
+    public static Appointment addAppointment() {
 
         System.out.println("Enter appointment Id :");
         String appointmentId = scanner.nextLine();
@@ -33,7 +33,7 @@ public class AppointmentService {
         Appointment appointment = new Appointment(appointmentId, patientId, doctorId, date, appointmentTime, status, reason, notes);
         return appointment;
     }
-    public List<Appointment> addAppointments(){
+    public static List<Appointment> addAppointments(){
         Boolean continueFlag = true;
         while (continueFlag) {
 
@@ -50,7 +50,7 @@ public class AppointmentService {
     }
     // edit appointment by ID
 
-    public void editAppointment(String appointmentId){
+    public static void editAppointment(String appointmentId){
 
         for(Appointment appointment : appointmentList){
             if(appointment.getAppointmentId().equals(appointmentId)){
@@ -87,7 +87,7 @@ public class AppointmentService {
 
     }
     // Remove appointment by ID
-    public void removeAppointment(String appointmentId ){
+    public static void removeAppointment(String appointmentId){
         boolean removed = appointmentList.removeIf(
                 b -> b.getAppointmentId()
                         .equals(appointmentId)
@@ -104,7 +104,7 @@ public class AppointmentService {
         }
     }
     //retrieve appointment
-    public Appointment getAppointment(String appointmentId){
+    public static Appointment getAppointment(String appointmentId){
 
         for(Appointment appointment: appointmentList){
             if(appointment.getAppointmentId().equals(appointmentId)){
@@ -118,7 +118,7 @@ public class AppointmentService {
 
     //get Appointments By Patient
 
-    public List<Appointment> getAppointmentsByPatient(String patientId){
+    public static List<Appointment> getAppointmentsByPatient(String patientId){
         List<Appointment> patientAppointments = new ArrayList<>();
 
         for(Appointment appointment : appointmentList){
@@ -132,7 +132,7 @@ public class AppointmentService {
     }
     // get Appointments By Doctor
 
-    public List<Appointment> getAppointmentsByDoctor(String doctorId) {
+    public static List<Appointment> getAppointmentsByDoctor(String doctorId) {
 
         List<Appointment> doctorAppointments = new ArrayList<>();
 
@@ -146,7 +146,7 @@ public class AppointmentService {
     }
     // get Appointments By Date
 
-    public List<Appointment> getAppointmentsByDate(LocalDate date){
+    public static List<Appointment> getAppointmentsByDate(LocalDate date){
 
         List<Appointment> dateAppointments = new ArrayList<>();
 
@@ -159,7 +159,7 @@ public class AppointmentService {
         return dateAppointments;
     }
     // reschedule Appointment
-    public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
+    public static void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
 
         for(Appointment appointment : appointmentList){
             if(appointment.getAppointmentId().equals(appointmentId)){
@@ -172,7 +172,7 @@ public class AppointmentService {
     }
     // cancel Appointment
 
-    public void cancelAppointment(String appointmentId){
+    public static void cancelAppointment(String appointmentId){
 
         for(Appointment appointment : appointmentList){
 
@@ -182,9 +182,77 @@ public class AppointmentService {
         }
 
     }
+    public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
+        switch (AppointmantOption) {
+            case 1 -> {
+                addAppointments();
+            }
+            case 2 -> {
+                System.out.println(
+                        "Enter appointmentId to update");
+
+                String appointmentId =
+                        scanner.nextLine();
+
+                editAppointment(appointmentId);
+            }
+            case 3 -> {
+                System.out.println("Enter appointmentId to remove");
+                String appointmentId = scanner.nextLine();
+                removeAppointment(appointmentId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter appointmentId to getAppointment");
+                String appointmentId = scanner.nextLine();
+                getAppointment(appointmentId);
+
+            }
+            case 5 -> {
+                System.out.println("Enter patient Id to  get Appointments");
+                String patientId = scanner.nextLine();
+                getAppointmentsByPatient(patientId);
+            }
+
+            case 6 -> {
+                System.out.println("Enter Doctor Id  to get Appointment ");
+                String doctorId = scanner.nextLine();
+                getAppointmentsByDoctor(doctorId);
+
+            }
+            case 7 -> {
+                System.out.println("Enter data to get appointment");
+                String date = scanner.nextLine();
+                getAppointmentsByDate(LocalDate.parse(date));
 
 
+            }
+            case 8 -> {
+                System.out.println("Enter  appointmentId to reschedule  appointment");
+                String  appointmentId = scanner.nextLine();
+                System.out.println("Enter  newDate to reschedule  appointment");
+                LocalDate newDate= LocalDate.parse(scanner.nextLine());
+                System.out.println("Enter  newTime to reschedule  appointment");
+                String newTime =scanner.nextLine();
+                rescheduleAppointment(appointmentId,newDate,newTime);
 
 
+            }
+            case 9 -> {
+                System.out.println("Enter appointmentId to cancel appointment");
+                String appointmentId = scanner.nextLine();
+                cancelAppointment(appointmentId);
+
+
+            }
+
+
+        }
+        return false;
+    }
 
 }
+
+
+
+
