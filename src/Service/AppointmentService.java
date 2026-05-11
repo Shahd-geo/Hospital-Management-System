@@ -166,6 +166,7 @@ public class AppointmentService {
                 appointment.setAppointmentDate(newDate);
                 appointment.setAppointmentTime(newTime);
             }
+            System.out.println("Appointment rescheduled successfully");
         }
 
     }
