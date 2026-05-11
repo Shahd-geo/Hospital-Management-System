@@ -118,6 +118,20 @@ public class MedicalRecordService {
         System.out.println("medical Record not found");
         return null;
     }
+    //Records By PatientId
+    public List<MedicalRecord> getRecordsByPatientId(String patientId){
+
+        List<MedicalRecord> patientMedicalRecords = new ArrayList<>();
+
+        for (MedicalRecord medicalRecord : medicalRecordList){
+
+            if(medicalRecord.getPatientId().equals(patientId)){
+                patientMedicalRecords.add(medicalRecord);
+            }
+        }
+
+        return patientMedicalRecords;
+    }
 
 
 }
