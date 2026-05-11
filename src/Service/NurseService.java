@@ -138,6 +138,15 @@ public class NurseService {
         System.out.println("Nurse not found");
         return null;
     }
+    //display all nurses
+    public void displayAllNurses(){
+
+        for(Nurse nurse: nurseList){
+            nurse.displayInfo();
+        }
+
+    }
+
 
 
 
