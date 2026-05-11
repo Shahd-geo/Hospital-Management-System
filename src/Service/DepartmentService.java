@@ -91,7 +91,7 @@ public class DepartmentService {
         }
     }
     //retrieve department
-    public static Department getDepartment(String departmentId){
+    public static Department getDepartmentById(String departmentId){
 
         for(Department department: departmentList){
 
@@ -150,7 +150,7 @@ public class DepartmentService {
             case 4 -> {
                 System.out.println("Enter department  Id to get department");
                 String departmentId = scanner.nextLine();
-                getDepartment(departmentId);
+                getDepartmentById(departmentId);
 
             }
             case 5 -> {
