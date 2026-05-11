@@ -174,6 +174,36 @@ public class MainApp {
                         }
                     }
                 }
+                case 6 -> {
+
+                    boolean departmentMenu = true;
+
+                    while (departmentMenu){
+
+                        System.out.println(
+                                MenuMessages
+                                        .DEPARTMENT_MENU_MESSAGE
+                        );
+
+                        int departmentOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (departmentOption == 7){
+
+                            departmentMenu = false;
+
+                        } else {
+
+                            DepartmentService
+                                    .handleDepartmentMenu(
+                                            departmentOption
+                                    );
+                        }
+                    }
+                }
                 case 7 -> {
 
                     System.out.println(
