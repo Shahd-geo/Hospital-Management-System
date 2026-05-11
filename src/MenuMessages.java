@@ -34,8 +34,8 @@ public class MenuMessages {
             1- Add Doctor
             2- Update Doctor
             3- Remove Doctor
-            4- Display All Doctors
-            5- Get Doctor By ID
+            4- Get Doctor By ID 
+            5-  Display All Doctors
             6- Get Doctors By Specialization
             7- Get Available Doctors
             8- Go Back To Main Menu
