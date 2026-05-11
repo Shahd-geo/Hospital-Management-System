@@ -158,6 +158,17 @@ public class AppointmentService {
         }
         return dateAppointments;
     }
+    // reschedule Appointment
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
+
+        for(Appointment appointment : appointmentList){
+            if(appointment.getAppointmentId().equals(appointmentId)){
+                appointment.setAppointmentDate(newDate);
+                appointment.setAppointmentTime(newTime);
+            }
+        }
+
+    }
 
 
 
