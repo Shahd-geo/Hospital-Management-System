@@ -47,6 +47,32 @@ public class DepartmentService {
         return departmentList;
 
     }
+    // UPDATE department
+
+    public void editDepartment(String departmentId){
+
+        for(Department department : departmentList){
+            if(department.getDepartmentId().equals(departmentId)){
+
+                System.out.println("Enter updated department Name :");
+                department.setDepartmentName(scanner.nextLine());
+
+                System.out.println("Enter updated department head DoctorId :");
+                department.setHeadDoctorId(scanner.nextLine());
+
+                System.out.println("Enter updated department  bed Capacity :");
+                department.setBedCapacity(scanner.nextInt());
+
+                System.out.println("Enter updated department available Beds :");
+                department.setAvailableBeds(scanner.nextInt());
+
+                System.out.println("department updated successfully");
+
+            }
+
+        }
+
+    }
 
 
 
