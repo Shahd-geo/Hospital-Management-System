@@ -95,7 +95,7 @@ public class DoctorService {
 
 
     // add doctor
-    public static void addDoctor() {
+    public static void addDoctors() {
 
         Doctor doctor = addDector();
 
@@ -234,7 +234,7 @@ public class DoctorService {
 
         switch (DectorOption) {
             case 1 -> {
-                addDector();
+                addDoctors();
             }
             case 2 -> {
                 editDoctor(null);

@@ -30,7 +30,7 @@ public class DepartmentService {
         return department;
 
     }
-    public List<Department> addDepartments(){
+    public static List<Department> addDepartments(){
 
         Boolean continueFlag = true;
         while (continueFlag) {
@@ -129,7 +129,7 @@ public class DepartmentService {
 
         switch (departmentOption) {
             case 1 -> {
-                addDepartment();
+                addDepartments();
             }
             case 2 -> {
                 System.out.println(
