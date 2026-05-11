@@ -87,5 +87,24 @@ public class MedicalRecordService {
         }
 
     }
+    // remove doctor by ID
+    public static void removeRecored(String recordId){
+
+        boolean removed = medicalRecordList.removeIf(
+                b -> b.getRecordId()
+                        .equals(recordId)
+        );
+
+        if (removed){
+
+            System.out.println(
+                    "Recored removed successfully");
+
+        } else {
+
+            System.out.println(
+                    "Recored not found");
+        }
+    }
 
 }
