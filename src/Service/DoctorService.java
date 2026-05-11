@@ -158,11 +158,21 @@ public class DoctorService {
     // remove doctor by ID
     public void removeDoctor(String doctorId){
 
-        doctors.removeIf(b -> b.getDoctorId() == doctorId);
-        System.out.println("doctor removed successfully");
+        boolean removed = doctors.removeIf(
+                b -> b.getDoctorId()
+                        .equals(doctorId)
+        );
 
-        System.out.println("doctor not found");
+        if (removed){
 
+            System.out.println(
+                    "Doctor removed successfully");
+
+        } else {
+
+            System.out.println(
+                    "Doctor not found");
+        }
     }
 
     //retrieve doctor
