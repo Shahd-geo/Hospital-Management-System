@@ -196,7 +196,47 @@ public class PatientService {
         }
 
     }
+
+    public static boolean handlePatientMenu(Integer PatientOption) {
+
+
+        switch (PatientOption) {
+            case 1 -> {
+                addPatients();
+            }
+            case 2 -> {
+                UpdatePatient(null,null);
+            }
+            case 3 -> {
+                System.out.println("Enter patient Id to remove");
+                String patientId = scanner.nextLine();
+                removePatient(patientId);
+            }
+
+            case 4 -> {
+                System.out.println("Enter patient Id to getDoctorById");
+                String patientId = scanner.nextLine();
+                getPatientById(patientId);
+
+            }
+            case 5 -> {
+                displayAllPatients();
+
+            }
+
+            case 6 -> {
+                System.out.println("Enter Name to search ");
+                String name = scanner.nextLine();
+                searchPatientsByName(name);
+
+
+            }
+        }
+        return false;
+    }
+
 }
+
 
 
 
