@@ -1,10 +1,12 @@
 package Entity;
 
+import Interfaces.Billable;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends Patient {
+public class InPatient extends Patient implements Billable {
     private LocalDate admissionDate;
     private LocalDate dischargeDate;
     private String roomNumber;
@@ -97,6 +99,38 @@ public class InPatient extends Patient {
     public double calculateTotalCharges() {
 
         return calculateStayDuration() * dailyCharges;
+    }
+    @Override
+    public double calculateCharges() {
+
+        return calculateTotalCharges();
+    }
+    @Override
+    public void generateBill() {
+
+        System.out.println("===== Patient Bill =====");
+
+        System.out.println("Patient ID : " + getPatientId());
+
+        System.out.println("Room Number : " + roomNumber);
+
+        System.out.println("Stay Duration : " + calculateStayDuration() + " days");
+
+        System.out.println("Total Charges : " + calculateTotalCharges());
+    }
+    @Override
+    public void processPayment(double amount) {
+
+        if (amount <= 0){
+
+            System.out.println("Invalid payment amount.");
+
+            return;
+        }
+
+        System.out.println("Payment processed successfully.");
+
+        System.out.println("Paid Amount : " + amount);
     }
 
 
