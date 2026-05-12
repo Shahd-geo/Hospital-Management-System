@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+//Level 1 Inheritance
 public class Doctor extends Person{
     private String doctorId;
     private String specialization;
@@ -13,6 +14,9 @@ public class Doctor extends Person{
    private double consultationFee;
    private List<String> availableSlots =new ArrayList<>();
    private List<String> assignedPatients = new ArrayList<>();
+
+   // Constructor Chaining:
+// Doctor -> Person
 
     public Doctor(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, Double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);

@@ -8,7 +8,8 @@ public class OutPatient extends Patient{
     private LocalDate lastVisitDate;
     private String preferredDoctorId;
 
-
+    // Constructor Chaining:
+// OutPatient -> Patient -> Person
     public OutPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<MedicalRecord> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<Appointment> appointments, List<String> allergies, int visitCount, LocalDate lastVisitDate, String preferredDoctorId) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, registrationDate, patientId, medicalRecords, insuranceId, emergencyContact, bloodGroup, appointments, allergies);
         this.visitCount = visitCount;

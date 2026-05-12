@@ -11,7 +11,8 @@ public class InPatient extends Patient {
     private String bedNumber;
     private String admittingDoctorId;
     private double dailyCharges;
-
+    // Constructor Chaining:
+// InPatient -> Patient -> Person
     public InPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<MedicalRecord> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<Appointment> appointments, List<String> allergies, LocalDate admissionDate, LocalDate dischargeDate, String roomNumber, String bedNumber, String admittingDoctorId, double dailyCharges) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, registrationDate, patientId, medicalRecords, insuranceId, emergencyContact, bloodGroup, appointments, allergies);
         this.admissionDate = admissionDate;

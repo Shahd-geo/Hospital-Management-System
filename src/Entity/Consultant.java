@@ -9,6 +9,9 @@ public class Consultant extends Doctor{
     private boolean onlineConsultationAvailable;
    private int consultationDuration; // in minutes
 
+    // Constructor Chaining:
+// Consultant -> Doctor -> Person
+
     public Consultant(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, Double consultationFee, List<String> availableSlots, List<String> assignedPatients, List<String> consultationTypes, boolean onlineConsultationAvailable, int consultationDuration) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
         this.consultationTypes = consultationTypes;
