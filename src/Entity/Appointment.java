@@ -2,6 +2,7 @@ package Entity;
 
 import java.time.LocalDate;;
 
+
 public class Appointment {
     private String appointmentId;
     private String patientId;
@@ -112,5 +113,24 @@ public class Appointment {
     public void complete(){
         this.status= "Completed";
     }
+
+    // overloaded addNotes(String notes)
+    public void addNotes(String notes){
+
+        // Validate notes
+        if (notes == null || notes.trim().isEmpty()) {
+
+            System.out.println("Notes cannot be empty.");
+
+            return;
+        }
+
+        this.notes = notes;
+
+        System.out.println("Notes added successfully.");
+    }
+
+
+
 }
 
