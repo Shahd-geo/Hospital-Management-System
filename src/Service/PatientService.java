@@ -145,6 +145,21 @@ public class PatientService {
         }
         return matchedPatients;
     }
+    //OVERLOAAD search by name
+    public List<Patient> searchPatients(String firstName, String lastName) {
+        List<Patient> matchedPatients = new ArrayList<>();
+        for (Patient patient : patients) {
+
+            if(patient.getFirstName().equalsIgnoreCase(firstName) && patient.getLastName().equalsIgnoreCase(lastName.toLowerCase())){
+
+                matchedPatients.add(patient);
+            }
+
+
+        }
+        return matchedPatients;
+    }
+
 
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
