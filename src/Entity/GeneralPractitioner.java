@@ -38,4 +38,11 @@ public class GeneralPractitioner  extends Doctor{
     public void setVaccinationCertified(boolean vaccinationCertified) {
         this.vaccinationCertified = vaccinationCertified;
     }
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("walk in Available : "+ walkinAvailable);
+        System.out.println("home Visit Available :"+ homeVisitAvailable);
+        System.out.println("vaccination Certified :"+ vaccinationCertified);
+    }
 }
