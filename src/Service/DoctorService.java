@@ -258,7 +258,47 @@ public class DoctorService {
         }
 
     }
+    // Overloaded displayDoctors()
+    public void displayDoctors(){
 
+        for(Doctor doctor : doctors){
+
+            doctor.displayInfo();
+        }
+    }
+    // Overloaded displayDoctors(
+    public void displayDoctors(String specialization){
+
+        for(Doctor doctor : doctors){
+
+            if(doctor.getSpecialization().equalsIgnoreCase(specialization)){
+                doctor.displayInfo();
+            }
+        }
+    }
+
+    public void displayDoctors(String departmentId, boolean showAvailableOnly){
+        for(Doctor doctor : doctors){
+            boolean matchesDepartment = doctor.getDepartmentId().equalsIgnoreCase(departmentId);
+
+            boolean available = !doctor.getAvailableSlots().isEmpty();
+
+            if(matchesDepartment){
+
+                if(showAvailableOnly){
+
+                    if(available){
+
+                        doctor.displayInfo();
+                    }
+
+                } else {
+
+                    doctor.displayInfo();
+                }
+            }
+        }
+    }
     //get Doctors By Specialization
     public static List<Doctor> getDoctorsBySpecialization(String specialization) {
 
