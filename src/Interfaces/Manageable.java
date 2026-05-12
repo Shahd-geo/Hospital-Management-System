@@ -1,5 +1,7 @@
 package Interfaces;
 
+import Entity.Doctor;
+
 import java.util.List;
 
 public interface Manageable {
@@ -7,5 +9,5 @@ public interface Manageable {
 
     void remove(String id);
 
-    List<Object> getAll();
+    List<Doctor> getAll();
 }

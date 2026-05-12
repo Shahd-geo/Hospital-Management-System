@@ -1,6 +1,7 @@
 package Service;
 
 import Entity.Appointment;
+import Entity.Doctor;
 import Entity.MedicalRecord;
 import Entity.Patient;
 import Interfaces.Manageable;
@@ -328,7 +329,7 @@ public class PatientService  implements Manageable, Searchable {
         removePatient(id);
     }
     @Override
-    public List<Object> getAll(){
+    public List<Doctor> getAll(){
 
         return Collections.singletonList(patients);
     }

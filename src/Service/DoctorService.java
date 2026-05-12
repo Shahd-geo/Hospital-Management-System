@@ -2,13 +2,15 @@ package Service;
 
 import Entity.Doctor;
 import Entity.Patient;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DoctorService {
+public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     public static List<Doctor> doctors = new ArrayList<>();
 
@@ -327,6 +329,38 @@ public class DoctorService {
         }
 
         return availableDoctors;
+    }
+
+    @Override
+    public void add(Object entity) {
+        doctors.add((Doctor) entity);
+
+        System.out.println(
+                "Doctor added successfully");
+
+    }
+
+    @Override
+    public void remove(String id) {
+        removeDoctor(id);
+
+    }
+
+    @Override
+    public List<Doctor> getAll() {
+
+        return doctors;
+    }
+
+    @Override
+    public void search(String keyword) {
+        displayDoctors(keyword);
+
+    }
+
+    @Override
+    public void searchById(String id) {
+        getDoctorById(null);
     }
 
 
