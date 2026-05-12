@@ -163,6 +163,19 @@ public class Doctor extends Person{
         System.out.println("Availability add successfully.");
 
     }
+    //overload  addAvailability(List<String> slots)
+    public void addAvailability(List<String> slots){  //take list of slots
+        // Check if the list is empty
+        if (slots == null || slots.isEmpty()) {
+            System.out.println("No availability slots provided.");
+            return;
+        }
+        // Add all slot to doctor's availability schedule
+        availableSlots.addAll(slots);
+
+    }
+
+}
 
 }
 
