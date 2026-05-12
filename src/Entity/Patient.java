@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//Level 1 Inheritance
+// Inheritance from person claas
 public class Patient extends Person {
    private String patientId;
     private String bloodGroup;
