@@ -127,6 +127,25 @@ public class PatientService {
         System.out.println("Patient add successfully");
 
     }
+    //OVERLOADED searchPatients(String keyword) - search by any field
+    public List<Patient> searchPatients(String keyword) {
+        List<Patient> matchedPatients = new ArrayList<>();
+        for (Patient patient : patients) {
+            if (patient.getPatientId().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getFirstName().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getLastName().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getPhoneNumber().contains(keyword)
+                    || patient.getBloodGroup().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getEmail().toLowerCase().contains(keyword.toLowerCase())) {
+
+                matchedPatients.add(patient);
+
+            }
+
+        }
+        return matchedPatients;
+    }
+
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
         System.out.println("enter patient Id");
@@ -198,24 +217,6 @@ public class PatientService {
             patient.displayInfo();
         }
 
-    }
-    //OVERLOADED searchPatients(String keyword) - search by any field
-    public List<Patient> searchPatients(String keyword) {
-        List<Patient> matchedPatients = new ArrayList<>();
-        for (Patient patient : patients) {
-            if (patient.getPatientId().toLowerCase().contains(keyword.toLowerCase())
-                    || patient.getFirstName().toLowerCase().contains(keyword.toLowerCase())
-                    || patient.getLastName().toLowerCase().contains(keyword.toLowerCase())
-                    || patient.getPhoneNumber().contains(keyword)
-                    || patient.getBloodGroup().toLowerCase().contains(keyword.toLowerCase())
-                    || patient.getEmail().toLowerCase().contains(keyword.toLowerCase())) {
-
-                matchedPatients.add(patient);
-
-            }
-
-        }
-        return matchedPatients;
     }
 
 
