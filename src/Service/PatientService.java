@@ -115,6 +115,7 @@ public class PatientService {
         System.out.println("Patient add successfully");
 
     }
+    //Overloaded addPatient(String firstName, String lastName, String phone, String bloodGroup, String email) - with blood group
 
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
