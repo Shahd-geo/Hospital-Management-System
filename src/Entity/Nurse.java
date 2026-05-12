@@ -1,10 +1,12 @@
 package Entity;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 //Level 1 Inheritance
-public class Nurse extends Person{
+public class Nurse extends Person implements Displayable {
     private String nurseId;
     private String departmentId;
     private String shift;
@@ -72,6 +74,11 @@ public class Nurse extends Person{
     }
     public void assignPatient(String patient){
         assignedPatients.add(patient);
+    }
+    @Override
+    public void displaySummary(){
+
+        System.out.println("Nurse : " + getFirstName() + " " + getLastName());
     }
 
 
