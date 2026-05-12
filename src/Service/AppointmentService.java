@@ -207,27 +207,20 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     @Override
     public  void cancelAppointment(String appointmentId){
 
-        for(Appointment appointment
-                : appointmentList){
+        for(Appointment appointment : appointmentList){
 
-            if(appointment.getAppointmentId()
-                    .equals(appointmentId)){
+            if(appointment.getAppointmentId().equals(appointmentId)){
 
-                appointment.setStatus(
-                        "Cancelled"
-                );
+                appointment.setStatus("Cancelled");
 
-                System.out.println(
-                        "Appointment cancelled successfully"
+                System.out.println("Appointment cancelled successfully"
                 );
 
                 return;
             }
         }
 
-        System.out.println(
-                "Appointment not found"
-        );
+        System.out.println("Appointment not found");
     }
     // Overloaded createAppointment(String patientId, String doctorId, LocalDate date)
 
@@ -443,7 +436,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
             case 9 -> {
                 System.out.println("Enter appointmentId to cancel appointment");
                 String appointmentId = scanner.nextLine();
-                cancelAppointment(appointmentId);
+                new AppointmentService().cancelAppointment(appointmentId);
 
 
             }
