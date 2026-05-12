@@ -171,6 +171,19 @@ public class AppointmentService {
         }
 
     }
+    // Overloaded rescheduleAppointment(String appointmentId, LocalDate newDate)
+
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate){
+
+        Appointment appointment = getAppointment(appointmentId);
+        if (appointment != null) {
+            appointment.setAppointmentDate(newDate);
+        }
+
+        appointment.setStatus("Rescheduled");
+        System.out.println("Appointment rescheduled successfully.");
+
+    }
     // cancel Appointment
 
     public static void cancelAppointment(String appointmentId){
