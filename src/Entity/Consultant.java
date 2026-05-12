@@ -48,6 +48,26 @@ public class Consultant extends Doctor{
 
 
     }
+    // scheduleConsultation()
+
+    public void scheduleConsultation(String consultationType, boolean online) {
+
+        if (!consultationTypes.contains(consultationType)) {
+            System.out.println("Consultation type not available.");
+            return;
+        }
+
+        if(online && !onlineConsultationAvailable){
+            System.out.println("Online consultation is not available.");
+            return;
+        }
+
+        System.out.println("Consultation scheduled successfully.");
+        System.out.println("Type      : " + consultationType);
+        System.out.println("Mode      : " + (online ? "Online" : "Offline"));
+        System.out.println("Duration  : " + consultationDuration + " minutes");
+
+    }
 
 
 }
