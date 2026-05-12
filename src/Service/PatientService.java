@@ -150,7 +150,7 @@ public class PatientService {
         List<Patient> matchedPatients = new ArrayList<>();
         for (Patient patient : patients) {
 
-            if(patient.getFirstName().equalsIgnoreCase(firstName) && patient.getLastName().equalsIgnoreCase(lastName.toLowerCase())){
+            if(patient.getFirstName().equalsIgnoreCase(firstName) && patient.getLastName().equalsIgnoreCase(lastName)){
 
                 matchedPatients.add(patient);
             }
@@ -264,7 +264,7 @@ public class PatientService {
             }
 
             if (matches) {
-                System.out.println(patient);
+                patient.displayInfo();
             }
         }
         }
@@ -281,8 +281,14 @@ public class PatientService {
                 count++;
             }
         }
+    // OVERLOADED displayPatients()
+    public void displayPatients(){
 
+        for(Patient patient : patients){
 
+            patient.displayInfo();
+        }
+    }
 
     //search functionality
     public static void searchPatientsByName(String name) {
