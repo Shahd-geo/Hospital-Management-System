@@ -48,4 +48,15 @@ public class EmergencyPatient extends Patient{
     public void setAdmittedViaER(boolean admittedViaER) {
         this.admittedViaER = admittedViaER;
     }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+
+        System.out.println("emergencyType : " + emergencyType);
+        System.out.println("arrivalMode :" + arrivalMode);
+        System.out.println("triageLevel: " + triageLevel);
+        System.out.println("admittedViaER :" + admittedViaER);
+    }
+
 }
