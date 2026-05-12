@@ -233,7 +233,43 @@ public class PatientService {
         }
 
     }
+    // display filtered by criteria
+    public void displayPatients(String filter){
+        for (Patient patient : patients) {
+            boolean matches = false;
 
+            // filter by ID
+            if (patient.getPatientId().toLowerCase().contains(filter.toLowerCase())) {
+                matches = true;
+            }
+
+            // filter by first name
+            else if (patient.getFirstName().toLowerCase().contains(filter.toLowerCase())) {
+                matches = true;
+            }
+
+            // filter by last name
+            else if (patient.getLastName().toLowerCase().contains(filter.toLowerCase())) {
+                matches = true;
+            }
+
+            // filter by phone
+            else if (patient.getPhoneNumber().contains(filter)) {
+                matches = true;
+            }
+
+            // filter by gender
+            else if (patient.getGender().toLowerCase().contains(filter.toLowerCase())) {
+                matches = true;
+            }
+
+            if (matches) {
+                System.out.println(patient);
+            }
+        }
+
+
+    }
 
     //search functionality
     public static void searchPatientsByName(String name) {
