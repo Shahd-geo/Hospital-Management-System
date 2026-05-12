@@ -1,13 +1,15 @@
 package Service;
 
 import Entity.Nurse;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NurseService {
+public class NurseService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<Nurse> nurseList = new ArrayList<>();
     static List<String> assignedPatients = new ArrayList<>();
@@ -165,6 +167,42 @@ public class NurseService {
             }
         }
         return shiftNurse;
+    }
+    @Override
+    public void add(Object entity) {
+
+        nurseList.add((Nurse) entity);
+
+        System.out.println(
+                "Nurse added successfully");
+    }
+    @Override
+    public void remove(String id) {
+
+        removeNurse(id);
+    }
+    @Override
+    public List<Nurse> getAll() {
+
+        return nurseList;
+    }
+    @Override
+    public void search(String keyword) {
+
+        List<Nurse> nurses = getNursesByDepartment(keyword);
+        for (Nurse nurse : nurses){
+
+            nurse.displayInfo();
+        }
+    }
+    @Override
+    public void searchById(String id) {
+
+        Nurse nurse = getNurseById(id);
+        if (nurse != null){
+
+            nurse.displayInfo();
+        }
     }
 
 
