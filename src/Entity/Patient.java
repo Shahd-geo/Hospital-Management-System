@@ -122,8 +122,95 @@ public class Patient extends Person {
     public void updateInsurance(String newInsuranceId){
         this.insuranceId=newInsuranceId;
     }
+    //overloaded updateContact(String phone)
+
+    public void updateContact(String phone){
+        if (phone == null || phone.trim().isEmpty()) {
+            System.out.println("Phone number cannot be empty.");
+            return;
+        }
+
+        if (!phone.matches("\\d+")) {
+            System.out.println("Invalid phone number format. Only digits are allowed.");
+            return;
+        }
+
+        this.setPhoneNumber(phone);
+        System.out.println("Contact phone number is updated.");
+
+    }
+
+    //overloaded updateContact(String phone, String email)
+    public void updateContact(String phone, String email){
+
+        // Validate phone number
+        if (phone == null || phone.trim().isEmpty()) {
+            System.out.println("Phone number cannot be empty.");
+            return;
+        }
+
+        if (!phone.matches("\\d+")) {
+            System.out.println("Invalid phone number format. Only digits are allowed.");
+            return;
+        }
 
 
+        // Validate email
+        if (email == null || email.trim().isEmpty()) {
+            System.out.println("email  cannot be empty.");
+            return;
+        }
 
+        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+            System.out.println("Invalid email format.");
+            return;
+        }
+
+        this.setPhoneNumber(phone);
+        this.setEmail(email);
+
+        System.out.println("Contact phone number and email are updated.");
+
+    }
+
+    //overloaded updateContact(String phone, String email,String address)
+    public void updateContact(String phone, String email, String address){
+
+        if (phone == null || phone.trim().isEmpty()) {
+            System.out.println("Phone number cannot be empty.");
+            return;
+        }
+
+        if (!phone.matches("\\d+")) {
+            System.out.println("Invalid phone number format. Only digits are allowed.");
+            return;
+        }
+
+
+        // Validate email
+        if (email == null || email.trim().isEmpty()) {
+            System.out.println("email  cannot be empty.");
+            return;
+        }
+
+        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+            System.out.println("Invalid email format.");
+            return;
+        }
+
+        // Validate address
+        if (address == null || address.trim().isEmpty()) {
+            System.out.println("Address cannot be empty.");
+            return;
+        }
+
+        this.setPhoneNumber(phone);
+        this.setEmail(email);
+        this.setAddress(address);
+
+        System.out.println("Contact phone number, email and address are updated.");
+
+    }
 
 }
+
