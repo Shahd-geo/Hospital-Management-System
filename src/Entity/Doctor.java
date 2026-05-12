@@ -160,7 +160,7 @@ public class Doctor extends Person{
             return;
         }
         availableSlots.add(slot);
-        System.out.println("Availability add successfully.");
+        System.out.println("Availability added successfully.");
 
     }
     //overload  addAvailability(List<String> slots)
