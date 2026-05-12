@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//Level 1 Inheritance
+// Inheritance from person class
 public class Doctor extends Person{
     private String doctorId;
     private String specialization;
@@ -119,6 +119,19 @@ public class Doctor extends Person{
     }
     public void updateAvailability(List<String> slots) {
         this.availableSlots=slots;
+    }
+
+    // overloaded updateFee(double fee)
+    public void updateFee(double fee){
+        if (fee < 0) {
+            System.out.println("Fee cannot be negative.");
+            return;
+        }
+
+        this.consultationFee = fee;
+
+        System.out.println("Fee updated successfully");
+
     }
 
 }
