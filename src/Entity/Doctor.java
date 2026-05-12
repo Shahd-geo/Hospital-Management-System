@@ -142,13 +142,18 @@ public class Doctor extends Person{
 
             return;
         }
+        if (reason == null || reason.trim().isEmpty()) {
+            System.out.println("Reason cannot be empty.");
+            return;
+        }
 
         this.consultationFee = fee;
 
-        System.out.println("Fee updated successfully");
+        System.out.println("Fee updated successfully because of  : " + reason );
 
-        System.out.println("Reason : " + reason);
     }
+
+}
 
 
 }
