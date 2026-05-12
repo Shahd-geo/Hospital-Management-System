@@ -235,8 +235,19 @@ public class DoctorService {
 
         System.out.println("Patient : " + patient.getPatientId() + " assigned to Dr. " + doctor.getDoctorId());
     }
+    // Overloaded assignPatient(String doctorId, List<String> patientIds) - bulk assignment
+    public void assignPatient(String doctorId, List<String> patientIds){
 
+        Doctor doctor = getDoctorById(doctorId);
 
+        if(doctor != null){
+            for(String patientId : patientIds){
+                doctor.getAssignedPatients().add(patientId);
+            }
+
+            System.out.println("Patients assigned successfully");
+        }
+    }
 
 
     //display all doctors with formatted output
