@@ -1,9 +1,6 @@
 package Service;
 
-import Entity.Department;
-import Entity.Doctor;
-import Entity.MedicalRecord;
-import Entity.Nurse;
+import Entity.*;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 
@@ -194,7 +191,7 @@ public class DepartmentService  implements Manageable, Searchable {
         removeDepartment(id);
     }
     @Override
-    public List<MedicalRecord> getAll() {
+    public List<Appointment> getAll() {
 
         return departmentList;
     }

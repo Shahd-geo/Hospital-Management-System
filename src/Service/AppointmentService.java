@@ -1,13 +1,16 @@
 package Service;
 
 import Entity.Appointment;
+import Interfaces.Appointable;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppointmentService {
+public class AppointmentService  implements Manageable, Searchable, Appointable {
     static List<Appointment> appointmentList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     //add new appointment
@@ -201,8 +204,8 @@ public class AppointmentService {
 
     }
     // cancel Appointment
-
-    public static void cancelAppointment(String appointmentId){
+    @Override
+    public  void cancelAppointment(String appointmentId){
 
         for(Appointment appointment
                 : appointmentList){
@@ -310,9 +313,54 @@ public class AppointmentService {
             }
         }
     }
+    @Override
+    public void add(Object entity) {
+
+        appointmentList.add(
+                (Appointment) entity);
+
+        System.out.println("Appointment added successfully");
+    }
+    @Override
+    public void remove(String id) {
+
+        removeAppointment(id);
+    }
+    @Override
+    public List<Appointment> getAll() {
+
+        return appointmentList;
+    }
+    @Override
+    public void search(String keyword) {
+
+        List<Appointment> appointments = getAppointmentsByPatient(keyword);
+
+        for (Appointment appointment : appointments){
+
+            appointment.displayInfo();
+        }
+    }
+    @Override
+    public void searchById(String id) {
+
+        Appointment appointment = getAppointment(id);
+
+        if (appointment != null){
+
+            appointment.displayInfo();
+        }
+    }
+    @Override
+    public void scheduleAppointment(Appointment appointment) {
+
+        appointmentList.add(appointment);
+
+        System.out.println("Appointment scheduled successfully");
+    }
 
 
-            public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
+    public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
         switch (AppointmantOption) {
             case 1 -> {
                 addAppointments();
