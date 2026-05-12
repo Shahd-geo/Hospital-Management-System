@@ -1,15 +1,15 @@
 package Service;
 
 import Entity.MedicalRecord;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static Service.NurseService.editNurse;
-
-public class MedicalRecordService {
+public class MedicalRecordService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
     public static MedicalRecord addMedicalRecord() {
@@ -167,6 +167,45 @@ public class MedicalRecordService {
             if(medicalRecord.getPatientId().equals(patientId)){
                 medicalRecord.displayInfo();
             }
+        }
+    }
+    @Override
+    public void add(Object entity) {
+
+        medicalRecordList.add(
+                (MedicalRecord) entity);
+
+        System.out.println(
+                "Medical record added successfully");
+    }
+    @Override
+    public void remove(String id) {
+
+        removeRecored(id);
+    }
+    @Override
+    public List<MedicalRecord> getAll() {
+
+        return medicalRecordList;
+    }
+    @Override
+    public void search(String keyword) {
+
+        List<MedicalRecord> records = getRecordsByPatientId(keyword);
+
+        for (MedicalRecord medicalRecord : records){
+
+            medicalRecord.displayInfo();
+        }
+    }
+    @Override
+    public void searchById(String id) {
+
+        MedicalRecord medicalRecord = getMedicalRecord(id);
+
+        if (medicalRecord != null){
+
+            medicalRecord.displayInfo();
         }
     }
 

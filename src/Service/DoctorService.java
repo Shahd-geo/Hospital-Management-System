@@ -1,7 +1,7 @@
 package Service;
 
-import Entity.Department;
 import Entity.Doctor;
+import Entity.MedicalRecord;
 import Entity.Patient;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -348,7 +348,7 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     @Override
-    public List<Department> getAll() {
+    public List<MedicalRecord> getAll() {
 
         return doctors;
     }
