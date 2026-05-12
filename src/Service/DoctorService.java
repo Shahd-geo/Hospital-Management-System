@@ -360,7 +360,10 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
-        getDoctorById(null);
+        Doctor doctor = getDoctorById(id);
+        if (doctor != null){
+            doctor.displayInfo();
+        }
     }
 
 
