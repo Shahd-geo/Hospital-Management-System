@@ -8,5 +8,6 @@ public class InPatient extends Patient {
     private String roomNumber;
     private String bedNumber;
     private String admittingDoctorId;
+    private double dailyCharges;
 
 }
