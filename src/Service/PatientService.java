@@ -116,7 +116,17 @@ public class PatientService {
 
     }
     //Overloaded addPatient(String firstName, String lastName, String phone, String bloodGroup, String email) - with blood group
+    public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email) {
+        Patient patient = new Patient();
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+        patient.setBloodGroup(bloodGroup);
+        patient.setEmail(email);
+        patients.add(patient);
+        System.out.println("Patient add successfully");
 
+    }
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
         System.out.println("enter patient Id");
@@ -189,6 +199,25 @@ public class PatientService {
         }
 
     }
+    //OVERLOADED searchPatients(String keyword) - search by any field
+    public List<Patient> searchPatients(String keyword) {
+        List<Patient> matchedPatients = new ArrayList<>();
+        for (Patient patient : patients) {
+            if (patient.getPatientId().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getFirstName().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getLastName().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getPhoneNumber().contains(keyword)
+                    || patient.getBloodGroup().toLowerCase().contains(keyword.toLowerCase())
+                    || patient.getEmail().toLowerCase().contains(keyword.toLowerCase())) {
+
+                matchedPatients.add(patient);
+
+            }
+
+        }
+        return matchedPatients;
+    }
+
 
     //search functionality
     public static void searchPatientsByName(String name) {
@@ -211,6 +240,7 @@ public class PatientService {
         }
 
     }
+
 
     public static boolean handlePatientMenu(Integer PatientOption) {
 
