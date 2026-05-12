@@ -191,7 +191,6 @@ public class AppointmentService {
     }
 
     // Overloaded rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason)
-
     public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
         appointment.setAppointmentDate(newDate);
         appointment.setAppointmentTime(newTime);
@@ -277,7 +276,43 @@ public class AppointmentService {
 
     }
 
-    public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
+    // Overloaded displayAppointments(LocalDate date)
+    public void displayAppointments(LocalDate date){
+
+        for(Appointment appointment: appointmentList){
+
+            if(appointment.getAppointmentDate().equals(date)){
+
+                appointment.displayInfo();
+            }
+        }
+    }
+
+    // Overloaded displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate)
+
+    public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate) {
+
+
+        for (Appointment appointment : appointmentList) {
+
+            if (appointment.getDoctorId().equals(doctorId)) {
+
+                LocalDate appointmentDate = appointment.getAppointmentDate();
+
+                if ((appointmentDate.isEqual(startDate) || appointmentDate.isAfter(startDate)) &&
+                        (appointmentDate.isEqual(endDate) || appointmentDate.isBefore(endDate))) {
+
+                    appointment.displayInfo();
+
+                }
+
+
+            }
+        }
+    }
+
+
+            public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
         switch (AppointmantOption) {
             case 1 -> {
                 addAppointments();
