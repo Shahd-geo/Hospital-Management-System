@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class OutPatient extends Patient{
-    int visitCount;
-    LocalDate lastVisitDate;
-    String preferredDoctorId;
+   private int visitCount;
+    private LocalDate lastVisitDate;
+    private String preferredDoctorId;
 
 
     public OutPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, LocalDate registrationDate, String patientId, List<MedicalRecord> medicalRecords, String insuranceId, String emergencyContact, String bloodGroup, List<Appointment> appointments, List<String> allergies, int visitCount, LocalDate lastVisitDate, String preferredDoctorId) {
