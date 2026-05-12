@@ -3,11 +3,13 @@ package Service;
 import Entity.Department;
 import Entity.Doctor;
 import Entity.Nurse;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class DepartmentService {
+public class DepartmentService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<Department> departmentList = new ArrayList<>();
     static List<Doctor> doctors = new ArrayList<>();
@@ -176,6 +178,45 @@ public class DepartmentService {
 
         }
         return false;
+    }
+    @Override
+    public void add(Object entity) {
+
+        departmentList.add((Department) entity);
+
+        System.out.println(
+                "Department added successfully");
+    }
+    @Override
+    public void remove(String id) {
+
+        removeDepartment(id);
+    }
+    @Override
+    public List<Department> getAll() {
+
+        return departmentList;
+    }
+    @Override
+    public void search(String keyword) {
+
+        Department department = getDepartmentById(keyword);
+
+        if (department != null){
+
+            department.displayInfo();
+        }
+    }
+    @Override
+    public void searchById(String id) {
+
+        Department department =
+                getDepartmentById(id);
+
+        if (department != null){
+
+            department.displayInfo();
+        }
     }
 
 }
