@@ -172,6 +172,7 @@ public class Doctor extends Person{
         }
         // Add all slot to doctor's availability schedule
         availableSlots.addAll(slots);
+        System.out.println("Availability slots added successfully.");
 
     }
 
