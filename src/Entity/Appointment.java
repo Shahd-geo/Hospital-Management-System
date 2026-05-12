@@ -1,6 +1,7 @@
 package Entity;
 
-import java.time.LocalDate;;
+import java.time.LocalDate;
+import java.time.LocalDateTime;;
 
 
 public class Appointment {
@@ -129,6 +130,64 @@ public class Appointment {
 
         System.out.println("Notes added successfully.");
     }
+// overload addNotes(String notes, String addedBy)
+    public void addNotes(String notes, String addedBy){
+        // Validate notes
+        if (notes == null || notes.trim().isEmpty()) {
+
+            System.out.println("Notes cannot be empty.");
+
+            return;
+        }
+
+        // Validate addedBy
+        if (addedBy == null || addedBy.trim().isEmpty()) {
+
+            System.out.println("AddedBy cannot be empty.");
+
+            return;
+        }
+
+        this.notes = notes + " | Added By : " + addedBy;
+
+        System.out.println("Notes added successfully.");
+    }
+    // overloaded addNotes(String notes, String addedBy, LocalDateTime timestamp)
+
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
+
+            // Validate notes
+            if (notes == null || notes.trim().isEmpty()) {
+
+                System.out.println("Notes cannot be empty.");
+
+                return;
+            }
+
+            // Validate addedBy
+            if (addedBy == null || addedBy.trim().isEmpty()) {
+
+                System.out.println("AddedBy cannot be empty.");
+
+                return;
+            }
+
+            // Validate timestamp
+            if (timestamp == null) {
+
+                System.out.println("Timestamp cannot be null.");
+
+                return;
+            }
+
+            this.notes = notes + " | Added By : " + addedBy + " | Time : " + timestamp;
+
+            System.out.println("Notes added successfully.");
+        }
+
+    }
+
+
 
 
 
