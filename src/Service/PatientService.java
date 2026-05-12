@@ -267,9 +267,22 @@ public class PatientService {
                 System.out.println(patient);
             }
         }
+        }
+        //display limited number
+        public void displayPatients(int limit){
+            int count = 0;
+
+            for(Patient patient :patients){
+
+                if(count >= limit) {
+                    break;
+                }
+                patient.displayInfo();
+                count++;
+            }
+        }
 
 
-    }
 
     //search functionality
     public static void searchPatientsByName(String name) {
