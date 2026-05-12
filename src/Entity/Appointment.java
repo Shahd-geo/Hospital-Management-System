@@ -1,10 +1,12 @@
 package Entity;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;;
 
 
-public class Appointment {
+public class Appointment  implements Displayable {
     private String appointmentId;
     private String patientId;
     private String doctorId;
@@ -92,6 +94,7 @@ public class Appointment {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
     // Display method
     public void displayInfo() {
         System.out.println("Appointment ID: " + appointmentId);
@@ -103,20 +106,23 @@ public class Appointment {
         System.out.println("Reason: " + reason);
         System.out.println("Notes: " + notes);
     }
-    public void reschedule(LocalDate newDate , String newTime){
-        this.appointmentDate=newDate;
-        this.appointmentTime=newTime;
-        this.status="Rescheduled";
+
+    public void reschedule(LocalDate newDate, String newTime) {
+        this.appointmentDate = newDate;
+        this.appointmentTime = newTime;
+        this.status = "Rescheduled";
     }
-    public void  cancel(){
-        this.status="Cancelled";
+
+    public void cancel() {
+        this.status = "Cancelled";
     }
-    public void complete(){
-        this.status= "Completed";
+
+    public void complete() {
+        this.status = "Completed";
     }
 
     // overloaded addNotes(String notes)
-    public void addNotes(String notes){
+    public void addNotes(String notes) {
 
         // Validate notes
         if (notes == null || notes.trim().isEmpty()) {
@@ -130,8 +136,9 @@ public class Appointment {
 
         System.out.println("Notes added successfully.");
     }
-// overload addNotes(String notes, String addedBy)
-    public void addNotes(String notes, String addedBy){
+
+    // overload addNotes(String notes, String addedBy)
+    public void addNotes(String notes, String addedBy) {
         // Validate notes
         if (notes == null || notes.trim().isEmpty()) {
 
@@ -154,38 +161,43 @@ public class Appointment {
     }
     // overloaded addNotes(String notes, String addedBy, LocalDateTime timestamp)
 
-    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp) {
 
-            // Validate notes
-            if (notes == null || notes.trim().isEmpty()) {
+        // Validate notes
+        if (notes == null || notes.trim().isEmpty()) {
 
-                System.out.println("Notes cannot be empty.");
+            System.out.println("Notes cannot be empty.");
 
-                return;
-            }
-
-            // Validate addedBy
-            if (addedBy == null || addedBy.trim().isEmpty()) {
-
-                System.out.println("AddedBy cannot be empty.");
-
-                return;
-            }
-
-            // Validate timestamp
-            if (timestamp == null) {
-
-                System.out.println("Timestamp cannot be null.");
-
-                return;
-            }
-
-            this.notes = notes + " | Added By : " + addedBy + " | Time : " + timestamp;
-
-            System.out.println("Notes added successfully.");
+            return;
         }
 
+        // Validate addedBy
+        if (addedBy == null || addedBy.trim().isEmpty()) {
+
+            System.out.println("AddedBy cannot be empty.");
+
+            return;
+        }
+
+        // Validate timestamp
+        if (timestamp == null) {
+
+            System.out.println("Timestamp cannot be null.");
+
+            return;
+        }
+
+        this.notes = notes + " | Added By : " + addedBy + " | Time : " + timestamp;
+
+        System.out.println("Notes added successfully.");
     }
+
+    @Override
+    public void displaySummary() {
+
+        System.out.println("Appointment : " + appointmentId + " | Status : " + status);
+    }
+}
 
 
 
