@@ -1,11 +1,13 @@
 package Entity;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 // Inheritance from person class
-public class Patient extends Person {
+public class Patient extends Person implements Displayable {
    private String patientId;
     private String bloodGroup;
     private List<String> allergies = new ArrayList<>();
@@ -207,6 +209,11 @@ public class Patient extends Person {
 
         System.out.println("Contact phone number, email and address are updated.");
 
+    }
+    @Override
+    public void displaySummary(){
+
+        System.out.println("Patient : " + getFirstName() + " " + getLastName());
     }
 
 }
