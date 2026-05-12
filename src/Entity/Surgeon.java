@@ -45,6 +45,7 @@ public class Surgeon extends Doctor {
             return false;
         }
         if(!operationTheatreAccess){
+            System.out.println("No operation theatre access");
             return false;
         }
         surgeriesPerformed++;
