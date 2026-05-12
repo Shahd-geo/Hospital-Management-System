@@ -72,6 +72,7 @@ public class Consultant extends Doctor{
     public void provideSecondOpinion(String patientCase) {
         System.out.println("Providing second opinion for case:");
         System.out.println(patientCase);
+        System.out.println("Second opinion completed successfully.");
     }
 
 
