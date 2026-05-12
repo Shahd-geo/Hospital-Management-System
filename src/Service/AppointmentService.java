@@ -176,11 +176,28 @@ public class AppointmentService {
     public void rescheduleAppointment(String appointmentId, LocalDate newDate){
 
         Appointment appointment = getAppointment(appointmentId);
-        if (appointment != null) {
-            appointment.setAppointmentDate(newDate);
-        }
 
+        if (appointment != null) {
+
+            appointment.setAppointmentDate(newDate);
+            appointment.setStatus("Rescheduled");
+
+            System.out.println("Appointment rescheduled successfully.");
+
+        } else {
+
+            System.out.println("Appointment not found.");
+        }
+    }
+
+    // Overloaded rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason)
+
+    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
+        appointment.setAppointmentDate(newDate);
+        appointment.setAppointmentTime(newTime);
+        appointment.setReason(reason);
         appointment.setStatus("Rescheduled");
+
         System.out.println("Appointment rescheduled successfully.");
 
     }
