@@ -152,6 +152,17 @@ public class Doctor extends Person{
         System.out.println("Fee updated successfully because of  : " + reason );
 
     }
+    //overload addAvailability(String slot)
+    public void  addAvailability(String slot){
+        // Validate slot
+        if (slot == null || slot.trim().isEmpty()) { //check if user inter slot correctly
+            System.out.println("Availability slot cannot be empty.");
+            return;
+        }
+        availableSlots.add(slot);
+        System.out.println("Availability add successfully.");
+
+    }
 
 }
 
