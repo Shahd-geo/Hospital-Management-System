@@ -58,5 +58,10 @@ public class EmergencyPatient extends Patient{
         System.out.println("triageLevel: " + triageLevel);
         System.out.println("admittedViaER :" + admittedViaER);
     }
+    @Override
+    public void addMedicalRecord(MedicalRecord record){
+        super.addMedicalRecord(record);
+        System.out.println("Emergency medical record added.");
+    }
 
 }
