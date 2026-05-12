@@ -39,4 +39,23 @@ public class Surgeon extends Doctor {
     public void setOperationTheatreAccess(boolean operationTheatreAccess) {
         this.operationTheatreAccess = operationTheatreAccess;
     }
+    public boolean  performSurgery(String surgeryType){
+        if(!surgeryTypes.contains(surgeryType)){
+            return false;
+        }
+        if(!operationTheatreAccess){
+            return false;
+        }
+        surgeriesPerformed++;
+        return true;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("surgeries Performed : " + surgeriesPerformed);
+        System.out.println("surgery Types : " + surgeryTypes);
+        System.out.println("operation Theatre Access : " + operationTheatreAccess);
+
+
 }
