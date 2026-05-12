@@ -149,7 +149,7 @@ public class Patient extends Person {
             return;
         }
 
-        if (!phone.matches("\\d+")) {
+        if (!phone.matches("\\d+")) { //only contain number
             System.out.println("Invalid phone number format. Only digits are allowed.");
             return;
         }
@@ -161,7 +161,7 @@ public class Patient extends Person {
             return;
         }
 
-        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) { //make sure email not inter with eroor
             System.out.println("Invalid email format.");
             return;
         }
@@ -186,8 +186,6 @@ public class Patient extends Person {
             return;
         }
 
-
-        // Validate email
         if (email == null || email.trim().isEmpty()) {
             System.out.println("email  cannot be empty.");
             return;
@@ -198,7 +196,6 @@ public class Patient extends Person {
             return;
         }
 
-        // Validate address
         if (address == null || address.trim().isEmpty()) {
             System.out.println("Address cannot be empty.");
             return;
