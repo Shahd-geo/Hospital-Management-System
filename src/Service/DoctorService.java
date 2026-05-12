@@ -1,6 +1,7 @@
 package Service;
 
 import Entity.Doctor;
+import Entity.Patient;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -217,6 +218,18 @@ public class DoctorService {
         System.out.println("doctor not found");
         return null;
     }
+    // Overloaded assignPatient(String doctorId , String patientId)
+    public void assignPatient(String doctorId, String patientId) {
+        for(Doctor doctor : doctors){
+            if(doctor.getDoctorId().equals(doctorId)){
+                doctor.getAssignedPatients().add(patientId);
+
+                System.out.println("Patient : " + patientId + " assigned to Dr. " + doctorId);
+            }
+        }
+    }
+
+
 
 
     //display all doctors with formatted output
