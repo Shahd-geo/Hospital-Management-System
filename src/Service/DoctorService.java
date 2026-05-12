@@ -96,6 +96,7 @@ public class DoctorService {
     }
 
 
+
     // add doctor
     public static void addDoctors() {
 
@@ -106,6 +107,20 @@ public class DoctorService {
         System.out.println(
                 "Doctor added successfully");
     }
+
+
+    // Overloaded  addDoctor(String name, String specialization, String phone)
+
+    public void addDoctor(String name, String specialization, String phone){
+
+        Doctor doctor = new Doctor();
+        doctor.setFirstName(name);
+        doctor.setSpecialization(specialization);
+        doctor.setPhoneNumber(phone);
+
+        doctors.add(doctor);
+    }
+
     public static void editDoctor(String doctorId){
 
         for(Doctor doctor : doctors){

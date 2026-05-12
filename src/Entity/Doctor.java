@@ -26,6 +26,10 @@ public class Doctor extends Person{
         this.assignedPatients = assignedPatients;
     }
 
+    public Doctor() {
+
+    }
+
     public String getDoctorId() {
         return doctorId;
     }
