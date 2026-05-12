@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Surgeon extends Doctor {
    private int surgeriesPerformed;
-   private List<String>surgeryTypes=new ArrayList<>();
+   private List<String> surgeryTypes=new ArrayList<>();
     private boolean operationTheatreAccess;
 
     public Surgeon(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, Double consultationFee, List<String> availableSlots, List<String> assignedPatients, int surgeriesPerformed, List<String> surgeryTypes, boolean operationTheatreAccess) {
@@ -41,6 +41,7 @@ public class Surgeon extends Doctor {
     }
     public boolean  performSurgery(String surgeryType){
         if(!surgeryTypes.contains(surgeryType)){
+            System.out.println("Surgery type not supported");
             return false;
         }
         if(!operationTheatreAccess){
@@ -67,6 +68,7 @@ public class Surgeon extends Doctor {
         System.out.println("surgeries Performed : " + surgeriesPerformed);
         System.out.println("surgery Types : " + surgeryTypes);
         System.out.println("operation Theatre Access : " + operationTheatreAccess);
+    }
 
 
 }
