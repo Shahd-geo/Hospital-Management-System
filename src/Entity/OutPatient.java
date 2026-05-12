@@ -47,4 +47,11 @@ public class OutPatient extends Patient{
 
 
         }
+    // scheduleFollowUp()
+    public void scheduleFollowUp(LocalDate followUpDate ) {
+
+        System.out.println("Follow-up scheduled successfully.");
+        System.out.println("Follow-up Date : " + followUpDate);
+    }
+
 }
