@@ -55,7 +55,6 @@ public class OutPatient extends Patient{
     }
     // update Visit Count
     public void updateVisitCount(){
-
         visitCount++;
         lastVisitDate = LocalDate.now();
         System.out.println("Visit count updated successfully.");
