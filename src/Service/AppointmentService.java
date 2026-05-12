@@ -197,6 +197,27 @@ public class AppointmentService {
                 "Appointment not found"
         );
     }
+    // Overloaded createAppointment(String patientId, String doctorId, LocalDate date)
+
+    public void createAppointment(String patientId, String doctorId, LocalDate date){
+
+        Appointment appointment = new Appointment();
+
+        appointment.setPatientId(patientId);
+
+        appointment.setDoctorId(doctorId);
+
+        appointment.setAppointmentDate(date);
+
+        appointment.setStatus("Scheduled");
+
+        appointmentList.add(appointment);
+
+        System.out.println("Appointment add successfully");
+
+
+    }
+
     public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
         switch (AppointmantOption) {
             case 1 -> {
