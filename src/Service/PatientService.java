@@ -1,16 +1,18 @@
 package Service;
 
 import Entity.Appointment;
-import Entity.Department;
 import Entity.MedicalRecord;
 import Entity.Patient;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class PatientService {
+public class PatientService  implements Manageable, Searchable {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Patient> patients = new ArrayList<>();
 
@@ -310,7 +312,37 @@ public class PatientService {
             System.out.println("No patients found with this name");
         }
 
+
     }
+    @Override
+    public void add(Object entity){
+
+        patients.add((Patient) entity);
+
+        System.out.println(
+                "Patient added successfully.");
+    }
+    @Override
+    public void remove(String id){
+
+        removePatient(id);
+    }
+    @Override
+    public List<Object> getAll(){
+
+        return Collections.singletonList(patients);
+    }
+    @Override
+    public void search(String keyword){
+
+        searchPatients(keyword);
+    }
+    @Override
+    public void searchById(String id){
+
+        getPatientById(id);
+    }
+
 
 
     public static boolean handlePatientMenu(Integer PatientOption) {
