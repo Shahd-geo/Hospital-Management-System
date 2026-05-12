@@ -1,11 +1,13 @@
 package Entity;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 // Inheritance from person class
-public class Doctor extends Person{
+public class Doctor extends Person implements Displayable {
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -174,6 +176,10 @@ public class Doctor extends Person{
         availableSlots.addAll(slots);
         System.out.println("Availability slots added successfully.");
 
+    }
+    @Override
+    public void displaySummary(){
+        System.out.println("Doctor : " + getFirstName() + " " + getLastName() + " | Specialization : " + specialization);
     }
 
 }
