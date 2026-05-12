@@ -49,6 +49,17 @@ public class Surgeon extends Doctor {
         surgeriesPerformed++;
         return true;
     }
+    // updateSurgeryCount()
+    public void updateSurgeryCount(int count) {
+
+        if (count < 0) {
+            System.out.println("Invalid surgery count.");
+            return;
+        }
+
+        this.surgeriesPerformed = count;
+    }
+
 
     @Override
     public void displayInfo() {
