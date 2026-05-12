@@ -228,6 +228,13 @@ public class DoctorService {
             }
         }
     }
+    // Overloaded assignPatient(Doctor doctor, Patient patient)
+    public void assignPatient(Doctor doctor, Patient patient) {
+
+        doctor.getAssignedPatients().add(patient.getPatientId());
+
+        System.out.println("Patient : " + patient.getPatientId() + " assigned to Dr. " + doctor.getDoctorId());
+    }
 
 
 
