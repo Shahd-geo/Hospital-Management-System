@@ -28,6 +28,10 @@ public class Patient extends Person {
         this.allergies = allergies;
 
     }
+
+    public Patient() {
+
+    }
     //GETTER AND SETTER
 
     public String getPatientId() {

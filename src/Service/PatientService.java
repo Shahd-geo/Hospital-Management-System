@@ -102,6 +102,22 @@ public class PatientService {
         return patients;
 
     }
+    public PatientService() {
+    }
+
+    // OVERLOAAD addPatient(String firstName, String lastName, String phone) - minimal info
+    public void addPatient(String firstName, String lastName, String phone) {
+
+        Patient patient = new Patient();
+
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+
+        patients.add(patient);
+        System.out.println("Patient add successfully");
+
+    }
 
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
