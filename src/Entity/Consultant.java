@@ -7,7 +7,7 @@ import java.util.List;
 public class Consultant extends Doctor{
    private List<String>consultationTypes=new ArrayList<>();
     private boolean onlineConsultationAvailable;
-   private int consultationDuration; //(int - in minutes)
+   private int consultationDuration; // in minutes
 
     public Consultant(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, Double consultationFee, List<String> availableSlots, List<String> assignedPatients, List<String> consultationTypes, boolean onlineConsultationAvailable, int consultationDuration) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
