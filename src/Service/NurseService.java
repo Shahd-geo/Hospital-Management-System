@@ -163,7 +163,7 @@ public class NurseService  implements Manageable, Searchable {
         List<Nurse> shiftNurse = new ArrayList<>();
 
         for(Nurse nurse : nurseList){
-            if(nurse.getShift().equals(shift)){
+            if(nurse.getShift().equalsIgnoreCase(shift)){
                 shiftNurse.add(nurse);
             }
         }
