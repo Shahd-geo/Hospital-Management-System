@@ -163,6 +163,10 @@ public class MedicalRecordService implements Manageable, Searchable {
     //display PatientHistory
 
     public static void displayPatientHistory(String patientId) {
+        if(HelperUtils.isNull(patientId)){
+            System.out.println("Invalid patient ID.");
+            return;
+        }
 
         for(MedicalRecord medicalRecord : medicalRecordList){
             if(medicalRecord.getPatientId().equals(patientId)){
