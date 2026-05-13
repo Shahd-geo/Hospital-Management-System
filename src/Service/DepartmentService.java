@@ -16,8 +16,7 @@ public class DepartmentService  implements Manageable, Searchable {
 
 
     public static Department addDepartment(){
-        System.out.println("Enter Department Id :");
-        String departmentId = scanner.nextLine();
+        String departmentId = HelperUtils.generateId("DEP");
         System.out.println("Enter department Name :");
         String departmentName = scanner.nextLine();
         System.out.println("Enter department head DoctorId :");

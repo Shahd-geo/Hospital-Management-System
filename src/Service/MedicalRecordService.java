@@ -16,8 +16,7 @@ public class MedicalRecordService implements Manageable, Searchable {
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
     public static MedicalRecord addMedicalRecord() {
 
-        System.out.println("Enter record Id :");
-        String recordId = scanner.nextLine();
+        String recordId = HelperUtils.generateId("REC");
         System.out.println("Enter patient Id :");
         String patientId = scanner.nextLine();
         System.out.println("Enter doctor Id :");

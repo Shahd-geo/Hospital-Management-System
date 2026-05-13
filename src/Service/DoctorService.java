@@ -34,8 +34,7 @@ public class DoctorService implements Manageable, Searchable {
         String email = scanner.nextLine();
         System.out.println("Enter Dector address :");
         String address = scanner.nextLine();
-        System.out.println(" Enter doctorId;");
-        String doctorId = scanner.nextLine();
+        String doctorId = HelperUtils.generateId("DOC");
         System.out.println(" Enter specialization:");
         String specialization = scanner.nextLine();
         System.out.println("Enter qualification");
