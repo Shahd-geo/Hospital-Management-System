@@ -80,6 +80,10 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setDiagnosis(String diagnosis) {
+        if(!HelperUtils.isValidString(diagnosis)){
+            System.out.println("Invalid diagnosis.");
+            return;
+        }
         this.diagnosis = diagnosis;
     }
 
