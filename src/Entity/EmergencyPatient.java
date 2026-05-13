@@ -2,6 +2,7 @@ package Entity;
 
 import java.time.LocalDate;
 import java.util.List;
+import utility.HelperUtils;
 //
 public class EmergencyPatient extends InPatient{
    private String emergencyType;
@@ -23,6 +24,11 @@ public class EmergencyPatient extends InPatient{
     }
 
     public void setEmergencyType(String emergencyType) {
+
+        if(!HelperUtils.isValidString(emergencyType)){
+            System.out.println("Invalid emergency type.");
+            return;
+        }
         this.emergencyType = emergencyType;
     }
 
@@ -31,7 +37,11 @@ public class EmergencyPatient extends InPatient{
     }
 
     public void setArrivalMode(String arrivalMode) {
-        this.arrivalMode = arrivalMode;
+
+        if(!HelperUtils.isValidString(arrivalMode)){
+            System.out.println("Invalid arrival mode.");
+            return;
+        }this.arrivalMode = arrivalMode;
     }
 
     public int getTriageLevel() {

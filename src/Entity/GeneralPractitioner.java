@@ -1,5 +1,7 @@
 package Entity;
 
+import utility.HelperUtils;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -48,6 +50,12 @@ public class GeneralPractitioner  extends Doctor{
     }
     //scheduleHomeVisit
     public void scheduleHomeVisit(String patientName, String address) {
+        if(!HelperUtils.isValidString(patientName) || !HelperUtils.isValidString(address)){
+
+            System.out.println("Invalid patient data.");
+
+            return;
+        }
         if(!homeVisitAvailable){
             System.out.println("Home visit is not available.");
 
@@ -61,6 +69,13 @@ public class GeneralPractitioner  extends Doctor{
     }
     // administerVaccine()
     public void administerVaccine(String patientName, String vaccineName) {
+        if(!HelperUtils.isValidString(patientName)
+                || !HelperUtils.isValidString(vaccineName)){
+
+            System.out.println("Invalid vaccine data.");
+
+            return;
+        }
         if(!vaccinationCertified){
             System.out.println("Doctor is not certified for vaccination.");
 
