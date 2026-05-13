@@ -321,7 +321,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
         removeAppointment(id);
     }
     @Override
-    public List<List<Patient>> getAll() {
+    public List<Patient> getAll() {
 
         return appointmentList;
     }

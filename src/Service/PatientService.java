@@ -334,9 +334,9 @@ public class PatientService  implements Manageable, Searchable {
         removePatient(id);
     }
     @Override
-    public List<List<Patient>> getAll(){
+    public List<Patient> getAll(){
 
-        return Collections.singletonList(patients);
+        return Collections.singletonList((Patient) patients);
     }
     @Override
     public void search(String keyword){

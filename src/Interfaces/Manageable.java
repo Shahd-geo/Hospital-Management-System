@@ -9,5 +9,5 @@ public interface Manageable {
 
     void remove(String id);
 
-    List<List<Patient>> getAll();
+    List<Patient> getAll();
 }
