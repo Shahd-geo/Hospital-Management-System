@@ -180,6 +180,11 @@ public class DepartmentService  implements Manageable, Searchable {
     }
     @Override
     public void add(Object entity) {
+        if(HelperUtils.isNull(entity)){
+            System.out.println(
+                    "Department cannot be null.");
+            return;
+        }
 
         departmentList.add((Department) entity);
 
