@@ -90,6 +90,13 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setInsuranceId(String insuranceId) {
+
+        if(HelperUtils.isNull(insuranceId)){
+            System.out.println("Invalid insurance ID.");
+
+            return;
+        }
+
         this.insuranceId = insuranceId;
     }
 
