@@ -199,6 +199,10 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
     @Override
     public void search(String keyword) {
+        if(HelperUtils.isNull(keyword)){
+            System.out.println("Invalid keyword.");
+            return;
+        }
 
         List<MedicalRecord> records = getRecordsByPatientId(keyword);
 
