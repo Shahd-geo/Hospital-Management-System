@@ -30,7 +30,7 @@ public class Nurse extends Person implements Displayable {
 
     public void setNurseId(String nurseId) {
 
-        if(HelperUtils.isNull(nurseId)){
+        if(!HelperUtils.isValidString(nurseId)){
             System.out.println("Invalid nurse ID.");
             return;
         }
@@ -44,7 +44,7 @@ public class Nurse extends Person implements Displayable {
 
     public void setDepartmentId(String departmentId) {
 
-        if(HelperUtils.isNull(departmentId)){
+        if(!HelperUtils.isValidString(departmentId)){
             System.out.println("Invalid department ID.");
             return;
         }
@@ -87,6 +87,10 @@ public class Nurse extends Person implements Displayable {
     }
 
     public void setAssignedPatients(List<String> assignedPatients) {
+        if(HelperUtils.isNull(assignedPatients)){
+            System.out.println("Assigned patients cannot be null.");
+            return;
+        }
         this.assignedPatients = assignedPatients;
     }
 
