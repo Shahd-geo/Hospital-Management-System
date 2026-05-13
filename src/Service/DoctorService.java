@@ -247,7 +247,7 @@ public class DoctorService implements Manageable, Searchable {
     // Overloaded assignPatient(String doctorId, List<String> patientIds) - bulk assignment
     public void assignPatient(String doctorId, List<String> patientIds){
         if(HelperUtils.isNull(doctorId)
-                || patientIds == null
+                || HelperUtils.isNull(patientIds)
                 || patientIds.isEmpty()){
 
             System.out.println("Invalid patient list.");
@@ -256,7 +256,7 @@ public class DoctorService implements Manageable, Searchable {
 
         Doctor doctor = getDoctorById(doctorId);
 
-        if(doctor != null){
+        if(HelperUtils.isNotNull(doctor)){
             for(String patientId : patientIds){
                 doctor.getAssignedPatients().add(patientId);
             }
@@ -382,7 +382,7 @@ public class DoctorService implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
         Doctor doctor = getDoctorById(id);
-        if (doctor != null){
+        if(HelperUtils.isNotNull(doctor)){
             doctor.displayInfo();
         }
     }
