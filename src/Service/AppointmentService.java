@@ -6,6 +6,7 @@ import Interfaces.Appointable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import utility.HelperUtils;
+import utility.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,13 +20,12 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     public static Appointment addAppointment() {
 
         String appointmentId = HelperUtils.generateId("APP");
-        System.out.println("Enter patient Id :");
-        String patientId = scanner.nextLine();
+
+        String patientId = InputHandler.getStringInput("Enter patient id");
         System.out.println("Enter doctor Id :");
         String doctorId = scanner.nextLine();
         System.out.println("Enter appointment Date :");
-        String appointmentDate = scanner.nextLine();
-        LocalDate date = LocalDate.parse(appointmentDate);
+        LocalDate date = InputHandler.getDateInput("Enter appoi date ")
         System.out.println("Enter appointment Time :");
         String appointmentTime = scanner.nextLine();
         System.out.println("Enter status :");
@@ -181,7 +181,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         Appointment appointment = getAppointment(appointmentId);
 
-        if (appointment != null) {
+        if (HelperUtils.isNotNull(appointment)){
 
             appointment.setAppointmentDate(newDate);
             appointment.setStatus("Rescheduled");

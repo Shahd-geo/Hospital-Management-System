@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import utility.HelperUtils;
+import utility.InputHandler;
 
 public class PatientService  implements Manageable, Searchable {
     public static Scanner scanner = new Scanner(System.in);
@@ -21,36 +22,20 @@ public class PatientService  implements Manageable, Searchable {
     //add new patient
     public static Patient addPatient() {
         String id = HelperUtils.generateId("PER");
-        System.out.println("Enter Patient First Name : ");
-        String fristPatientName = scanner.nextLine();
-        System.out.println("Enter Patient Last  Name : ");
-        String lastPatientName = scanner.nextLine();
-        System.out.println("Enter patient DOB (yyyy-mm-dd): ");
-        String dateOfBirth = scanner.nextLine();
-        LocalDate DOB = LocalDate.parse(dateOfBirth);
-        System.out.println("Enter patient gender :");
-        String gender = scanner.nextLine();
-        System.out.println("Enter patient phone number :");
-        String phone = scanner.nextLine();
-        System.out.println("Enter patient email :");
-        String email = scanner.nextLine();
-        System.out.println("Enter patient address :");
-        String address = scanner.nextLine();
-
+        String fristPatientName = InputHandler.getStringInput("Enter Patient First Name :");
+        String lastPatientName =InputHandler.getStringInput("Enter Patient Last  Name : ");
+        LocalDate DOB =InputHandler.getDateInput("Enter patient DOB (yyyy-mm-dd): ");
+        String gender = InputHandler.getStringInput("Enter patient gender :");
+        String phone = InputHandler.getStringInput("Enter patient phone number :");
+        String email = InputHandler.getStringInput("Enter patient email :");
+        String address = InputHandler.getStringInput("Enter patient address :");
         String patientID = HelperUtils.generateId("PAT");
-
-
-        System.out.println("Enter patient blood group :");
-        String bloodGroup = scanner.nextLine();
-        System.out.println("Enter emergency contact :");
-        String emergencyContact = scanner.nextLine();
-        System.out.println("Enter registration date (yyyy-mm-dd): ");
-        String registrationDate = scanner.nextLine();
-        LocalDate DOR = LocalDate.parse(registrationDate);
+        String bloodGroup = InputHandler.getStringInput("Enter patient blood group :");
+        String emergencyContact = InputHandler.getStringInput("Enter emergency contact :");
+        LocalDate DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
         System.out.println("Enter insurance id :");
-        String insuranceId = scanner.nextLine();
+        String insuranceId = InputHandler.getStringInput("Enter insurance id :");
         List<String> allergies = new ArrayList<>();
-
         boolean allergiesloop = true;
         while (allergiesloop) {
             System.out.println("Enter allergy :");
@@ -62,7 +47,6 @@ public class PatientService  implements Manageable, Searchable {
                 allergiesloop = false;
             }
         }
-        String patientID = HelperUtils.generateId("PAT");
         Patient patient;
         patient = new Patient(id,
                 fristPatientName,
