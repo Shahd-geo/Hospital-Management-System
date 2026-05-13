@@ -51,7 +51,11 @@ public class Appointment  implements Displayable {
     }
 
     public void setPatientId(String patientId) {
-        this.patientId = patientId;
+
+        if(!HelperUtils.isValidString(patientId)){
+            System.out.println("Invalid patient ID.");
+            return;
+        }this.patientId = patientId;
     }
 
     public String getDoctorId() {
@@ -59,7 +63,11 @@ public class Appointment  implements Displayable {
     }
 
     public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+
+        if(!HelperUtils.isValidString(doctorId)){
+            System.out.println("Invalid doctor ID.");
+            return;
+        } this.doctorId = doctorId;
     }
 
     public LocalDate getAppointmentDate() {
@@ -67,6 +75,13 @@ public class Appointment  implements Displayable {
     }
 
     public void setAppointmentDate(LocalDate appointmentDate) {
+        if(!HelperUtils.isValidDate(
+                appointmentDate)){
+
+            System.out.println("Invalid appointment date.");
+
+            return;
+        }
         this.appointmentDate = appointmentDate;
     }
 
@@ -75,7 +90,13 @@ public class Appointment  implements Displayable {
     }
 
     public void setAppointmentTime(String appointmentTime) {
-        this.appointmentTime = appointmentTime;
+
+        if(!HelperUtils.isValidString(appointmentTime)){
+
+            System.out.println("Invalid appointment time.");
+
+            return;
+        }this.appointmentTime = appointmentTime;
     }
 
     public String getStatus() {
@@ -83,7 +104,11 @@ public class Appointment  implements Displayable {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+
+        if(!HelperUtils.isValidString(status)){
+            System.out.println("Invalid status.");
+            return;
+        }this.status = status;
     }
 
     public String getReason() {
@@ -91,6 +116,10 @@ public class Appointment  implements Displayable {
     }
 
     public void setReason(String reason) {
+        if(!HelperUtils.isValidString(reason)){
+            System.out.println("Invalid reason.");
+            return;
+        }
         this.reason = reason;
     }
 
@@ -99,7 +128,11 @@ public class Appointment  implements Displayable {
     }
 
     public void setNotes(String notes) {
-        this.notes = notes;
+
+        if(!HelperUtils.isValidString(notes)){
+            System.out.println("Invalid notes.");
+            return;
+        }this.notes = notes;
     }
 
     // Display method
@@ -115,10 +148,18 @@ public class Appointment  implements Displayable {
     }
 
     public void reschedule(LocalDate newDate, String newTime) {
+        if(!HelperUtils.isValidDate(newDate) || !HelperUtils.isValidString(newTime)){
+
+            System.out.println("Invalid reschedule data.");
+
+            return;
+        }
+
         this.appointmentDate = newDate;
         this.appointmentTime = newTime;
         this.status = "Rescheduled";
     }
+
 
     public void cancel() {
         this.status = "Cancelled";
@@ -132,7 +173,7 @@ public class Appointment  implements Displayable {
     public void addNotes(String notes) {
 
         // Validate notes
-        if (notes == null || notes.trim().isEmpty()) {
+        if(HelperUtils.isNull(notes)) {
 
             System.out.println("Notes cannot be empty.");
 
@@ -147,7 +188,7 @@ public class Appointment  implements Displayable {
     // overload addNotes(String notes, String addedBy)
     public void addNotes(String notes, String addedBy) {
         // Validate notes
-        if (notes == null || notes.trim().isEmpty()) {
+        if(HelperUtils.isNull(notes)){
 
             System.out.println("Notes cannot be empty.");
 
@@ -155,7 +196,7 @@ public class Appointment  implements Displayable {
         }
 
         // Validate addedBy
-        if (addedBy == null || addedBy.trim().isEmpty()) {
+        if(HelperUtils.isNull(addedBy)){
 
             System.out.println("AddedBy cannot be empty.");
 
@@ -171,7 +212,7 @@ public class Appointment  implements Displayable {
     public void addNotes(String notes, String addedBy, LocalDateTime timestamp) {
 
         // Validate notes
-        if (notes == null || notes.trim().isEmpty()) {
+        if(HelperUtils.isNull(notes)) {
 
             System.out.println("Notes cannot be empty.");
 
@@ -179,7 +220,7 @@ public class Appointment  implements Displayable {
         }
 
         // Validate addedBy
-        if (addedBy == null || addedBy.trim().isEmpty()) {
+         if(HelperUtils.isNull(addedBy)) {
 
             System.out.println("AddedBy cannot be empty.");
 
@@ -187,7 +228,7 @@ public class Appointment  implements Displayable {
         }
 
         // Validate timestamp
-        if (timestamp == null) {
+        if(HelperUtils.isNull(timestamp)) {
 
             System.out.println("Timestamp cannot be null.");
 
