@@ -133,10 +133,20 @@ public class Department implements Displayable {
         }doctors.add(doctor);
     }
     public void assignNurse(Nurse nurse) {
-        nurses.add(nurse);
+
+        if(HelperUtils.isNull(nurse)){
+            System.out.println("Nurse cannot be null.");
+            return;
+        }nurses.add(nurse);
     }
     public void updateBedAvailability(int beds) {
-        this.availableBeds = beds;
+
+        if(!HelperUtils.isValidNumber(beds,0,bedCapacity)){
+
+            System.out.println("Invalid bed availability.");
+
+            return;
+        }this.availableBeds = beds;
     }
     @Override
     public void displaySummary(){
