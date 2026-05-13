@@ -39,11 +39,10 @@ public class PatientService  implements Manageable, Searchable {
         List<String> allergies = new ArrayList<>();
         boolean allergiesloop = true;
         while (allergiesloop) {
-            System.out.println("Enter allergy :");
             allergies.add(InputHandler.getStringInput("Enter allergy :"));
-            System.out.println("Enter c to continue  inter allergy or q to exist ");
-            if (scanner.nextLine()
-                    .equalsIgnoreCase("q")) {
+            String choice = InputHandler.getStringInput("Enter c to continue or q to exit");
+
+            if(choice.equalsIgnoreCase("q")){
 
                 allergiesloop = false;
             }
@@ -484,23 +483,14 @@ public static OutPatient addOutPatient(){
                 addPatients();
             }
             case 2 -> {
-                UpdatePatient(null,null);
+                addInPatient();
             }
             case 3 -> {
-                System.out.println("Enter patient Id to remove");
-                String patientId = scanner.nextLine();
-                removePatient(patientId);
+                addOutPatient();
             }
 
             case 4 -> {
-                System.out.println("Enter patient Id to getDoctorById");
-                String patientId = scanner.nextLine();
-                Patient patient = getPatientById(patientId);
-
-                if (patient != null){
-                    patient.displayInfo();
-                }
-
+                addEmergencyPatient();
             }
             case 5 -> {
                 displayAllPatients();
@@ -508,18 +498,46 @@ public static OutPatient addOutPatient(){
             }
 
             case 6 -> {
-                System.out.println("Enter Name to search ");
-                String name = scanner.nextLine();
-                searchPatientsByName(name);
+                String keyword = InputHandler.getStringInput("Enter patient name:");
 
-
+                searchPatientsByName(keyword);
             }
+            case 7-> {
+                String patientId = InputHandler.getStringInput("Enter patient ID:");
+
+                UpdatePatient(patientId,null);
+            } case 8 -> {
+
+                String patientId = InputHandler.getStringInput("Enter patient ID:");
+                removePatient(patientId);
+            }
+
+            case 9 -> {String patientId = InputHandler.getStringInput("Enter patient ID:");
+
+                Patient patient = getPatientById(patientId);
+
+                if(HelperUtils.isNotNull(patient)){
+
+                    for(MedicalRecord record : patient.getMedicalRecords()){
+
+                        record.displayInfo();
+                    }
+                }
+            }
+
+            case 10 -> {
+
+                return true;
+            }
+
+            default ->
+
+                    System.out.println("Invalid option");
         }
+
         return false;
     }
-
 }
-
 
 
 
