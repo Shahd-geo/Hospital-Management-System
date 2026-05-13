@@ -45,7 +45,7 @@ public class Patient extends Person implements Displayable {
 
     public void setPatientId(String patientId) {
 
-        if(HelperUtils.isNull(patientId)){
+        if(!HelperUtils.isValidString(patientId)){
             System.out.println("Invalid patient ID.");
             return;
         }
@@ -91,7 +91,7 @@ public class Patient extends Person implements Displayable {
 
     public void setInsuranceId(String insuranceId) {
 
-        if(HelperUtils.isNull(insuranceId)){
+        if(!HelperUtils.isValidString(insuranceId)){
             System.out.println("Invalid insurance ID.");
 
             return;
