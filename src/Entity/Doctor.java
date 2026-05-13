@@ -1,6 +1,7 @@
 package Entity;
 
 import Interfaces.Displayable;
+import utility.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -41,6 +42,12 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setDoctorId(String doctorId) {
+
+        if(HelperUtils.isNull(doctorId)){
+            System.out.println("Invalid doctor ID.");
+            return;
+        }
+
         this.doctorId = doctorId;
     }
 
@@ -49,9 +56,17 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setSpecialization(String specialization) {
+
+        if(!HelperUtils.isValidString(
+                specialization)){
+
+            System.out.println("Invalid specialization.");
+
+            return;
+        }
+
         this.specialization = specialization;
     }
-
     public String getQualification() {
         return qualification;
     }
