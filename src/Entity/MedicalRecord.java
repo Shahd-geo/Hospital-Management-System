@@ -116,7 +116,11 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setNotes(String notes) {
-        this.notes = notes;
+
+        if(!HelperUtils.isValidString(notes)){
+            System.out.println("Invalid notes.");
+            return;
+        } this.notes = notes;
     }
 
     //display
