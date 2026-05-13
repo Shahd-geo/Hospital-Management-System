@@ -147,7 +147,11 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setAssignedPatients(List<String> assignedPatients) {
-        this.assignedPatients = assignedPatients;
+
+        if(HelperUtils.isNull(assignedPatients)){
+            System.out.println("Assigned patients cannot be null.");
+            return;
+        } this.assignedPatients = assignedPatients;
     }
 
     @Override
