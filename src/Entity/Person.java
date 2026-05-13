@@ -53,9 +53,14 @@ public  abstract class Person {
     }
 
     public void setFirstName(String firstName) {
+
+        if(!HelperUtils.isValidString(firstName)){
+            System.out.println("Invalid first name.");
+            return;
+        }
+
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
