@@ -3,6 +3,7 @@ package Entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import utility.HelperUtils;
 
 public class Consultant extends Doctor{
    private List<String>consultationTypes=new ArrayList<>();
@@ -24,7 +25,11 @@ public class Consultant extends Doctor{
     }
 
     public void setConsultationTypes(List<String> consultationTypes) {
-        this.consultationTypes = consultationTypes;
+
+        if(HelperUtils.isNull(consultationTypes)){
+            System.out.println("Consultation types cannot be null.");
+            return;
+        }this.consultationTypes = consultationTypes;
     }
 
     public boolean isOnlineConsultationAvailable() {
@@ -40,7 +45,13 @@ public class Consultant extends Doctor{
     }
 
     public void setConsultationDuration(int consultationDuration) {
-        this.consultationDuration = consultationDuration;
+
+        if(!HelperUtils.isPositive(consultationDuration)) {
+            System.out.println("Invalid consultation duration.");
+
+            return;
+        }
+            this.consultationDuration = consultationDuration;
     }
     @Override
     public void displayInfo() {
@@ -73,6 +84,10 @@ public class Consultant extends Doctor{
     }
     //provideSecondOpinion()
     public void provideSecondOpinion(String patientCase) {
+        if(!HelperUtils.isValidString(patientCase)){
+            System.out.println("Invalid patient case.");
+            return;
+        }
         System.out.println("Providing second opinion for case:");
         System.out.println(patientCase);
         System.out.println("Second opinion completed successfully.");
