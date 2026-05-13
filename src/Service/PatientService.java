@@ -335,7 +335,56 @@ public class PatientService  implements Manageable, Searchable {
     }
 
    //ddInPatient method
+   public static InPatient addInPatient(){
 
+       Patient basePatient = addPatient();
+
+       LocalDate admissionDate = InputHandler.getDateInput("Enter admission date:");
+
+       LocalDate dischargeDate = InputHandler.getDateInput("Enter discharge date:");
+
+       String roomNumber =InputHandler.getStringInput("Enter room number:");
+
+       String bedNumber = InputHandler.getStringInput("Enter bed number:");
+
+       String doctorId = InputHandler.getStringInput("Enter admitting doctor ID:");
+
+       double dailyCharges = InputHandler.getDoubleInput("Enter daily charges:");
+
+       InPatient inPatient =
+               new InPatient(
+
+                       basePatient.getId(),
+                       basePatient.getFirstName(),
+                       basePatient.getLastName(),
+                       basePatient.getDateOfBirth(),
+                       basePatient.getGender(),
+                       basePatient.getPhoneNumber(),
+                       basePatient.getEmail(),
+                       basePatient.getAddress(),
+                       basePatient.getRegistrationDate(),
+                       basePatient.getPatientId(),
+                       basePatient.getMedicalRecords(),
+                       basePatient.getInsuranceId(),
+                       basePatient.getEmergencyContact(),
+                       basePatient.getBloodGroup(),
+                       basePatient.getAppointments(),
+                       basePatient.getAllergies(),
+
+                       admissionDate,
+                       dischargeDate,
+                       roomNumber,
+                       bedNumber,
+                       doctorId,
+                       dailyCharges
+               );
+
+       patients.add(inPatient);
+
+       System.out.println("InPatient added successfully.");
+
+       return inPatient;
+   }
 
     public static boolean handlePatientMenu(Integer PatientOption) {
 
