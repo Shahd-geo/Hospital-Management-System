@@ -2,6 +2,7 @@ package Entity;
 
 import java.time.LocalDate;
 import java.util.List;
+import utility.HelperUtils;
 
 public class OutPatient extends Patient{
    private int visitCount;
@@ -21,6 +22,10 @@ public class OutPatient extends Patient{
         }
 
         public void setVisitCount(int visitCount) {
+            if(HelperUtils.isNegative(visitCount)){
+                System.out.println("Invalid visit count.");
+                return;
+            }
             this.visitCount = visitCount;
         }
 
