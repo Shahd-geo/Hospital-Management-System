@@ -1,5 +1,6 @@
 package Service;
 
+import Entity.MedicalRecord;
 import Entity.Nurse;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -119,13 +120,11 @@ public class NurseService  implements Manageable, Searchable {
 
         if (removed){
 
-            System.out.println(
-                    "Nurse removed successfully");
+            System.out.println("Nurse removed successfully");
 
         } else {
 
-            System.out.println(
-                    "Nurse not found");
+            System.out.println("Nurse not found");
         }
     }
     //retrieve nurse
@@ -186,7 +185,7 @@ public class NurseService  implements Manageable, Searchable {
         removeNurse(id);
     }
     @Override
-    public List<Nurse> getAll() {
+    public List<MedicalRecord> getAll() {
 
         return nurseList;
     }
