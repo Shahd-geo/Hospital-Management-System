@@ -40,7 +40,12 @@ public class Surgeon extends Doctor {
     }
 
     public void setSurgeryTypes(List<String> surgeryTypes) {
-        this.surgeryTypes = surgeryTypes;
+
+        if(HelperUtils.isNull(surgeryTypes)){
+            System.out.println(
+                    "Surgery types cannot be null.");
+            return;
+        }this.surgeryTypes = surgeryTypes;
     }
 
     public boolean isOperationTheatreAccess() {
