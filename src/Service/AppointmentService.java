@@ -5,6 +5,7 @@ import Entity.Patient;
 import Interfaces.Appointable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
+import utility.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,8 +18,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     //add new appointment
     public static Appointment addAppointment() {
 
-        System.out.println("Enter appointment Id :");
-        String appointmentId = scanner.nextLine();
+        String appointmentId = HelperUtils.generateId("APP");
         System.out.println("Enter patient Id :");
         String patientId = scanner.nextLine();
         System.out.println("Enter doctor Id :");
@@ -309,6 +309,10 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
     @Override
     public void add(Object entity) {
+        if(HelperUtils.isNull(entity)){
+            System.out.println("Appointment cannot be null.");
+            return;
+        }
 
         appointmentList.add(
                 (Appointment) entity);
