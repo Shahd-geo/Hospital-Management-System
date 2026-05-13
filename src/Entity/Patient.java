@@ -152,10 +152,16 @@ public class Patient extends Person implements Displayable {
         System.out.println("medicalRecords: " + medicalRecords);
         System.out.println("appointments: " + appointments);
     }
-    public void  addMedicalRecord(MedicalRecord record){
-        medicalRecords.add(record);
+    public void addMedicalRecord(MedicalRecord record){
 
+        if(HelperUtils.isNull(record)){
+            System.out.println("Medical record cannot be null.");
+            return;
+        }
+
+        medicalRecords.add(record);
     }
+
     public void   addAppointment(Appointment  appointment){
         appointments.add(appointment);
     }
@@ -201,7 +207,7 @@ public class Patient extends Person implements Displayable {
             return;
         }
 
-        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) { //make sure email not inter with eroor
+        if(!HelperUtils.isValidString(email, "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")){//make sure email not inter with eroor
             System.out.println("Invalid email format.");
             return;
         }
