@@ -190,7 +190,7 @@ public class Doctor extends Person implements Displayable {
 
             return;
         }
-        if (reason == null || reason.trim().isEmpty()) {
+        if(HelperUtils.isNull(reason)){
             System.out.println("Reason cannot be empty.");
             return;
         }
