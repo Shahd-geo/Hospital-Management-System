@@ -93,7 +93,11 @@ public class Department implements Displayable {
     }
 
     public void setBedCapacity(int bedCapacity) {
-        this.bedCapacity = bedCapacity;
+
+        if(!HelperUtils.isPositive(bedCapacity)){
+            System.out.println("Invalid bed capacity.");
+            return;
+        }this.bedCapacity = bedCapacity;
     }
 
     public int getAvailableBeds() {
@@ -101,6 +105,14 @@ public class Department implements Displayable {
     }
 
     public void setAvailableBeds(int availableBeds) {
+        if(!HelperUtils.isValidNumber(
+                availableBeds,0,bedCapacity)){
+
+            System.out.println(
+                    "Invalid available beds.");
+
+            return;
+        }
         this.availableBeds = availableBeds;
     }
     public void displayInfo() {
@@ -114,7 +126,11 @@ public class Department implements Displayable {
         System.out.println("Available Beds: " + availableBeds);
     }
     public void assignDoctor(Doctor doctor) {
-        doctors.add(doctor);
+
+        if(HelperUtils.isNull(doctor)){
+            System.out.println("Doctor cannot be null.");
+            return;
+        }doctors.add(doctor);
     }
     public void assignNurse(Nurse nurse) {
         nurses.add(nurse);
