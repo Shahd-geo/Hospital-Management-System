@@ -91,6 +91,84 @@ public class HelperUtils {
             return false;
         }
     }
+    // Date range validation
+    public static boolean isValidDate(LocalDate date, LocalDate minDate, LocalDate maxDate) {
+
+        if (date == null || minDate == null || maxDate == null) {
+            return false;
+        }
+
+        return (date.isEqual(minDate) || date.isAfter(minDate)) &&
+                (date.isEqual(maxDate) || date.isBefore(maxDate));
+    }
+
+    //  Check future date
+    public static boolean isFutureDate(LocalDate date) {
+
+        if (date == null) {
+            return false;
+        }
+
+        return date.isAfter(LocalDate.now());
+    }
+
+    // 5. Check past date
+    public static boolean isPastDate(LocalDate date) {
+
+        if (date == null) {
+            return false;
+        }
+
+        return date.isBefore(LocalDate.now());
+    }
+
+    // 6. Check today's date
+    public static boolean isToday(LocalDate date) {
+
+        if (date == null) {
+            return false;
+        }
+
+        return date.isEqual(LocalDate.now());
+    }
+    // *****Numeric Validation Methods (Overloaded)*****
+
+    // Integer range validation
+    public static boolean isValidNumber(int num, int min, int max) {
+        return num >= min && num <= max;
+    }
+
+    //  Double range validation
+    public static boolean isValidNumber(double num, double min, double max) {
+        return num >= min && num <= max;
+    }
+
+    // Check positive integer
+    public static boolean isPositive(int num) {
+        return num > 0;
+    }
+
+    // Check positive double
+    public static boolean isPositive(double num) {
+        return num > 0;
+    }
+
+    // Check negative integer
+    public static boolean isNegative(int num) {
+        return num < 0;
+    }
+
+    // Check negative double
+    public static boolean isNegative(double num) {
+        return num < 0;
+    }
+    // *****Input Validation Methods (Overloaded) *****
+
+    // Validate age directly (int)
+    public static boolean isValidAge(int age) {
+
+        return age >= 0 && age <= 110;
+    }
 
 
 
