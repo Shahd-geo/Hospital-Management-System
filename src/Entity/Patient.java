@@ -121,6 +121,14 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setRegistrationDate(LocalDate registrationDate) {
+
+        if(!HelperUtils.isValidDate(registrationDate)){
+
+            System.out.println("Invalid registration date.");
+
+            return;
+        }
+
         this.registrationDate = registrationDate;
     }
 
@@ -157,7 +165,7 @@ public class Patient extends Person implements Displayable {
     //overloaded updateContact(String phone)
 
     public void updateContact(String phone){
-        if (phone == null || phone.trim().isEmpty()) {
+        if(HelperUtils.isNull(phone)){
             System.out.println("Phone number cannot be empty.");
             return;
         }
