@@ -66,6 +66,12 @@ public  abstract class Person {
     }
 
     public void setLastName(String lastName) {
+
+        if(!HelperUtils.isValidString(lastName)){
+            System.out.println("Invalid last name.");
+            return;
+        }
+
         this.lastName = lastName;
     }
 
