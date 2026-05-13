@@ -138,7 +138,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
         for (MedicalRecord medicalRecord : medicalRecordList){
 
-            if(medicalRecord.getPatientId().equals(patientId)){
+            if(medicalRecord.getPatientId().equalsIgnoreCase(patientId)){
                 patientMedicalRecords.add(medicalRecord);
             }
         }
