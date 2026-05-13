@@ -41,7 +41,6 @@ public class PatientService  implements Manageable, Searchable {
         while (allergiesloop) {
             System.out.println("Enter allergy :");
             allergies.add(InputHandler.getStringInput("Enter allergy :"));
-
             System.out.println("Enter c to continue  inter allergy or q to exist ");
             if (scanner.nextLine()
                     .equalsIgnoreCase("q")) {
@@ -335,7 +334,7 @@ public class PatientService  implements Manageable, Searchable {
         getPatientById(id);
     }
 
-
+   //ddInPatient method
 
 
     public static boolean handlePatientMenu(Integer PatientOption) {
