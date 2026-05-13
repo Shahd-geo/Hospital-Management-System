@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import utility.HelperUtils;
 
 public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
@@ -232,6 +233,12 @@ public class DoctorService implements Manageable, Searchable {
     }
     // Overloaded assignPatient(Doctor doctor, Patient patient)
     public void assignPatient(Doctor doctor, Patient patient) {
+        if(HelperUtils.isNull(doctor)
+                || HelperUtils.isNull(patient)){
+
+            System.out.println("Invalid data.");
+            return;
+        }
 
         doctor.getAssignedPatients().add(patient.getPatientId());
 
@@ -239,6 +246,19 @@ public class DoctorService implements Manageable, Searchable {
     }
     // Overloaded assignPatient(String doctorId, List<String> patientIds) - bulk assignment
     public void assignPatient(String doctorId, List<String> patientIds){
+        if(HelperUtils.isNull(doctorId)
+                || patientIds == null
+                || patientIds.isEmpty()){
+
+            System.out.println("Invalid patient list.");
+            return;
+        }
+        if(HelperUtils.isNull(doctorId)
+                || HelperUtils.isNull(patientIds)){
+
+            System.out.println("Invalid data.");
+            return;
+        }
 
         Doctor doctor = getDoctorById(doctorId);
 
@@ -270,6 +290,10 @@ public class DoctorService implements Manageable, Searchable {
     }
     // Overloaded displayDoctors(
     public void displayDoctors(String specialization){
+        if(HelperUtils.isNull(specialization)){
+            System.out.println("Invalid specialization.");
+            return;
+        }
 
         for(Doctor doctor : doctors){
 
@@ -333,10 +357,13 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
+        if(HelperUtils.isNull(entity)){
+            System.out.println("Doctor cannot be null.");
+            return;
+        }
         doctors.add((Doctor) entity);
 
-        System.out.println(
-                "Doctor added successfully");
+        System.out.println("Doctor added successfully");
 
     }
 
@@ -347,7 +374,7 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     @Override
-    public List<Patient> getAll() {
+    public List<Doctor> getAll() {
 
         return doctors;
     }
