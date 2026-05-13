@@ -193,7 +193,7 @@ public class MedicalRecordService implements Manageable, Searchable {
         removeRecored(id);
     }
     @Override
-    public List<Patient> getAll() {
+    public List<MedicalRecord> getAll() {
 
         return medicalRecordList;
     }

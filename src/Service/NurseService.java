@@ -183,9 +183,9 @@ public class NurseService  implements Manageable, Searchable {
         removeNurse(id);
     }
     @Override
-    public List<Patient> getAll() {
+    public List<Nurse> getAll() {
 
-       return nurse;
+       return nurseList;
     }
     @Override
     public void search(String keyword) {

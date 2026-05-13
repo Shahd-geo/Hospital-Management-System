@@ -515,18 +515,32 @@ public static OutPatient addOutPatient(){
                 removePatient(patientId);
             }
 
-            case 9 -> {String patientId = InputHandler.getStringInput("Enter patient ID:");
+            case 9 ->{String patientId =
+                    InputHandler.getStringInput(
+                            "Enter patient ID:");
 
-                Patient patient = getPatientById(patientId);
+            Patient patient =
+                    getPatientById(patientId);
 
-                if(HelperUtils.isNotNull(patient)){
+            if(HelperUtils.isNotNull(patient)){
 
-                    for(MedicalRecord record : patient.getMedicalRecords()){
+                if(patient.getMedicalRecords().isEmpty()){
 
-                        record.displayInfo();
-                    }
+                    System.out.println("No medical records found.");
+
+                    return false;
                 }
+
+                for(MedicalRecord record : patient.getMedicalRecords()){
+
+                    record.displayInfo();
+                }
+
+            }else{
+
+                System.out.println("Patient not found.");
             }
+        }
 
             case 10 -> {
 
