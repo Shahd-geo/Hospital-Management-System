@@ -92,6 +92,11 @@ public class InPatient extends Patient implements Billable {
     }
 
     public void setDailyCharges(double dailyCharges) {
+        if(!HelperUtils.isPositive(dailyCharges)){
+            System.out.println(
+                    "Invalid daily charges.");
+            return;
+        }
         this.dailyCharges = dailyCharges;
     }
     @Override
@@ -110,7 +115,7 @@ public class InPatient extends Patient implements Billable {
     //calculate Stay Duration
     public long  calculateStayDuration(){
 
-        if (admissionDate == null || dischargeDate == null) {
+        if (HelperUtils.isNull(admissionDate) || HelperUtils.isNull(dischargeDate)){
             return 0;
         }
 
