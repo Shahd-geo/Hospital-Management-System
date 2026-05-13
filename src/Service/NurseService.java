@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import utility.HelperUtils;
 
 public class NurseService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
@@ -183,7 +184,7 @@ public class NurseService  implements Manageable, Searchable {
         removeNurse(id);
     }
     @Override
-    public List<Doctor> getAll() {
+    public List<Nurse> getAll() {
 
         return nurseList;
     }
