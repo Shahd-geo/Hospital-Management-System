@@ -1,6 +1,7 @@
 package Entity;
 
 import Interfaces.Displayable;
+import utility.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,6 +29,12 @@ public class Nurse extends Person implements Displayable {
     }
 
     public void setNurseId(String nurseId) {
+
+        if(HelperUtils.isNull(nurseId)){
+            System.out.println("Invalid nurse ID.");
+            return;
+        }
+
         this.nurseId = nurseId;
     }
 
