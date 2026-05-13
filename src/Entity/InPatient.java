@@ -148,7 +148,7 @@ public class InPatient extends Patient implements Billable {
     @Override
     public void processPayment(double amount) {
 
-        if (amount <= 0){
+        if(!HelperUtils.isPositive(amount)){
 
             System.out.println("Invalid payment amount.");
 
