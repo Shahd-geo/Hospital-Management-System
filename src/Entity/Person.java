@@ -138,6 +138,12 @@ public  abstract class Person {
     }
 
     public void setAddress(String address) {
+
+        if(!HelperUtils.isValidString(address)){
+            System.out.println("Invalid address.");
+            return;
+        }
+
         this.address = address;
     }
 
