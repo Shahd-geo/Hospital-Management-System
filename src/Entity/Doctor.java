@@ -234,7 +234,7 @@ public class Doctor extends Person implements Displayable {
     //overload  addAvailability(List<String> slots)
     public void addAvailability(List<String> slots){  //take list of slots
         // Check if the list is empty
-        if (slots == null || slots.isEmpty()) {
+        if(HelperUtils.isNull(slots) || slots.isEmpty()){
             System.out.println("No availability slots provided.");
             return;
         }
