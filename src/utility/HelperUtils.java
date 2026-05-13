@@ -71,6 +71,13 @@ public class HelperUtils {
 
         return str.matches(regex);
     }
+    // *****Date Validation Methods (Overloaded)*****
+
+    //  Check not null date
+    public static boolean isValidDate(LocalDate date) {
+        return date != null;
+    }
+
 
 
 
