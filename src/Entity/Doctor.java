@@ -119,6 +119,14 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setConsultationFee(Double consultationFee) {
+
+        if(!HelperUtils.isPositive(consultationFee)){
+
+            System.out.println("Invalid consultation fee.");
+
+            return;
+        }
+
         this.consultationFee = consultationFee;
     }
 
