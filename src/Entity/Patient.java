@@ -172,7 +172,15 @@ public class Patient extends Person implements Displayable {
         appointments.add(appointment);
     }
     public void updateInsurance(String newInsuranceId){
-        this.insuranceId=newInsuranceId;
+
+        if(HelperUtils.isNull(newInsuranceId)){
+            System.out.println("Invalid insurance ID.");
+
+            return;
+        }
+
+        this.insuranceId =
+                newInsuranceId;
     }
     //overloaded updateContact(String phone)
 
