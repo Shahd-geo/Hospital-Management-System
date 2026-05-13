@@ -424,6 +424,57 @@ public static OutPatient addOutPatient(){
         System.out.println("OutPatient added successfully.");
 
         return outPatient;
+    }public static EmergencyPatient addEmergencyPatient(){
+
+        InPatient basePatient = addInPatient();
+
+        patients.remove(basePatient);
+
+        String emergencyType = InputHandler.getStringInput("Enter emergency type:");
+
+        String arrivalMode = InputHandler.getStringInput("Enter arrival mode:");
+
+        int triageLevel = InputHandler.getIntInput("Enter triage level:", 1,5);
+
+        boolean admittedViaER =InputHandler.getConfirmation("Admitted via ER?");
+
+        EmergencyPatient emergencyPatient = new EmergencyPatient(
+
+                        basePatient.getId(),
+                        basePatient.getFirstName(),
+                        basePatient.getLastName(),
+                        basePatient.getDateOfBirth(),
+                        basePatient.getGender(),
+                        basePatient.getPhoneNumber(),
+                        basePatient.getEmail(),
+                        basePatient.getAddress(),
+                        basePatient.getRegistrationDate(),
+                        basePatient.getPatientId(),
+                        basePatient.getMedicalRecords(),
+                        basePatient.getInsuranceId(),
+                        basePatient.getEmergencyContact(),
+                        basePatient.getBloodGroup(),
+                        basePatient.getAppointments(),
+                        basePatient.getAllergies(),
+
+                        basePatient.getAdmissionDate(),
+                        basePatient.getDischargeDate(),
+                        basePatient.getRoomNumber(),
+                        basePatient.getBedNumber(),
+                        basePatient.getAdmittingDoctorId(),
+                        basePatient.getDailyCharges(),
+
+                        emergencyType,
+                        arrivalMode,
+                        triageLevel,
+                        admittedViaER
+                );
+
+        patients.add(emergencyPatient);
+
+        System.out.println(
+                "Emergency patient added successfully.");
+        return emergencyPatient;
     }
     public static boolean handlePatientMenu(Integer PatientOption) {
 
