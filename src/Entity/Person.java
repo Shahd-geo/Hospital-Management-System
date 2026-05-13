@@ -79,7 +79,14 @@ public  abstract class Person {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(
+            LocalDate dateOfBirth) {
+
+        if(!HelperUtils.isValidAge(dateOfBirth)){
+            System.out.println("Invalid date of birth.");
+            return;
+        }
+
         this.dateOfBirth = dateOfBirth;
     }
 
