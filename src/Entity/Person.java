@@ -95,6 +95,12 @@ public  abstract class Person {
     }
 
     public void setGender(String gender) {
+
+        if(!HelperUtils.isValidString(gender)){
+            System.out.println("Invalid gender.");
+            return;
+        }
+
         this.gender = gender;
     }
 
