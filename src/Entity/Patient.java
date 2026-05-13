@@ -71,8 +71,18 @@ public class Patient extends Person implements Displayable {
         return emergencyContact;
     }
 
-    public void setEmergencyContact(String emergencyContact) {
-        this.emergencyContact = emergencyContact;
+    public void setEmergencyContact(
+            String emergencyContact) {
+
+        if(!HelperUtils.isValidString(emergencyContact,8,15)){
+
+            System.out.println("Invalid emergency contact.");
+
+            return;
+        }
+
+        this.emergencyContact =
+                emergencyContact;
     }
 
     public String getInsuranceId() {
