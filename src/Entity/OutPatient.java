@@ -34,6 +34,10 @@ public class OutPatient extends Patient{
         }
 
         public void setLastVisitDate(LocalDate lastVisitDate) {
+            if(!HelperUtils.isValidDate(lastVisitDate)){
+                System.out.println("Invalid last visit date.");
+                return;
+            }
             this.lastVisitDate = lastVisitDate;
         }
 
