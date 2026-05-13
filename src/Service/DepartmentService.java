@@ -7,6 +7,7 @@ import Interfaces.Searchable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import utility.HelperUtils;
 public class DepartmentService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<Department> departmentList = new ArrayList<>();
