@@ -1,6 +1,5 @@
 package Service;
 
-import Entity.Doctor;
 import Entity.Nurse;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -172,11 +171,14 @@ public class NurseService  implements Manageable, Searchable {
     }
     @Override
     public void add(Object entity) {
+        if(HelperUtils.isNull(entity)){
+            System.out.println("Nurse cannot be null.");
+            return;
+        }
 
         nurseList.add((Nurse) entity);
 
-        System.out.println(
-                "Nurse added successfully");
+        System.out.println("Nurse added successfully");
     }
     @Override
     public void remove(String id) {

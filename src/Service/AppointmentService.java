@@ -1,7 +1,7 @@
 package Service;
 
 import Entity.Appointment;
-import Entity.Doctor;
+import Entity.Nurse;
 import Interfaces.Appointable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -321,7 +321,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
         removeAppointment(id);
     }
     @Override
-    public List<Doctor> getAll() {
+    public List<Nurse> getAll() {
 
         return appointmentList;
     }
