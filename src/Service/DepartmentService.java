@@ -202,7 +202,7 @@ public class DepartmentService  implements Manageable, Searchable {
         removeDepartment(id);
     }
     @Override
-    public List<Nurse> getAll() {
+    public List<Patient> getAll() {
 
         return departmentList;
     }

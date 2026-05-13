@@ -20,8 +20,7 @@ public class PatientService  implements Manageable, Searchable {
 
     //add new patient
     public static Patient addPatient() {
-        System.out.println("Enter ID : ");
-        String id = scanner.nextLine();
+        String id = HelperUtils.generateId("PER");
         System.out.println("Enter Patient First Name : ");
         String fristPatientName = scanner.nextLine();
         System.out.println("Enter Patient Last  Name : ");
@@ -38,8 +37,7 @@ public class PatientService  implements Manageable, Searchable {
         System.out.println("Enter patient address :");
         String address = scanner.nextLine();
 
-        System.out.println("Enter patient id :");
-        String patientId = scanner.nextLine();
+        String patientID = HelperUtils.generateId("PAT");
 
 
         System.out.println("Enter patient blood group :");
@@ -333,7 +331,7 @@ public class PatientService  implements Manageable, Searchable {
         removePatient(id);
     }
     @Override
-    public List<Nurse> getAll(){
+    public List<Patient> getAll(){
 
         return  patients;
     }
