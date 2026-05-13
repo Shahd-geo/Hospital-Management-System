@@ -206,7 +206,7 @@ public class DepartmentService  implements Manageable, Searchable {
 
         Department department = getDepartmentById(keyword);
 
-        if (department != null){
+        if(HelperUtils.isNotNull(department)){
 
             department.displayInfo();
         }
