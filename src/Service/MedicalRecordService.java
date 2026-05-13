@@ -251,7 +251,7 @@ public class MedicalRecordService implements Manageable, Searchable {
                     String recordId = scanner.nextLine();
 
                     MedicalRecord medicalRecord = getMedicalRecord(recordId);
-                    if (medicalRecord != null){
+                if(HelperUtils.isNotNull(medicalRecord)){
 
                         medicalRecord.displayInfo();
                     }
