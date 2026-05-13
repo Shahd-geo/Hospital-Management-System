@@ -46,6 +46,13 @@ public class OutPatient extends Patient{
         }
 
         public void setPreferredDoctorId(String preferredDoctorId) {
+            if(!HelperUtils.isValidString(
+                    preferredDoctorId)){
+
+                System.out.println("Invalid preferred doctor ID.");
+
+                return;
+            }
             this.preferredDoctorId = preferredDoctorId;
         }
         @Override
