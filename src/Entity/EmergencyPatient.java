@@ -50,7 +50,7 @@ public class EmergencyPatient extends InPatient{
 
     public void setTriageLevel(int triageLevel){
 
-        if(triageLevel < 1 || triageLevel > 5){
+        if(!HelperUtils.isValidNumber(triageLevel,1,5)){
 
             System.out.println("Invalid triage level");
             return;
