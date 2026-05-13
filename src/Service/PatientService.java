@@ -385,7 +385,47 @@ public class PatientService  implements Manageable, Searchable {
 
        return inPatient;
    }
+public static OutPatient addOutPatient(){
 
+        Patient basePatient = addPatient();
+
+        int visitCount = InputHandler.getIntInput("Enter visit count:");
+
+        LocalDate lastVisitDate =InputHandler.getDateInput("Enter last visit date:");
+
+        String preferredDoctorId = InputHandler.getStringInput("Enter preferred doctor ID:");
+
+        OutPatient outPatient =
+                new OutPatient(
+
+                        basePatient.getId(),
+                        basePatient.getFirstName(),
+                        basePatient.getLastName(),
+                        basePatient.getDateOfBirth(),
+                        basePatient.getGender(),
+                        basePatient.getPhoneNumber(),
+                        basePatient.getEmail(),
+                        basePatient.getAddress(),
+                        basePatient.getRegistrationDate(),
+                        basePatient.getPatientId(),
+                        basePatient.getMedicalRecords(),
+                        basePatient.getInsuranceId(),
+                        basePatient.getEmergencyContact(),
+                        basePatient.getBloodGroup(),
+                        basePatient.getAppointments(),
+                        basePatient.getAllergies(),
+
+                        visitCount,
+                        lastVisitDate,
+                        preferredDoctorId
+                );
+
+        patients.add(outPatient);
+
+        System.out.println("OutPatient added successfully.");
+
+        return outPatient;
+    }
     public static boolean handlePatientMenu(Integer PatientOption) {
 
 
