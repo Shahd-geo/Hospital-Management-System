@@ -5,6 +5,7 @@ import Interfaces.Displayable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import utility.HelperUtils;
 
 // Inheritance from person class
 public class Patient extends Person implements Displayable {
