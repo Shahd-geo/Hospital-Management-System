@@ -105,6 +105,10 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setMedicalRecords(List<MedicalRecord> medicalRecords) {
+        if(HelperUtils.isNull(medicalRecords)){
+            System.out.println("Medical records list cannot be null.");
+            return;
+        }
         this.medicalRecords = medicalRecords;
     }
 
@@ -113,7 +117,11 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
+
+        if(HelperUtils.isNull(appointments)){
+            System.out.println("Appointments list cannot be null.");
+            return;
+        }this.appointments = appointments;
     }
 
     public LocalDate getRegistrationDate() {
