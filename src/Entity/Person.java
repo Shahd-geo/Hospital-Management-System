@@ -102,7 +102,17 @@ public  abstract class Person {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(
+            String phoneNumber) {
+
+        if(!HelperUtils.isValidString(
+                phoneNumber, 8, 15)){
+
+            System.out.println("Invalid phone number.");
+
+            return;
+        }
+
         this.phoneNumber = phoneNumber;
     }
 
