@@ -3,6 +3,7 @@ package Service;
 import Entity.MedicalRecord;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
+import utility.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -171,9 +172,13 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
     @Override
     public void add(Object entity) {
+        if(HelperUtils.isNull(entity)){
+            System.out.println(
+                    "Medical record cannot be null.");
+            return;
+        }
 
-        medicalRecordList.add(
-                (MedicalRecord) entity);
+        medicalRecordList.add((MedicalRecord) entity);
 
         System.out.println(
                 "Medical record added successfully");
