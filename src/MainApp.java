@@ -43,7 +43,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (patientOption == 7) {
+                        if (patientOption == 10) {
 
                             patientMenu = false;
 
@@ -56,7 +56,7 @@ public class MainApp {
                         }
                     }
                 }
-                case 2 -> {
+              /*  case 2 -> {
 
                     boolean doctorMenu = true;
 
@@ -204,7 +204,7 @@ public class MainApp {
                         }
                     }
                 }
-                case 7 -> {
+               */ case 7 -> {
 
                     System.out.println(
                             "Exiting system..."

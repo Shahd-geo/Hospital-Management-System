@@ -4,10 +4,11 @@ import Entity.Patient;
 
 import java.util.List;
 
-public interface Manageable {
-    void add(Object entity);
+public interface Manageable<T> {
+
+    void add(T entity);
 
     void remove(String id);
 
-    List<Patient> getAll();
+    List<T> getAll();
 }

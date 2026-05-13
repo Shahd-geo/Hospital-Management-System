@@ -319,11 +319,9 @@ public class PatientService  implements Manageable, Searchable {
 
         removePatient(id);
     }
-
     public List<Patient> getAll(){
 
-        return  patients;
-    }
+      return  patients;}
     @Override
     public void search(String keyword){
         if(HelperUtils.isNull(keyword)){
