@@ -77,6 +77,13 @@ public class InPatient extends Patient implements Billable {
     }
 
     public void setAdmittingDoctorId(String admittingDoctorId) {
+        if(!HelperUtils.isValidString(
+                admittingDoctorId)){
+
+            System.out.println("Invalid doctor ID.");
+
+            return;
+        }
         this.admittingDoctorId = admittingDoctorId;
     }
 
