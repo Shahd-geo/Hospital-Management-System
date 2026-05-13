@@ -380,7 +380,7 @@ public class PatientService  implements Manageable, Searchable {
                );
 
        patients.add(inPatient);
-
+       patients.remove(basePatient);
        System.out.println("InPatient added successfully.");
 
        return inPatient;
@@ -419,9 +419,8 @@ public static OutPatient addOutPatient(){
                         lastVisitDate,
                         preferredDoctorId
                 );
-
         patients.add(outPatient);
-
+    patients.remove(basePatient);
         System.out.println("OutPatient added successfully.");
 
         return outPatient;
