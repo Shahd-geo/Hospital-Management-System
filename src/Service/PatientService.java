@@ -26,26 +26,37 @@ public class PatientService  implements Manageable, Searchable {
         String id = HelperUtils.generateId("PER");
         String fristPatientName = getStringInput("Enter Patient First Name :");
         String lastPatientName = getStringInput("Enter Patient Last  Name : ");
-        LocalDate DOB =InputHandler.getDateInput("Enter patient DOB (yyyy-mm-dd): ");
-        if(!HelperUtils.isValidAge(DOB)){
+        LocalDate DOB;
 
-            System.out.println("Invalid date of birth.");
+        do {
 
-            return null;
-        }   String gender = getStringInput("Enter patient gender :");
+            DOB = InputHandler.getDateInput("Enter patient DOB (yyyy-mm-dd): ");
+
+            if(!HelperUtils.isValidAge(DOB)){
+
+                System.out.println("Invalid date of birth.");
+            }
+        } while(!HelperUtils.isValidAge(DOB));
+        String gender = getStringInput("Enter patient gender :");
         String phone = getStringInput("Enter patient phone number :");
         String email = getStringInput("Enter patient email :");
         String address = getStringInput("Enter patient address :");
         String patientID = HelperUtils.generateId("PAT");
         String bloodGroup = getStringInput("Enter patient blood group :");
         String emergencyContact = getStringInput("Enter emergency contact :");
-        LocalDate DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
-        if(HelperUtils.isFutureDate(DOR)){
+        LocalDate DOR;
 
-            System.out.println("Registration date cannot be in the future.");
+        do {
 
-            return null;
-        }        String insuranceId = getStringInput("Enter insurance id :");
+            DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
+
+            if(HelperUtils.isFutureDate(DOR)){
+
+                System.out.println("Registration date cannot be in the future.");
+            }
+
+        } while(HelperUtils.isFutureDate(DOR));
+        String insuranceId = getStringInput("Enter insurance id :");
         List<String> allergies = new ArrayList<>();
         boolean allergiesloop = true;
         while (allergiesloop) {
@@ -83,8 +94,14 @@ public class PatientService  implements Manageable, Searchable {
         Boolean continueFlag = true;
         while (continueFlag) {
 
-            patients.add(addPatient());
-            System.out.println("Patient add successfully");
+            Patient patient = addPatient();
+
+            if(HelperUtils.isNotNull(patient)){
+
+                patients.add(patient);
+
+                System.out.println("Patient add successfully");
+            }
 
             System.out.println("Enter c to add more , and q to exit");
             if (scanner.nextLine().equalsIgnoreCase("q")) {
