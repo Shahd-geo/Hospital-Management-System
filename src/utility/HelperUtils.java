@@ -170,6 +170,23 @@ public class HelperUtils {
         return age >= 0 && age <= 110;
     }
 
+    //  Validate age from date of birth
+    public static boolean isValidAge(LocalDate dateOfBirth) {
+
+        if (dateOfBirth == null) {
+            return false;
+        }
+
+        if (dateOfBirth.isAfter(LocalDate.now())) {
+            return false;
+        }
+
+        int age = Period.between(dateOfBirth, LocalDate.now()).getYears();
+
+        return age >= 0 && age <= 110;
+    }
+
+
 
 
 
