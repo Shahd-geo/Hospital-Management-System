@@ -33,7 +33,6 @@ public class PatientService  implements Manageable, Searchable {
         String bloodGroup = InputHandler.getStringInput("Enter patient blood group :");
         String emergencyContact = InputHandler.getStringInput("Enter emergency contact :");
         LocalDate DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
-        System.out.println("Enter insurance id :");
         String insuranceId = InputHandler.getStringInput("Enter insurance id :");
         List<String> allergies = new ArrayList<>();
         boolean allergiesloop = true;
