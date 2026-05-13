@@ -3,6 +3,7 @@ package Entity;
 import Interfaces.Displayable;
 
 import java.time.LocalDate;
+import utility.HelperUtils;
 
 public class MedicalRecord implements Displayable {
     private String recordId;
@@ -30,6 +31,12 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setRecordId(String recordId) {
+
+        if(!HelperUtils.isValidString(recordId)){
+            System.out.println("Invalid record ID.");
+            return;
+        }
+
         this.recordId = recordId;
     }
 
