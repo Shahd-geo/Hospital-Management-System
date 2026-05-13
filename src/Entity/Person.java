@@ -121,6 +121,15 @@ public  abstract class Person {
     }
 
     public void setEmail(String email) {
+
+        if(!HelperUtils.isValidString(email, "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")){
+
+            System.out.println(
+                    "Invalid email.");
+
+            return;
+        }
+
         this.email = email;
     }
 
