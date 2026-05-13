@@ -27,7 +27,12 @@ public class PatientService  implements Manageable, Searchable {
         String fristPatientName = getStringInput("Enter Patient First Name :");
         String lastPatientName = getStringInput("Enter Patient Last  Name : ");
         LocalDate DOB =InputHandler.getDateInput("Enter patient DOB (yyyy-mm-dd): ");
-        String gender = getStringInput("Enter patient gender :");
+        if(!HelperUtils.isValidAge(DOB)){
+
+            System.out.println("Invalid date of birth.");
+
+            return null;
+        }   String gender = getStringInput("Enter patient gender :");
         String phone = getStringInput("Enter patient phone number :");
         String email = getStringInput("Enter patient email :");
         String address = getStringInput("Enter patient address :");
@@ -35,7 +40,12 @@ public class PatientService  implements Manageable, Searchable {
         String bloodGroup = getStringInput("Enter patient blood group :");
         String emergencyContact = getStringInput("Enter emergency contact :");
         LocalDate DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
-        String insuranceId = getStringInput("Enter insurance id :");
+        if(HelperUtils.isFutureDate(DOR)){
+
+            System.out.println("Registration date cannot be in the future.");
+
+            return null;
+        }        String insuranceId = getStringInput("Enter insurance id :");
         List<String> allergies = new ArrayList<>();
         boolean allergiesloop = true;
         while (allergiesloop) {
