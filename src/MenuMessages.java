@@ -27,7 +27,7 @@ public class MenuMessages {
         7- Update Patient Information
         8- Remove Patient
         9- View Patient Medical History
-     10- Back To Main Menu
+        10- Back To Main Menu
 
 """;
     public static String DOCTOR_MENU_MESSAGE = """
@@ -113,7 +113,7 @@ public class MenuMessages {
 
     public static String REPORT_MENU_MESSAGE = """
 
-======== Reports and Statistics ========
+        ===== Reports and Statistics =====
 
         1- Daily Appointments Report
         2- Doctor Performance Report

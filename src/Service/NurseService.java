@@ -185,7 +185,7 @@ public class NurseService  implements Manageable, Searchable {
     @Override
     public List<Appointment> getAll() {
 
-       return nurseList;
+       return nurse;
     }
     @Override
     public void search(String keyword) {
