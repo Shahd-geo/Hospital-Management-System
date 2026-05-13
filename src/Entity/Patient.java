@@ -204,7 +204,7 @@ public class Patient extends Person implements Displayable {
     public void updateContact(String phone, String email){
 
         // Validate phone number
-        if (phone == null || phone.trim().isEmpty()) {
+        if(HelperUtils.isNull(phone)){
             System.out.println("Phone number cannot be empty.");
             return;
         }
@@ -216,7 +216,7 @@ public class Patient extends Person implements Displayable {
 
 
         // Validate email
-        if (email == null || email.trim().isEmpty()) {
+        if(HelperUtils.isNull(email)){
             System.out.println("email  cannot be empty.");
             return;
         }
@@ -236,7 +236,7 @@ public class Patient extends Person implements Displayable {
     //overloaded updateContact(String phone, String email,String address)
     public void updateContact(String phone, String email, String address){
 
-        if (phone == null || phone.trim().isEmpty()) {
+        if (HelperUtils.isNull(phone)) {
             System.out.println("Phone number cannot be empty.");
             return;
         }
@@ -246,17 +246,18 @@ public class Patient extends Person implements Displayable {
             return;
         }
 
-        if (email == null || email.trim().isEmpty()) {
+        if (HelperUtils.isNull(email)){
             System.out.println("email  cannot be empty.");
             return;
         }
 
-        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+        if(!HelperUtils.isValidString(email, "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+
             System.out.println("Invalid email format.");
             return;
         }
 
-        if (address == null || address.trim().isEmpty()) {
+        if( HelperUtils.isNull(address)){
             System.out.println("Address cannot be empty.");
             return;
         }
