@@ -159,10 +159,22 @@ public class Doctor extends Person implements Displayable {
         System.out.println("assignedPatients: " + assignedPatients);
     }
 
-    public void  assignPatient(String patient){
+    public void assignPatient(String patient){
+
+        if(HelperUtils.isNull(patient)){
+            System.out.println("Patient cannot be null.");
+            return;
+        }
+
         assignedPatients.add(patient);
     }
-    public void  removePatient(String patient){
+    public void removePatient(String patient){
+
+        if(HelperUtils.isNull(patient)){
+            System.out.println("Patient cannot be null.");
+            return;
+        }
+
         assignedPatients.remove(patient);
     }
     public void updateAvailability(List<String> slots) {
@@ -184,7 +196,7 @@ public class Doctor extends Person implements Displayable {
     //overloaded updateFee(double fee, String reason)
     public void updateFee(double fee, String reason){
         // Validate fee amount
-        if (fee < 0) {
+        if(!HelperUtils.isPositive(fee)){
 
             System.out.println("Fee cannot be negative.");
 
