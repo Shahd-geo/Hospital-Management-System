@@ -92,6 +92,10 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setPrescription(String prescription) {
+        if(!HelperUtils.isValidString(prescription)){
+            System.out.println("Invalid prescription.");
+            return;
+        }
         this.prescription = prescription;
     }
 
@@ -100,7 +104,11 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setTestResults(String testResults) {
-        this.testResults = testResults;
+
+        if(!HelperUtils.isValidString(testResults)){
+            System.out.println("Invalid test results.");
+            return;
+        } this.testResults = testResults;
     }
 
     public String getNotes() {
