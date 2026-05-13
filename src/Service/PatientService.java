@@ -330,8 +330,8 @@ public class PatientService  implements Manageable, Searchable {
 
         removePatient(id);
     }
-    @Override
-    public List<Appointment> getAll(){
+
+    public List<Patient> getAll(){
 
         return  patients;
     }
