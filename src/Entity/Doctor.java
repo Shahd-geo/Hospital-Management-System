@@ -72,6 +72,14 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setQualification(String qualification) {
+
+        if(!HelperUtils.isValidString(qualification)){
+
+            System.out.println("Invalid qualification.");
+
+            return;
+        }
+
         this.qualification = qualification;
     }
 
