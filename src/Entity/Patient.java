@@ -58,6 +58,12 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setBloodGroup(String bloodGroup) {
+
+        if(!HelperUtils.isValidString(bloodGroup)){
+            System.out.println("Invalid blood group.");
+            return;
+        }
+
         this.bloodGroup = bloodGroup;
     }
 
