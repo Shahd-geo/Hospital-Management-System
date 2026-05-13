@@ -127,7 +127,7 @@ public class DepartmentService  implements Manageable, Searchable {
 
         for (Department department : departmentList) {
 
-            if (department.getDepartmentId().equals(departmentId)) {
+            if (department.getDepartmentId().equalsIgnoreCase(departmentId)){
 
                 department.getDoctors().add(doctor);
             }
