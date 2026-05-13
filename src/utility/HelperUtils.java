@@ -77,6 +77,21 @@ public class HelperUtils {
     public static boolean isValidDate(LocalDate date) {
         return date != null;
     }
+    //  Validate date string (parse check)
+    public static boolean isValidDate(String dateStr) {
+
+        if (dateStr == null || dateStr.trim().isEmpty()) {
+            return false;
+        }
+
+        try {
+            LocalDate.parse(dateStr);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
+
 
 
 
