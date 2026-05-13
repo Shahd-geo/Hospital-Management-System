@@ -103,6 +103,14 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setDepartmentId(String departmentId) {
+
+        if(HelperUtils.isNull(departmentId)){
+
+            System.out.println("Invalid department ID.");
+
+            return;
+        }
+
         this.departmentId = departmentId;
     }
 
