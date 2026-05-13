@@ -44,6 +44,12 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setPatientId(String patientId) {
+
+        if(HelperUtils.isNull(patientId)){
+            System.out.println("Invalid patient ID.");
+            return;
+        }
+
         this.patientId = patientId;
     }
 
