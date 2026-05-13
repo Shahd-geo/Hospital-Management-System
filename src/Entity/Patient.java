@@ -162,7 +162,13 @@ public class Patient extends Person implements Displayable {
         medicalRecords.add(record);
     }
 
-    public void   addAppointment(Appointment  appointment){
+    public void addAppointment(Appointment appointment){
+
+        if(HelperUtils.isNull(appointment)){
+            System.out.println("Appointment cannot be null.");
+            return;
+        }
+
         appointments.add(appointment);
     }
     public void updateInsurance(String newInsuranceId){
