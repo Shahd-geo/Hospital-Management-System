@@ -43,7 +43,7 @@ public class Doctor extends Person implements Displayable {
 
     public void setDoctorId(String doctorId) {
 
-        if(HelperUtils.isNull(doctorId)){
+        if(!HelperUtils.isValidString(doctorId)){
             System.out.println("Invalid doctor ID.");
             return;
         }
