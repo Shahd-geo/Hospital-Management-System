@@ -314,8 +314,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
             return;
         }
 
-        appointmentList.add(
-                (Appointment) entity);
+        appointmentList.add((Appointment) entity);
 
         System.out.println("Appointment added successfully");
     }
@@ -344,7 +343,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         Appointment appointment = getAppointment(id);
 
-        if (appointment != null){
+        if(HelperUtils.isNotNull(appointment)){
 
             appointment.displayInfo();
         }
