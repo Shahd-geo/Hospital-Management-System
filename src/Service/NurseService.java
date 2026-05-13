@@ -203,7 +203,7 @@ public class NurseService  implements Manageable, Searchable {
     public void searchById(String id) {
 
         Nurse nurse = getNurseById(id);
-        if (nurse != null){
+        if(HelperUtils.isNotNull(nurse)){
 
             nurse.displayInfo();
         }
