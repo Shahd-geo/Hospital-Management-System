@@ -88,9 +88,16 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setExperienceYears(int experienceYears) {
+
+        if(!HelperUtils.isValidNumber(experienceYears, 0, 60)){
+
+            System.out.println("Invalid experience years.");
+
+            return;
+        }
+
         this.experienceYears = experienceYears;
     }
-
     public String getDepartmentId() {
         return departmentId;
     }
