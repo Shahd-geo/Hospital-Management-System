@@ -1,5 +1,7 @@
 package Entity;
 
+import utility.HelperUtils;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -38,9 +40,14 @@ public  abstract class Person {
     }
 
     public void setId(String id) {
+
+        if(HelperUtils.isNull(id)){
+            System.out.println("ID cannot be empty.");
+            return;
+        }
+
         this.id = id;
     }
-
     public String getFirstName() {
         return firstName;
     }
