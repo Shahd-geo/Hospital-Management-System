@@ -3,7 +3,8 @@ package Entity;
 import Interfaces.Displayable;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;;
+import java.time.LocalDateTime;
+import utility.HelperUtils;
 
 
 public class Appointment  implements Displayable {
@@ -36,6 +37,12 @@ public class Appointment  implements Displayable {
     }
 
     public void setAppointmentId(String appointmentId) {
+        if(!HelperUtils.isValidString(appointmentId)){
+
+            System.out.println("Invalid appointment ID.");
+
+            return;
+        }
         this.appointmentId = appointmentId;
     }
 
