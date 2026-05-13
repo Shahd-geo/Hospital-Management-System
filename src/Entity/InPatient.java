@@ -5,6 +5,7 @@ import Interfaces.Billable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import utility.HelperUtils;
 
 public class InPatient extends Patient implements Billable {
     private LocalDate admissionDate;
@@ -30,6 +31,11 @@ public class InPatient extends Patient implements Billable {
     }
 
     public void setAdmissionDate(LocalDate admissionDate) {
+
+        if(!HelperUtils.isValidDate(admissionDate)){
+            System.out.println("Invalid admission date.");
+            return;
+        }
         this.admissionDate = admissionDate;
     }
 
@@ -42,10 +48,15 @@ public class InPatient extends Patient implements Billable {
     }
 
     public String getRoomNumber() {
+
         return roomNumber;
     }
 
     public void setRoomNumber(String roomNumber) {
+        if(!HelperUtils.isValidString(roomNumber)){
+            System.out.println("Invalid room number.");
+            return;
+        }
         this.roomNumber = roomNumber;
     }
 
@@ -54,6 +65,10 @@ public class InPatient extends Patient implements Billable {
     }
 
     public void setBedNumber(String bedNumber) {
+        if(!HelperUtils.isValidString(bedNumber)){
+            System.out.println("Invalid bed number.");
+            return;
+        }
         this.bedNumber = bedNumber;
     }
 
