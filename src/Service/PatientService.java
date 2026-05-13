@@ -236,6 +236,10 @@ public class PatientService  implements Manageable, Searchable {
     }
     // display filtered by criteria
     public void displayPatients(String filter){
+        if(HelperUtils.isNull(filter)){
+            System.out.println("Invalid filter.");
+            return;
+        }
         for (Patient patient : patients) {
             boolean matches = false;
 
@@ -315,11 +319,14 @@ public class PatientService  implements Manageable, Searchable {
     }
     @Override
     public void add(Object entity){
+        if(HelperUtils.isNull(entity)){
+            System.out.println("Patient cannot be null.");
+            return;
+        }
 
         patients.add((Patient) entity);
 
-        System.out.println(
-                "Patient added successfully.");
+        System.out.println("Patient added successfully.");
     }
     @Override
     public void remove(String id){
@@ -333,6 +340,9 @@ public class PatientService  implements Manageable, Searchable {
     }
     @Override
     public void search(String keyword){
+        if(HelperUtils.isNull(keyword)){
+            return;
+        }
 
         searchPatients(keyword);
     }
