@@ -65,7 +65,7 @@ public class PatientService  implements Manageable, Searchable {
                 allergiesloop = false;
             }
         }
-        String patientID = "";
+        String patientID = HelperUtils.generateId("PAT");
         Patient patient;
         patient = new Patient(id,
                 fristPatientName,

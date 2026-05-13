@@ -71,6 +71,61 @@ public class HelperUtils {
 
         return str.matches(regex);
     }
+    // *****ID Generation Methods (Overloaded)*****
+
+    // Generate random UUID
+    public static String generateId() {
+        return UUID.randomUUID().toString();
+    }
+
+    // Generate ID with prefix (e.g., PAT-12345)
+    public static String generateId(String prefix) {
+
+        if (prefix == null || prefix.trim().isEmpty()) {
+            prefix = "ID";
+        }
+
+        int number = 10000 + random.nextInt(90000); // 5-digit number
+
+        return prefix + "-" + number;
+    }
+
+    // Generate ID with prefix + custom length number
+    public static String generateId(String prefix, int length) {
+
+        if (prefix == null || prefix.trim().isEmpty()) {
+            prefix = "ID";
+        }
+
+        if (length <= 0) {
+            length = 5;
+        }
+
+        int min = (int) Math.pow(10, length - 1);
+        int max = (int) Math.pow(10, length) - 1;
+
+        int number = min + random.nextInt(max - min + 1);
+
+        return prefix + "-" + number;
+    }
+
+    // Generate ID with prefix and suffix
+
+    public static String generateId(String prefix, String suffix) {
+
+        if (prefix == null || prefix.trim().isEmpty()) {
+            prefix = "ID";
+        }
+
+        if (suffix == null || suffix.trim().isEmpty()) {
+            suffix = "END";
+        }
+
+        int number = 1000 + random.nextInt(9000); // 4-digit number
+
+        return prefix + "-" + number + "-" + suffix;
+    }
+
     // *****Date Validation Methods (Overloaded)*****
 
     //  Check not null date
