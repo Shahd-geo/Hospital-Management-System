@@ -56,7 +56,11 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+
+        if(!HelperUtils.isValidString(doctorId)){
+            System.out.println("Invalid doctor ID.");
+            return;
+        }this.doctorId = doctorId;
     }
 
     public LocalDate getVisitDate() {
@@ -64,7 +68,11 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setVisitDate(LocalDate visitDate) {
-        this.visitDate = visitDate;
+
+        if(!HelperUtils.isValidDate(visitDate)){
+            System.out.println("Invalid visit date.");
+            return;
+        } this.visitDate = visitDate;
     }
 
     public String getDiagnosis() {
