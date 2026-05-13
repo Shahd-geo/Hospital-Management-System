@@ -77,6 +77,7 @@ public class HelperUtils {
     public static boolean isValidDate(LocalDate date) {
         return date != null;
     }
+
     //  Validate date string (parse check)
     public static boolean isValidDate(String dateStr) {
 
@@ -91,6 +92,7 @@ public class HelperUtils {
             return false;
         }
     }
+
     // Date range validation
     public static boolean isValidDate(LocalDate date, LocalDate minDate, LocalDate maxDate) {
 
@@ -185,6 +187,7 @@ public class HelperUtils {
 
         return age >= 0 && age <= 110;
     }
+}
 
 
 
