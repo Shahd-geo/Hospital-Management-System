@@ -45,7 +45,10 @@ public class MedicalRecord implements Displayable {
     }
 
     public void setPatientId(String patientId) {
-        this.patientId = patientId;
+        if(!HelperUtils.isValidString(patientId)){
+            System.out.println("Invalid patient ID.");
+            return;
+        }this.patientId = patientId;
     }
 
     public String getDoctorId() {
