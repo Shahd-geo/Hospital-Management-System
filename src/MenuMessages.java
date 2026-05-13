@@ -3,13 +3,14 @@ public class MenuMessages {
             
             ===== Hospital Management System =====
             
-            1- Patient Menu
-            2- Doctor Menu
-            3- Nurse Menu
-            4- Medical Record Menu 
-            5- Appointment Menu
-            6- Department Menu
-            7- Exit
+            1- Patient Management
+            2- Doctor Management
+            3- Nurse Management
+            4- Appointment Management
+            5- Medical Record Management
+            6- Department Management
+            7- Reports and Statistics
+            8- Exit
             
             """;
 
@@ -78,7 +79,7 @@ public class MenuMessages {
             7- Cancel Appointment
             8- Complete Appointment
             9- View Upcoming Appointments
-            10- Back To Main Menu1- Add Medical Record
+            10- Back To Main Menu
 
         """;
     public static String MEDICAL_RECORD_MENU_MESSAGE = """
