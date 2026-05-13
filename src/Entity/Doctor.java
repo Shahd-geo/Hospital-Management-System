@@ -203,7 +203,7 @@ public class Doctor extends Person implements Displayable {
     //overload addAvailability(String slot)
     public void  addAvailability(String slot){
         // Validate slot
-        if (slot == null || slot.trim().isEmpty()) { //check if user inter slot correctly
+        if(HelperUtils.isNull(slot)){ //check if user inter slot correctly
             System.out.println("Availability slot cannot be empty.");
             return;
         }
