@@ -117,6 +117,11 @@ public class DepartmentService  implements Manageable, Searchable {
     // assign Doctor To Department(String doctorId, String departmentId)
 
     public static void assignDoctorToDepartment(String doctorId, String departmentId) {
+        if(HelperUtils.isNull(doctorId) || HelperUtils.isNull(departmentId)){
+
+            System.out.println("Invalid data.");
+            return;
+        }
 
         Doctor doctor = DoctorService.getDoctorById(doctorId);
 
