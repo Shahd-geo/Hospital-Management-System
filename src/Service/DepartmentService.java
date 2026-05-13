@@ -191,7 +191,7 @@ public class DepartmentService  implements Manageable, Searchable {
         removeDepartment(id);
     }
     @Override
-    public List<Appointment> getAll() {
+    public List<List<Patient>> getAll() {
 
         return departmentList;
     }

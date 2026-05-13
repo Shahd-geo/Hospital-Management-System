@@ -100,6 +100,12 @@ public class Nurse extends Person implements Displayable {
         System.out.println("assignedPatients: " + assignedPatients);
     }
     public void assignPatient(String patient){
+
+        if(HelperUtils.isNull(patient)){
+            System.out.println("Patient cannot be null.");
+            return;
+        }
+
         assignedPatients.add(patient);
     }
     @Override

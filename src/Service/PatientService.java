@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import utility.HelperUtils;
 
 public class PatientService  implements Manageable, Searchable {
     public static Scanner scanner = new Scanner(System.in);
@@ -326,7 +327,7 @@ public class PatientService  implements Manageable, Searchable {
         removePatient(id);
     }
     @Override
-    public List<Appointment> getAll(){
+    public List<List<Patient>> getAll(){
 
         return Collections.singletonList(patients);
     }
