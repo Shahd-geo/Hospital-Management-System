@@ -192,6 +192,10 @@ public class NurseService  implements Manageable, Searchable {
     }
     @Override
     public void search(String keyword) {
+        if(HelperUtils.isNull(keyword)){
+            System.out.println("Invalid keyword.");
+            return;
+        }
 
         List<Nurse> nurses = getNursesByDepartment(keyword);
         for (Nurse nurse : nurses){
