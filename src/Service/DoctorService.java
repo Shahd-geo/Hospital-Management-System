@@ -253,12 +253,6 @@ public class DoctorService implements Manageable, Searchable {
             System.out.println("Invalid patient list.");
             return;
         }
-        if(HelperUtils.isNull(doctorId)
-                || HelperUtils.isNull(patientIds)){
-
-            System.out.println("Invalid data.");
-            return;
-        }
 
         Doctor doctor = getDoctorById(doctorId);
 
