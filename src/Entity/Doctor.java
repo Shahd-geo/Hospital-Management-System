@@ -104,7 +104,7 @@ public class Doctor extends Person implements Displayable {
 
     public void setDepartmentId(String departmentId) {
 
-        if(HelperUtils.isNull(departmentId)){
+        if(!HelperUtils.isValidString(departmentId)){
 
             System.out.println("Invalid department ID.");
 
@@ -135,6 +135,10 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setAvailableSlots(List<String> availableSlots) {
+        if(HelperUtils.isNull(availableSlots)){
+            System.out.println("Available slots cannot be null.");
+            return;
+        }
         this.availableSlots = availableSlots;
     }
 
