@@ -205,11 +205,8 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
     @Override
     public void searchById(String id) {
-
         MedicalRecord medicalRecord = getMedicalRecord(id);
-
-        if (medicalRecord != null){
-
+        if(HelperUtils.isNotNull(medicalRecord)){
             medicalRecord.displayInfo();
         }
     }
