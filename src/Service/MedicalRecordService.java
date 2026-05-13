@@ -1,7 +1,7 @@
 package Service;
 
+import Entity.Appointment;
 import Entity.MedicalRecord;
-import Entity.Patient;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import utility.HelperUtils;
@@ -193,7 +193,7 @@ public class MedicalRecordService implements Manageable, Searchable {
         removeRecored(id);
     }
     @Override
-    public List<Patient> getAll() {
+    public List<Appointment> getAll() {
 
         return medicalRecordList;
     }

@@ -1,6 +1,6 @@
 package Interfaces;
 
-import Entity.Patient;
+import Entity.Appointment;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ public interface Manageable {
 
     void remove(String id);
 
-    List<Patient> getAll();
+    List<Appointment> getAll();
 }
