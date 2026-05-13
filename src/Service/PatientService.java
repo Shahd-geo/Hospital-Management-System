@@ -166,7 +166,7 @@ public class PatientService  implements Manageable, Searchable {
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
         System.out.println("enter patient Id");
         patientId = scanner.nextLine();
-        if (patientId != null) {
+        if(HelperUtils.isNotNull(patientId)){
             for (Patient p : patients) {
                 if (p.getId().equals(patientId)) {
                     System.out.println("Enter new phone number:");
