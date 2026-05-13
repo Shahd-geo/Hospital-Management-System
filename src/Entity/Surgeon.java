@@ -1,5 +1,7 @@
 package Entity;
 
+import utility.HelperUtils;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,14 @@ public class Surgeon extends Doctor {
     }
 
     public void setSurgeriesPerformed(int surgeriesPerformed) {
+        if(!HelperUtils.isPositive(surgeriesPerformed)
+                && surgeriesPerformed != 0){
+
+            System.out.println(
+                    "Invalid surgeries count.");
+
+            return;
+        }
         this.surgeriesPerformed = surgeriesPerformed;
     }
 
