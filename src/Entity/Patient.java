@@ -145,7 +145,11 @@ public class Patient extends Person implements Displayable {
     }
 
     public void setAllergies(List<String> allergies) {
-        this.allergies = allergies;
+
+        if(HelperUtils.isNull(allergies)){
+            System.out.println("Allergies list cannot be null.");
+            return;
+        }this.allergies = allergies;
     }
 
     @Override
