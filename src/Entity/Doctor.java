@@ -171,7 +171,7 @@ public class Doctor extends Person implements Displayable {
 
     // overloaded updateFee(double fee)
     public void updateFee(double fee){
-        if (fee < 0) {
+        if(!HelperUtils.isPositive(fee)){
             System.out.println("Fee cannot be negative.");
             return;
         }
