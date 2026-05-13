@@ -1,6 +1,5 @@
 package Service;
 
-import Entity.Department;
 import Entity.Nurse;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -18,8 +17,7 @@ public class NurseService  implements Manageable, Searchable {
 
 
     public static Nurse addNurse() {
-        System.out.println("Enter ID : ");
-        String id = scanner.nextLine();
+        String id = HelperUtils.generateId("PER");
         System.out.println("Enter Nurse First Name : ");
         String firstNurseName = scanner.nextLine();
         System.out.println("Enter Nurse Last  Name : ");
@@ -35,8 +33,7 @@ public class NurseService  implements Manageable, Searchable {
         String email = scanner.nextLine();
         System.out.println("Enter Nurse address :");
         String address = scanner.nextLine();
-        System.out.println("Enter Nurse nurse Id :");
-        String nurseId = scanner.nextLine();
+        String nurseId = HelperUtils.generateId("NUR");
         System.out.println("Enter Nurse department Id :");
         String departmentId = scanner.nextLine();
         System.out.println("Enter Nurse shift :");
@@ -185,9 +182,9 @@ public class NurseService  implements Manageable, Searchable {
         removeNurse(id);
     }
     @Override
-    public List<Department> getAll() {
+    public List<Nurse> getAll() {
 
-        return nurseList;
+       return nurseList;
     }
     @Override
     public void search(String keyword) {
@@ -239,7 +236,7 @@ public class NurseService  implements Manageable, Searchable {
                 System.out.println("Enter nurse Id to getNurseById");
                 String nurseId = scanner.nextLine();
                 Nurse nurse = getNurseById(nurseId);
-                if (nurse != null){
+                if(HelperUtils.isNotNull(nurse)){
 
                     nurse.displayInfo();
                 }

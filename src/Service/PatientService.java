@@ -6,7 +6,6 @@ import Interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import utility.HelperUtils;
@@ -334,9 +333,9 @@ public class PatientService  implements Manageable, Searchable {
         removePatient(id);
     }
     @Override
-    public List<Department> getAll(){
+    public List<Nurse> getAll(){
 
-        return Collections.singletonList((Patient) patients);
+        return  patients;
     }
     @Override
     public void search(String keyword){
@@ -351,6 +350,7 @@ public class PatientService  implements Manageable, Searchable {
 
         getPatientById(id);
     }
+
 
 
 
