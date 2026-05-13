@@ -70,7 +70,7 @@ public class Surgeon extends Doctor {
     // updateSurgeryCount()
     public void updateSurgeryCount(int count) {
 
-        if (count < 0) {
+        if(HelperUtils.isNegative(count)) {
             System.out.println("Invalid surgery count.");
             return;
         }
