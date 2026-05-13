@@ -66,6 +66,12 @@ public class OutPatient extends Patient{
         }
     // scheduleFollowUp()
     public void scheduleFollowUp(LocalDate followUpDate ) {
+        if(!HelperUtils.isFutureDate(followUpDate)){
+
+            System.out.println("Follow-up date must be in the future.");
+
+            return;
+        }
         System.out.println("Preferred Doctor ID : " + preferredDoctorId);
         System.out.println("Follow-up scheduled successfully.");
         System.out.println("Follow-up Date : " + followUpDate);
