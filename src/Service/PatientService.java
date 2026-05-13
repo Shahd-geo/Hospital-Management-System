@@ -46,9 +46,7 @@ public class PatientService  implements Manageable, Searchable {
         String emergencyContact = getStringInput("Enter emergency contact :");
         LocalDate DOR;
 
-        do {
-
-            DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
+        do {DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
 
             if(HelperUtils.isFutureDate(DOR)){
 
