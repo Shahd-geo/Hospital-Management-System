@@ -11,6 +11,8 @@ import java.util.Scanner;
 import utility.HelperUtils;
 import utility.InputHandler;
 
+import static utility.InputHandler.getStringInput;
+
 public class PatientService  implements Manageable, Searchable {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Patient> patients = new ArrayList<>();
@@ -22,23 +24,24 @@ public class PatientService  implements Manageable, Searchable {
     //add new patient
     public static Patient addPatient() {
         String id = HelperUtils.generateId("PER");
-        String fristPatientName = InputHandler.getStringInput("Enter Patient First Name :");
-        String lastPatientName =InputHandler.getStringInput("Enter Patient Last  Name : ");
+        String fristPatientName = getStringInput("Enter Patient First Name :");
+        String lastPatientName = getStringInput("Enter Patient Last  Name : ");
         LocalDate DOB =InputHandler.getDateInput("Enter patient DOB (yyyy-mm-dd): ");
-        String gender = InputHandler.getStringInput("Enter patient gender :");
-        String phone = InputHandler.getStringInput("Enter patient phone number :");
-        String email = InputHandler.getStringInput("Enter patient email :");
-        String address = InputHandler.getStringInput("Enter patient address :");
+        String gender = getStringInput("Enter patient gender :");
+        String phone = getStringInput("Enter patient phone number :");
+        String email = getStringInput("Enter patient email :");
+        String address = getStringInput("Enter patient address :");
         String patientID = HelperUtils.generateId("PAT");
-        String bloodGroup = InputHandler.getStringInput("Enter patient blood group :");
-        String emergencyContact = InputHandler.getStringInput("Enter emergency contact :");
+        String bloodGroup = getStringInput("Enter patient blood group :");
+        String emergencyContact = getStringInput("Enter emergency contact :");
         LocalDate DOR = InputHandler.getDateInput("Enter registration date (yyyy-mm-dd): ");
-        String insuranceId = InputHandler.getStringInput("Enter insurance id :");
+        String insuranceId = getStringInput("Enter insurance id :");
         List<String> allergies = new ArrayList<>();
         boolean allergiesloop = true;
         while (allergiesloop) {
             System.out.println("Enter allergy :");
-            allergies.add(scanner.nextLine());
+            allergies.add(InputHandler.getStringInput("Enter allergy :"));
+
             System.out.println("Enter c to continue  inter allergy or q to exist ");
             if (scanner.nextLine()
                     .equalsIgnoreCase("q")) {
@@ -145,7 +148,7 @@ public class PatientService  implements Manageable, Searchable {
     //update existing patient
     public static void UpdatePatient(String patientId, Patient updatedPatient) {
         System.out.println("enter patient Id");
-        patientId = InputHandler.getStringInput("enter patient Id");
+        patientId = getStringInput("enter patient Id");
         if(HelperUtils.isNotNull(patientId)){
             for (Patient p : patients) {
                 if (p.getId().equals(patientId)) {
