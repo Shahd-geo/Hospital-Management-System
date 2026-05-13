@@ -4,6 +4,7 @@ import Interfaces.Displayable;
 
 import java.util.ArrayList;
 import java.util.List;
+import utility.HelperUtils;
 
 public class Department implements Displayable {
     private String departmentId;
@@ -30,6 +31,10 @@ public class Department implements Displayable {
     }
 
     public void setDepartmentId(String departmentId) {
+        if(!HelperUtils.isValidString(departmentId)){
+            System.out.println("Invalid department ID.");
+            return;
+        }
         this.departmentId = departmentId;
     }
 
@@ -38,7 +43,11 @@ public class Department implements Displayable {
     }
 
     public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+
+        if(!HelperUtils.isValidString(departmentName)){
+            System.out.println("Invalid department name.");
+            return;
+        }this.departmentName = departmentName;
     }
 
     public String getHeadDoctorId() {
@@ -46,6 +55,12 @@ public class Department implements Displayable {
     }
 
     public void setHeadDoctorId(String headDoctorId) {
+
+        if(!HelperUtils.isValidString(headDoctorId)){
+            System.out.println(
+                    "Invalid doctor ID.");
+            return;
+        }
         this.headDoctorId = headDoctorId;
     }
 
@@ -54,7 +69,11 @@ public class Department implements Displayable {
     }
 
     public void setDoctors(List<Doctor> doctors) {
-        this.doctors = doctors;
+
+        if(HelperUtils.isNull(doctors)){
+            System.out.println("Doctors list cannot be null.");
+            return;
+        }this.doctors = doctors;
     }
 
     public List<Nurse> getNurses() {
@@ -62,7 +81,11 @@ public class Department implements Displayable {
     }
 
     public void setNurses(List<Nurse> nurses) {
-        this.nurses = nurses;
+
+        if(HelperUtils.isNull(nurses)){
+            System.out.println("Nurses list cannot be null.");
+            return;
+        }this.nurses = nurses;
     }
 
     public int getBedCapacity() {
