@@ -16,6 +16,90 @@ public class NurseService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<Nurse> nurseList = new ArrayList<>();
     static List<String> assignedPatients = new ArrayList<>();
+    public static void loadSampleNurses() {
+
+        nurseList.add(new Nurse(
+                HelperUtils.generateId("PER"),
+                "Aisha",
+                "Salim",
+                LocalDate.of(1995, 3, 10),
+                "Female",
+                "90001001",
+                "aisha@gmail.com",
+                "Muscat",
+                HelperUtils.generateId("NUR"),
+                "DEP1",
+                "Morning",
+                "BSN",
+                new ArrayList<>()
+        ));
+
+        nurseList.add(new Nurse(
+                HelperUtils.generateId("PER"),
+                "Fatma",
+                "Ali",
+                LocalDate.of(1992, 7, 20),
+                "Female",
+                "90001002",
+                "fatma@gmail.com",
+                "Seeb",
+                HelperUtils.generateId("NUR"),
+                "DEP2",
+                "Evening",
+                "BSN",
+                new ArrayList<>()
+        ));
+
+        nurseList.add(new Nurse(
+                HelperUtils.generateId("PER"),
+                "Sara",
+                "Hassan",
+                LocalDate.of(1990, 1, 15),
+                "Female",
+                "90001003",
+                "sara@gmail.com",
+                "Bawshar",
+                HelperUtils.generateId("NUR"),
+                "DEP3",
+                "Night",
+                "Diploma",
+                new ArrayList<>()
+        ));
+
+        nurseList.add(new Nurse(
+                HelperUtils.generateId("PER"),
+                "Noor",
+                "Ahmed",
+                LocalDate.of(1998, 5, 5),
+                "Female",
+                "90001004",
+                "noor@gmail.com",
+                "Muscat",
+                HelperUtils.generateId("NUR"),
+                "DEP1",
+                "Morning",
+                "BSN",
+                new ArrayList<>()
+        ));
+
+        nurseList.add(new Nurse(
+                HelperUtils.generateId("PER"),
+                "Huda",
+                "Salim",
+                LocalDate.of(1993, 11, 25),
+                "Female",
+                "90001005",
+                "huda@gmail.com",
+                "Seeb",
+                HelperUtils.generateId("NUR"),
+                "DEP2",
+                "Evening",
+                "BSN",
+                new ArrayList<>()
+        ));
+
+        System.out.println(" Sample Nurses Loaded Successfully!");
+    }
 
 
     public static Nurse addNurse() {
