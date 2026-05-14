@@ -80,18 +80,16 @@ public class MainApp {
 
                     }
                 }
-               /* case 3 -> {
+               case 3 -> {
 
                     boolean nurseMenu = true;
 
                     while (nurseMenu){
 
-                        System.out.println(
-                                MenuMessages.NURSE_MENU_MESSAGE
+                        System.out.println(MenuMessages.NURSE_MENU_MESSAGE
                         );
 
-                        int nurseOption =
-                                scanner.nextInt();
+                        int nurseOption = scanner.nextInt();
 
                         scanner.nextLine();
 
@@ -102,14 +100,11 @@ public class MainApp {
 
                         } else {
 
-                            NurseService
-                                    .handleNurseMenu(
-                                            nurseOption
-                                    );
+                            NurseService.handleNurseMenu(nurseOption);
                         }
                     }
                 }
-                case 4 -> {
+             /*   case 4 -> {
 
                     boolean medicalRecordMenu = true;
 

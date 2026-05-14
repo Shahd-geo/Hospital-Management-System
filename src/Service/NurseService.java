@@ -40,7 +40,7 @@ public class NurseService  implements Manageable, Searchable {
         String email = InputHandler.getStringInput("Enter Nurse email:");
         String address = InputHandler.getStringInput("Enter Nurse address:");
         String nurseId = HelperUtils.generateId("NUR");
-        String departmentId = InputHandler.getStringInput("Enter Nurse department Id:");
+        String departmentId = HelperUtils.generateId("DPR");
         String shift = InputHandler.getStringInput("Enter Nurse shift:");
         String qualification = InputHandler.getStringInput("Enter Nurse qualification:");
 
