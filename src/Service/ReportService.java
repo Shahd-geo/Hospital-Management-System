@@ -27,6 +27,7 @@ public class ReportService {
             System.out.println("No appointments found for this date.");
         }
     }
+
     public static void doctorPerformanceReport(List<MedicalRecord> records) {
 
         System.out.println("===== Doctor Performance Report =====");
@@ -43,6 +44,7 @@ public class ReportService {
                     " | Cases: " + count.get(doctorId));
         }
     }
+
     public static void departmentOccupancyReport(List<Department> departments) {
 
         System.out.println("===== Department Occupancy Report =====");
@@ -58,6 +60,7 @@ public class ReportService {
             System.out.println("-------------------");
         }
     }
+
     public static void patientStatistics(List<MedicalRecord> records) {
 
         System.out.println("===== Patient Statistics =====");
@@ -70,6 +73,7 @@ public class ReportService {
         System.out.println("Total Patients: " + totalPatients);
         System.out.println("Total Records: " + records.size());
     }
+
     public static void emergencyCasesReport(List<MedicalRecord> records) {
 
         System.out.println("===== Emergency Cases Report =====");
@@ -90,32 +94,33 @@ public class ReportService {
             System.out.println("No emergency cases found.");
         }
     }
-    public static void handleReportMenu(int ReportOption, List<MedicalRecord> records, List<Appointment> appointments, List<Department> departments) {
+
+    public static void handleReportMenu(int ReportOption) {
+
         switch (ReportOption) {
 
             case 1 -> {
                 LocalDate date = InputHandler.getDateInput("Enter date:");
-                dailyAppointmentsReport(appointments, date);
+                dailyAppointmentsReport(AppointmentService.appointmentList, date);
             }
 
             case 2 -> {
-                doctorPerformanceReport(records);
+                doctorPerformanceReport(MedicalRecordService.medicalRecordList);
             }
 
             case 3 -> {
-                departmentOccupancyReport(departments);
+                departmentOccupancyReport(DepartmentService.departmentList);
             }
 
             case 4 -> {
-                patientStatistics(records);
+                patientStatistics(MedicalRecordService.medicalRecordList);
             }
 
             case 5 -> {
-                emergencyCasesReport(records);
+                emergencyCasesReport(MedicalRecordService.medicalRecordList);
             }
 
             default -> System.out.println("Invalid option");
         }
     }
-
 }

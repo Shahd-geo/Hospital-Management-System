@@ -198,16 +198,11 @@ public class MainApp {
                 }
                 case 7 -> {
 
-                    System.out.println("Exiting system...");
-
-                    running = false;
-                }
 
 
                 default -> {
 
-                    System.out.println(
-                            "Invalid option"
+                    System.out.println("Invalid option"
                     );
                 }
             }
