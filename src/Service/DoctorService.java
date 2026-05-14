@@ -1,9 +1,6 @@
 package Service;
 
-import Entity.Consultant;
-import Entity.Doctor;
-import Entity.GeneralPractitioner;
-import Entity.Patient;
+import Entity.*;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 
@@ -472,6 +469,45 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println("General Practitioner added successfully.");
 
         return generalPractitioner;
+    }
+    public static Surgeon addSurgeon(){
+
+        Doctor baseDoctor = addDector();
+
+        String surgeryType = InputHandler.getStringInput("Enter surgery type:");
+        int surgeriesCompleted = InputHandler.getIntInput("Enter surgeries completed:", 0, 10000);
+
+        boolean emergencyAvailable = InputHandler.getConfirmation("Is emergency surgery available?");
+
+        Surgeon surgeon =
+                new Surgeon(
+                        baseDoctor.getId(),
+                        baseDoctor.getFirstName(),
+                        baseDoctor.getLastName(),
+                        baseDoctor.getDateOfBirth(),
+                        baseDoctor.getGender(),
+                        baseDoctor.getPhoneNumber(),
+                        baseDoctor.getEmail(),
+                        baseDoctor.getAddress(),
+                        baseDoctor.getDoctorId(),
+                        baseDoctor.getSpecialization(),
+                        baseDoctor.getQualification(),
+                        baseDoctor.getExperienceYears(),
+                        baseDoctor.getDepartmentId(),
+                        baseDoctor.getConsultationFee(),
+                        baseDoctor.getAvailableSlots(),
+                        baseDoctor.getAssignedPatients(),
+                        surgeryType,
+                        surgeriesCompleted,
+                        emergencyAvailable
+                );
+
+        doctors.add(surgeon);
+
+        System.out.println("Surgeon added successfully."
+        );
+
+        return surgeon;
     }
 
 
