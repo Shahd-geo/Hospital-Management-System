@@ -33,9 +33,7 @@ public class MainApp {
 
                     while (patientMenu) {
 
-                        System.out.println(
-                                MenuMessages.PATIENT_MENU_MESSAGE
-                        );
+                        System.out.println(MenuMessages.PATIENT_MENU_MESSAGE);
 
                         int patientOption =
                                 scanner.nextInt();

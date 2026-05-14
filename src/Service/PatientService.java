@@ -19,6 +19,256 @@ public class PatientService  implements Manageable, Searchable {
 
     static List<MedicalRecord> medicalRecords = new ArrayList<>();
     static List<Appointment> appointments = new ArrayList<>();
+    public static void loadSamplePatients() {
+
+        // =========================
+        // REGULAR PATIENTS (3)
+        // =========================
+        patients.add(new Patient(
+                HelperUtils.generateId("PER"),
+                "Ali",
+                "Ahmed",
+                LocalDate.of(2000, 1, 1),
+                "Male",
+                "90000001",
+                "ali@gmail.com",
+                "Muscat",
+                LocalDate.now(),
+                "PAT1",
+                new ArrayList<>(),
+                "A+",
+                "90000002",
+                "O+",
+                new ArrayList<>(),
+                new ArrayList<>()
+        ));
+
+        patients.add(new Patient(
+                HelperUtils.generateId("PER"),
+                "Sara",
+                "Mohammed",
+                LocalDate.of(1998, 5, 10),
+                "Female",
+                "90000003",
+                "sara@gmail.com",
+                "Seeb",
+                LocalDate.now(),
+                "PAT2",
+                new ArrayList<>(),
+                "B+",
+                "90000004",
+                "A+",
+                new ArrayList<>(),
+                new ArrayList<>()
+        ));
+
+        patients.add(new Patient(
+                HelperUtils.generateId("PER"),
+                "Omar",
+                "Hassan",
+                LocalDate.of(1995, 8, 20),
+                "Male",
+                "90000005",
+                "omar@gmail.com",
+                "Bawshar",
+                LocalDate.now(),
+                "PAT3",
+                new ArrayList<>(),
+                "O+",
+                "90000006",
+                "B+",
+                new ArrayList<>(),
+                new ArrayList<>()
+        ));
+
+        // =========================
+        // INPATIENTS (3)
+        // =========================
+        patients.add(new InPatient(
+                HelperUtils.generateId("PER"),
+                "Fatma",
+                "Ali",
+                LocalDate.of(1990, 3, 15),
+                "Female",
+                "90000007",
+                "fatma@gmail.com",
+                "Muscat",
+                LocalDate.now(),
+                "PAT4",
+                new ArrayList<>(),
+                "A-",
+                "90000008",
+                "O+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDate.now(),
+                LocalDate.now().plusDays(5),
+                "R101",
+                "B1",
+                "DOC1",
+                50.0
+        ));
+
+        patients.add(new InPatient(
+                HelperUtils.generateId("PER"),
+                "Khalid",
+                "Salim",
+                LocalDate.of(1988, 11, 2),
+                "Male",
+                "90000009",
+                "khalid@gmail.com",
+                "Seeb",
+                LocalDate.now(),
+                "PAT5",
+                new ArrayList<>(),
+                "B+",
+                "90000010",
+                "A+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDate.now(),
+                LocalDate.now().plusDays(3),
+                "R102",
+                "B2",
+                "DOC2",
+                60.0
+        ));
+
+        patients.add(new InPatient(
+                HelperUtils.generateId("PER"),
+                "Noor",
+                "Yousef",
+                LocalDate.of(2001, 7, 7),
+                "Female",
+                "90000011",
+                "noor@gmail.com",
+                "Bawshar",
+                LocalDate.now(),
+                "PAT6",
+                new ArrayList<>(),
+                "O-",
+                "90000012",
+                "O+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDate.now(),
+                LocalDate.now().plusDays(2),
+                "R103",
+                "B3",
+                "DOC3",
+                45.0
+        ));
+
+        // =========================
+        // OUTPATIENTS (2)
+        // =========================
+        patients.add(new OutPatient(
+                HelperUtils.generateId("PER"),
+                "Huda",
+                "Said",
+                LocalDate.of(1999, 4, 12),
+                "Female",
+                "90000013",
+                "huda@gmail.com",
+                "Muscat",
+                LocalDate.now(),
+                "PAT7",
+                new ArrayList<>(),
+                "A+",
+                "90000014",
+                "O+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                3,
+                LocalDate.now(),
+                "DOC1"
+        ));
+
+        patients.add(new OutPatient(
+                HelperUtils.generateId("PER"),
+                "Majid",
+                "Nasser",
+                LocalDate.of(1993, 9, 25),
+                "Male",
+                "90000015",
+                "majid@gmail.com",
+                "Seeb",
+                LocalDate.now(),
+                "PAT8",
+                new ArrayList<>(),
+                "B+",
+                "90000016",
+                "A+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                5,
+                LocalDate.now(),
+                "DOC2"
+        ));
+
+        // =========================
+        // EMERGENCY PATIENTS (2)
+        // =========================
+        patients.add(new EmergencyPatient(
+                HelperUtils.generateId("PER"),
+                "Yousef",
+                "Salim",
+                LocalDate.of(1985, 2, 14),
+                "Male",
+                "90000017",
+                "yousef@gmail.com",
+                "Muscat",
+                LocalDate.now(),
+                "PAT9",
+                new ArrayList<>(),
+                "O+",
+                "90000018",
+                "A+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDate.now(),
+                LocalDate.now().plusDays(4),
+                "R104",
+                "B4",
+                "DOC3",
+                70.0,
+                "Accident",
+                "Ambulance",
+                1,
+                true
+        ));
+
+        patients.add(new EmergencyPatient(
+                HelperUtils.generateId("PER"),
+                "Reem",
+                "Ahmed",
+                LocalDate.of(2002, 6, 30),
+                "Female",
+                "90000019",
+                "reem@gmail.com",
+                "Bawshar",
+                LocalDate.now(),
+                "PAT10",
+                new ArrayList<>(),
+                "A+",
+                "90000020",
+                "O+",
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDate.now(),
+                LocalDate.now().plusDays(1),
+                "R105",
+                "B5",
+                "DOC1",
+                80.0,
+                "Severe pain",
+                "Private car",
+                2,
+                false
+        ));
+
+        System.out.println(" Sample patients loaded successfully!");
+    }
 
 
     //add new patient
