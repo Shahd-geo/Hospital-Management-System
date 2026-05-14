@@ -14,6 +14,144 @@ import java.util.Scanner;
 
 public class MedicalRecordService implements Manageable, Searchable {
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
+    public static void loadSampleMedicalRecords() {
+
+        System.out.println("Loading Medical Records sample data...");
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1001",
+                "DOC-1001",
+                LocalDate.of(2026, 1, 10),
+                "Flu",
+                "Paracetamol",
+                "Normal",
+                "Rest and fluids"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1002",
+                "DOC-1002",
+                LocalDate.of(2026, 1, 12),
+                "Asthma",
+                "Inhaler",
+                "Mild condition",
+                "Follow up required"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1003",
+                "DOC-1003",
+                LocalDate.of(2026, 1, 15),
+                "Fracture",
+                "Cast applied",
+                "X-ray confirmed fracture",
+                "6 weeks recovery"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1004",
+                "DOC-1001",
+                LocalDate.of(2026, 1, 18),
+                "Diabetes Check",
+                "Insulin adjustment",
+                "High sugar level",
+                "Diet control"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1005",
+                "DOC-1004",
+                LocalDate.of(2026, 1, 20),
+                "Headache",
+                "Painkillers",
+                "Normal CT scan",
+                "Stress related"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1001",
+                "DOC-1002",
+                LocalDate.of(2026, 1, 22),
+                "Follow up Flu",
+                "No medication",
+                "Recovered",
+                "Discharged"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1006",
+                "DOC-1005",
+                LocalDate.of(2026, 1, 25),
+                "Chest Pain",
+                "ECG done",
+                "Mild issue",
+                "Observation"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1007",
+                "DOC-1003",
+                LocalDate.of(2026, 1, 27),
+                "Allergy",
+                "Antihistamine",
+                "Skin rash",
+                "Avoid allergen"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1008",
+                "DOC-1006",
+                LocalDate.of(2026, 2, 1),
+                "Back Pain",
+                "Physiotherapy",
+                "Muscle strain",
+                "Exercise recommended"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1009",
+                "DOC-1002",
+                LocalDate.of(2026, 2, 3),
+                "Fever",
+                "Paracetamol",
+                "Viral infection",
+                "Hydration"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1010",
+                "DOC-1007",
+                LocalDate.of(2026, 2, 5),
+                "Eye Infection",
+                "Eye drops",
+                "Bacterial infection",
+                "Hygiene important"
+        ));
+
+        medicalRecordList.add(new MedicalRecord(
+                HelperUtils.generateId("REC"),
+                "PAT-1002",
+                "DOC-1001",
+                LocalDate.of(2026, 2, 7),
+                "Asthma Review",
+                "Inhaler adjustment",
+                "Improving",
+                "Continue treatment"
+        ));
+
+        System.out.println("Medical Records sample data loaded successfully.");
+    }
 
     public static MedicalRecord addMedicalRecord() {
 
