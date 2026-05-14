@@ -2,6 +2,7 @@ package Service;
 
 import Entity.Consultant;
 import Entity.Doctor;
+import Entity.GeneralPractitioner;
 import Entity.Patient;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
@@ -429,6 +430,48 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println("Consultant added successfully.");
 
         return consultant;
+    }
+    public static GeneralPractitioner addGeneralPractitioner(){
+
+        Doctor baseDoctor = addDector();
+
+        boolean walkinAvailable = InputHandler.getConfirmation("Is walk-in available?");
+
+        boolean homeVisitAvailable = InputHandler.getConfirmation("Is home visit available?"
+                );
+
+        boolean vaccinationCertified = InputHandler.getConfirmation("Is vaccination certified?");
+
+        GeneralPractitioner generalPractitioner =
+                new GeneralPractitioner(
+
+                        baseDoctor.getId(),
+                        baseDoctor.getFirstName(),
+                        baseDoctor.getLastName(),
+                        baseDoctor.getDateOfBirth(),
+                        baseDoctor.getGender(),
+                        baseDoctor.getPhoneNumber(),
+                        baseDoctor.getEmail(),
+                        baseDoctor.getAddress(),
+                        baseDoctor.getDoctorId(),
+                        baseDoctor.getSpecialization(),
+                        baseDoctor.getQualification(),
+                        baseDoctor.getExperienceYears(),
+                        baseDoctor.getDepartmentId(),
+                        baseDoctor.getConsultationFee(),
+                        baseDoctor.getAvailableSlots(),
+                        baseDoctor.getAssignedPatients(),
+
+                        walkinAvailable,
+                        homeVisitAvailable,
+                        vaccinationCertified
+                );
+
+        doctors.add(generalPractitioner);
+
+        System.out.println("General Practitioner added successfully.");
+
+        return generalPractitioner;
     }
 
 
