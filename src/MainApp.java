@@ -16,6 +16,7 @@ public class MainApp {
     static void main(String[] args) {
         PatientService.loadSamplePatients();
         DoctorService.loadSampleDoctors();
+        DoctorService.testDoctors();
         boolean running = true;
 
         while (running) {

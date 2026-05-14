@@ -203,6 +203,23 @@ public class DoctorService implements Manageable, Searchable {
 
         System.out.println(" Sample Doctors Loaded Successfully!");
     }
+    public static void testDoctors() {
+
+        // Test CRUD
+        System.out.println(doctors.size());
+
+        // Test search
+        System.out.println(getDoctorsBySpecialization("Surgery").size());
+
+        // Test overloaded
+        new DoctorService().displayDoctors();
+
+        // Test interface
+        DoctorService service = new DoctorService();
+        service.search("Ali");
+
+        System.out.println("Testing done!");
+    }
     public static Doctor addDector() {
         String id = HelperUtils.generateId("PER");
 
