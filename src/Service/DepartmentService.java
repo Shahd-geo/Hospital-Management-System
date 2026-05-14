@@ -11,7 +11,6 @@ import utility.HelperUtils;
 import utility.InputHandler;
 
 public class DepartmentService  implements Manageable, Searchable {
-    static Scanner scanner = new Scanner(System.in);
     static List<Department> departmentList = new ArrayList<>();
     static List<Doctor> doctors = new ArrayList<>();
     static List<Nurse> nurses = new ArrayList<>();
@@ -28,22 +27,24 @@ public class DepartmentService  implements Manageable, Searchable {
         return department;
 
     }
-    public static List<Department> addDepartments(){
+    public static List<Department> addDepartments() {
 
-        Boolean continueFlag = true;
+        boolean continueFlag = true;
+
         while (continueFlag) {
 
             departmentList.add(addDepartment());
-            System.out.println("Department add successfully");
+            System.out.println("Department added successfully");
 
-            System.out.println("Enter c to add more , and q to exit");
+            String choice = InputHandler.getStringInput(
+                    "Enter 'c' to continue adding or 'q' to quit:");
 
-            if (scanner.nextLine().equalsIgnoreCase("q")) {
+            if (choice.equalsIgnoreCase("q")) {
                 continueFlag = false;
             }
         }
-        return departmentList;
 
+        return departmentList;
     }
     // UPDATE department
 
@@ -51,20 +52,14 @@ public class DepartmentService  implements Manageable, Searchable {
 
         for(Department department : departmentList){
             if(department.getDepartmentId().equals(departmentId)){
-
-                System.out.println("Enter updated department Name :");
-                department.setDepartmentName(scanner.nextLine());
-
-                System.out.println("Enter updated department head DoctorId :");
-                department.setHeadDoctorId(scanner.nextLine());
-
-                System.out.println("Enter updated department  bed Capacity :");
-                department.setBedCapacity(scanner.nextInt());
-
-                System.out.println("Enter updated department available Beds :");
-                department.setAvailableBeds(scanner.nextInt());
-                scanner.nextLine();
-
+                String newName = InputHandler.getStringInput("Enter updated department Name:");
+                department.setDepartmentName(newName);
+                String newHeadDoctorId = InputHandler.getStringInput("Enter updated department head DoctorId:");
+                department.setHeadDoctorId(newHeadDoctorId);
+                int newBedCapacity = InputHandler.getIntInput("Enter updated department bed Capacity:");
+                department.setBedCapacity(newBedCapacity);
+                int newAvailableBeds = InputHandler.getIntInput("Enter updated department available Beds:");
+                department.setAvailableBeds(newAvailableBeds);
 
                 System.out.println("department updated successfully");
 
@@ -113,21 +108,30 @@ public class DepartmentService  implements Manageable, Searchable {
     // assign Doctor To Department(String doctorId, String departmentId)
 
     public static void assignDoctorToDepartment(String doctorId, String departmentId) {
-        if(HelperUtils.isNull(doctorId) || HelperUtils.isNull(departmentId)){
 
+        if (HelperUtils.isNull(doctorId) || HelperUtils.isNull(departmentId)) {
             System.out.println("Invalid data.");
             return;
         }
 
         Doctor doctor = DoctorService.getDoctorById(doctorId);
 
+        if (HelperUtils.isNull(doctor)) {
+            System.out.println("Doctor not found.");
+            return;
+        }
+
         for (Department department : departmentList) {
 
-            if (department.getDepartmentId().equalsIgnoreCase(departmentId)){
+            if (department.getDepartmentId().equalsIgnoreCase(departmentId)) {
 
                 department.getDoctors().add(doctor);
+                System.out.println("Doctor assigned successfully.");
+                return;
             }
         }
+
+        System.out.println("Department not found.");
     }
     public static boolean handleDepartmentMenu(Integer departmentOption) {
 
