@@ -69,30 +69,13 @@ public class MedicalRecordService implements Manageable, Searchable {
         for(MedicalRecord medicalRecord : medicalRecordList){
 
             if(medicalRecord.getRecordId().equals(recordId)){
-
-                System.out.println("Enter updated patient Id :");
-                medicalRecord.setPatientId(scanner.nextLine());
-
-                System.out.println("Enter updated doctor Id :");
-                medicalRecord.setDoctorId(scanner.nextLine());
-
-                System.out.println("Enter updated visit Date:");
-                String visitDate = scanner.nextLine();
-                LocalDate date = LocalDate.parse(visitDate);
-                medicalRecord.setVisitDate(date);
-
-                System.out.println("Enter updated diagnosis :");
-                medicalRecord.setDiagnosis(scanner.nextLine());
-
-                System.out.println("Enter updated prescription :");
-                medicalRecord.setPrescription(scanner.nextLine());
-
-                System.out.println("Enter updated test Results :");
-                medicalRecord.setTestResults(scanner.nextLine());
-
-                System.out.println("Enter updated notes :");
-                medicalRecord.setNotes(scanner.nextLine());
-
+                medicalRecord.setPatientId(InputHandler.getStringInput("Enter new patient Id:"));
+                medicalRecord.setDoctorId(InputHandler.getStringInput("Enter new doctor Id:"));
+                medicalRecord.setVisitDate(InputHandler.getDateInput("Enter new visit date:"));
+                medicalRecord.setDiagnosis(InputHandler.getStringInput("Enter new diagnosis:"));
+                medicalRecord.setPrescription(InputHandler.getStringInput("Enter new prescription:"));
+                medicalRecord.setTestResults(InputHandler.getStringInput("Enter new test results:"));
+                medicalRecord.setNotes(InputHandler.getStringInput("Enter new notes:"));
                 System.out.println("Medical record updated successfully");
 
 
