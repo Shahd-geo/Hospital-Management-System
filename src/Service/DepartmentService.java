@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import utility.HelperUtils;
+import utility.InputHandler;
+
 public class DepartmentService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     static List<Department> departmentList = new ArrayList<>();
@@ -17,15 +19,10 @@ public class DepartmentService  implements Manageable, Searchable {
 
     public static Department addDepartment(){
         String departmentId = HelperUtils.generateId("DEP");
-        System.out.println("Enter department Name :");
-        String departmentName = scanner.nextLine();
-        System.out.println("Enter department head DoctorId :");
-        String headDoctorId = scanner.nextLine();
-        System.out.println("Enter department  bed Capacity :");
-        int bedCapacity = scanner.nextInt();
-        System.out.println("Enter department available Beds :");
-        int availableBeds = scanner.nextInt();
-        scanner.nextLine();
+        String departmentName = InputHandler.getStringInput("Enter department Name:");
+        String headDoctorId = InputHandler.getStringInput("Enter department head DoctorId:");
+        int bedCapacity = InputHandler.getIntInput("Enter department bed Capacity:");
+        int availableBeds = InputHandler.getIntInput("Enter department available Beds:");
         Department department = new Department(departmentId,departmentName,headDoctorId,doctors,nurses,bedCapacity,availableBeds);
 
         return department;
