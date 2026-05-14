@@ -4,6 +4,7 @@ import Service.*;
 import java.awt.*;
 import java.util.Scanner;
 
+import static Service.DoctorService.loadSampleDoctors;
 import static Service.PatientService.scanner;
 
 
@@ -14,6 +15,7 @@ public class MainApp {
 
     static void main(String[] args) {
         PatientService.loadSamplePatients();
+        DoctorService.loadSampleDoctors();
         boolean running = true;
 
         while (running) {
