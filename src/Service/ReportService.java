@@ -3,6 +3,7 @@ package Service;
 import Entity.Appointment;
 import Entity.Department;
 import Entity.MedicalRecord;
+import utility.InputHandler;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -87,6 +88,33 @@ public class ReportService {
 
         if (!found) {
             System.out.println("No emergency cases found.");
+        }
+    }
+    public static void handleReportMenu(int ReportOption, List<MedicalRecord> records, List<Appointment> appointments, List<Department> departments) {
+        switch (ReportOption) {
+
+            case 1 -> {
+                LocalDate date = InputHandler.getDateInput("Enter date:");
+                dailyAppointmentsReport(appointments, date);
+            }
+
+            case 2 -> {
+                doctorPerformanceReport(records);
+            }
+
+            case 3 -> {
+                departmentOccupancyReport(departments);
+            }
+
+            case 4 -> {
+                patientStatistics(records);
+            }
+
+            case 5 -> {
+                emergencyCasesReport(records);
+            }
+
+            default -> System.out.println("Invalid option");
         }
     }
 
