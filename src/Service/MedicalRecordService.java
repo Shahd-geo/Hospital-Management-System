@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class MedicalRecordService implements Manageable, Searchable {
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
+
     public static MedicalRecord addMedicalRecord() {
 
         String recordId = HelperUtils.generateId("REC");
@@ -21,14 +22,15 @@ public class MedicalRecordService implements Manageable, Searchable {
         String doctorId = InputHandler.getStringInput("Enter doctor Id:");
         LocalDate visitDate;
 
-        do {visitDate = InputHandler.getDateInput("Enter visit date (yyyy-MM-dd):");
+        do {
+            visitDate = InputHandler.getDateInput("Enter visit date (yyyy-MM-dd):");
 
-            if(HelperUtils.isFutureDate(visitDate)){
+            if (HelperUtils.isFutureDate(visitDate)) {
 
                 System.out.println("Visit Date date cannot be in the future.");
             }
 
-        } while(HelperUtils.isFutureDate(visitDate));
+        } while (HelperUtils.isFutureDate(visitDate));
         String diagnosis = InputHandler.getStringInput("Enter diagnosis:");
         String prescription = InputHandler.getStringInput("Enter prescription:");
         String testResults = InputHandler.getStringInput("Enter test results:");
@@ -47,6 +49,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
         return medicalRecord;
     }
+
     public static List<MedicalRecord> addMedicalRecords() {
         boolean continueFlag = true;
 
@@ -65,12 +68,13 @@ public class MedicalRecordService implements Manageable, Searchable {
         return medicalRecordList;
 
     }
+
     //update function
     public static void editMedicalRecord(String recordId) {
 
-        for(MedicalRecord medicalRecord : medicalRecordList){
+        for (MedicalRecord medicalRecord : medicalRecordList) {
 
-            if(medicalRecord.getRecordId().equals(recordId)){
+            if (medicalRecord.getRecordId().equals(recordId)) {
                 medicalRecord.setPatientId(InputHandler.getStringInput("Enter new patient Id:"));
                 medicalRecord.setDoctorId(InputHandler.getStringInput("Enter new doctor Id:"));
                 medicalRecord.setVisitDate(InputHandler.getDateInput("Enter new visit date:"));
@@ -86,15 +90,16 @@ public class MedicalRecordService implements Manageable, Searchable {
         }
 
     }
+
     // remove doctor by ID
-    public static void removeRecored(String recordId){
+    public static void removeRecord(String recordId) {
 
         boolean removed = medicalRecordList.removeIf(
                 b -> b.getRecordId()
                         .equals(recordId)
         );
 
-        if (removed){
+        if (removed) {
 
             System.out.println(
                     "Record removed successfully");
@@ -105,11 +110,12 @@ public class MedicalRecordService implements Manageable, Searchable {
                     "Recored not found");
         }
     }
-    //retrieve medical record
-    public static MedicalRecord getMedicalRecord(String recordId){
 
-        for(MedicalRecord medicalRecord: medicalRecordList){
-            if(medicalRecord.getRecordId().equals(recordId)){
+    //retrieve medical record
+    public static MedicalRecord getMedicalRecord(String recordId) {
+
+        for (MedicalRecord medicalRecord : medicalRecordList) {
+            if (medicalRecord.getRecordId().equals(recordId)) {
                 return medicalRecord;
             }
 
@@ -117,14 +123,15 @@ public class MedicalRecordService implements Manageable, Searchable {
         System.out.println("medical Record not found");
         return null;
     }
+
     //Records By PatientId
-    public static List<MedicalRecord> getRecordsByPatientId(String patientId){
+    public static List<MedicalRecord> getRecordsByPatientId(String patientId) {
 
         List<MedicalRecord> patientMedicalRecords = new ArrayList<>();
 
-        for (MedicalRecord medicalRecord : medicalRecordList){
+        for (MedicalRecord medicalRecord : medicalRecordList) {
 
-            if(medicalRecord.getPatientId().equalsIgnoreCase(patientId)){
+            if (medicalRecord.getPatientId().equalsIgnoreCase(patientId)) {
                 patientMedicalRecords.add(medicalRecord);
             }
         }
@@ -133,13 +140,13 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
     // getRecordsByDoctorId(String doctorId)
 
-    public static List<MedicalRecord> getRecordsByDoctorId(String doctorId){
+    public static List<MedicalRecord> getRecordsByDoctorId(String doctorId) {
 
         List<MedicalRecord> doctorMedicalRecords = new ArrayList<>();
 
-        for (MedicalRecord medicalRecord : medicalRecordList){
+        for (MedicalRecord medicalRecord : medicalRecordList) {
 
-            if(medicalRecord.getDoctorId().equalsIgnoreCase(doctorId)){
+            if (medicalRecord.getDoctorId().equalsIgnoreCase(doctorId)) {
                 doctorMedicalRecords.add(medicalRecord);
             }
         }
@@ -149,61 +156,66 @@ public class MedicalRecordService implements Manageable, Searchable {
     //display PatientHistory
 
     public static void displayPatientHistory(String patientId) {
-        if(HelperUtils.isNull(patientId)){
+        if (HelperUtils.isNull(patientId)) {
             System.out.println("Invalid patient ID.");
             return;
         }
 
-        for(MedicalRecord medicalRecord : medicalRecordList){
-            if(medicalRecord.getPatientId().equalsIgnoreCase(patientId)){
+        for (MedicalRecord medicalRecord : medicalRecordList) {
+            if (medicalRecord.getPatientId().equalsIgnoreCase(patientId)) {
                 medicalRecord.displayInfo();
             }
         }
     }
+
     @Override
     public void add(Object entity) {
-        if(HelperUtils.isNull(entity)){
+        if (HelperUtils.isNull(entity)) {
             System.out.println(
                     "Medical record cannot be null.");
             return;
         }
 
         medicalRecordList.add((MedicalRecord) entity);
-
         System.out.println(
                 "Medical record added successfully");
     }
+
     @Override
     public void remove(String id) {
 
-        removeRecored(id);
+        removeRecord(id);
     }
+
     @Override
     public List<MedicalRecord> getAll() {
 
         return medicalRecordList;
     }
+
     @Override
     public void search(String keyword) {
-        if(HelperUtils.isNull(keyword)){
+        if (HelperUtils.isNull(keyword)) {
             System.out.println("Invalid keyword.");
             return;
         }
 
         List<MedicalRecord> records = getRecordsByPatientId(keyword);
 
-        for (MedicalRecord medicalRecord : records){
+        for (MedicalRecord medicalRecord : records) {
 
             medicalRecord.displayInfo();
         }
     }
+
     @Override
     public void searchById(String id) {
         MedicalRecord medicalRecord = getMedicalRecord(id);
-        if(HelperUtils.isNotNull(medicalRecord)){
+        if (HelperUtils.isNotNull(medicalRecord)) {
             medicalRecord.displayInfo();
         }
     }
+
     public static void viewAllRecords() {
 
         if (medicalRecordList.isEmpty()) {
@@ -217,8 +229,6 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
 
 
-
-
     public static boolean handleMedicalRecoredMenu(Integer RecordOption) {
 
 
@@ -227,71 +237,60 @@ public class MedicalRecordService implements Manageable, Searchable {
                 addMedicalRecords();
             }
             case 2 -> {
-                System.out.println(
-                        "Enter Record ID to update");
-
-                String recordId =
-                        scanner.nextLine();
-
-                editMedicalRecord(recordId);
+                viewAllRecords();
             }
             case 3 -> {
-                System.out.println("Enter record Id to remove");
-                String recordId = scanner.nextLine();
-                removeRecored(recordId);
+                String patientId = InputHandler.getStringInput("Enter Patient ID:");
+                List<MedicalRecord> records = getRecordsByPatientId(patientId);
+
+                if (records.isEmpty()) {
+                    System.out.println("No records found for this patient.");
+                    return false;
+                }
+
+                for (MedicalRecord r : records) {
+                    r.displayInfo();
+                }
             }
 
             case 4 -> {
 
-                    System.out.println("Enter record Id to getMedicalRecord");
-
-                    String recordId = scanner.nextLine();
-
-                    MedicalRecord medicalRecord = getMedicalRecord(recordId);
-                if(HelperUtils.isNotNull(medicalRecord)){
-
-                        medicalRecord.displayInfo();
-                    }
-                }
-
-            case 5 -> {
-                System.out.println("Enter patient Id to getRecordsByPatientId");
-
-                String patientId = scanner.nextLine();
-
-                List<MedicalRecord> records = getRecordsByPatientId(patientId);
-
-                for (MedicalRecord medicalRecord : records){
-
-                    medicalRecord.displayInfo();
-                }
-            }
-
-            case 6 -> {
-                System.out.println("Enter Doctor Id to get record");
-
-                String doctorId = scanner.nextLine();
-
+                String doctorId = InputHandler.getStringInput("Enter Doctor ID:");
                 List<MedicalRecord> records = getRecordsByDoctorId(doctorId);
 
-                for (MedicalRecord medicalRecord : records){
+                if (records.isEmpty()) {
+                    System.out.println("No records found for this doctor.");
+                    return false;
+                }
 
-                    medicalRecord.displayInfo();
+                for (MedicalRecord r : records) {
+                    r.displayInfo();
                 }
             }
 
-            case 7 -> {
-                System.out.println("Enter patientId to show history ");
-                String patientId = scanner.nextLine();
-                displayPatientHistory(patientId);
 
-
+            case 5 -> {
+                String recordId = InputHandler.getStringInput("Enter Record ID:");
+                editMedicalRecord(recordId);
             }
 
+                case 6 -> {
+                    String recordId = InputHandler.getStringInput("Enter Record ID:");
+                    removeRecord(recordId);
+                }
+
+
+            case 7 -> {
+                String patientId = InputHandler.getStringInput("Enter Patient ID:");
+                displayPatientHistory(patientId);
+            }
+
+
+            default -> {
+                System.out.println("Invalid option.");
+            }
         }
+
         return false;
     }
-
 }
-
-
