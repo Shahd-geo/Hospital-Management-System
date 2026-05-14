@@ -48,18 +48,20 @@ public class MedicalRecordService implements Manageable, Searchable {
         return medicalRecord;
     }
     public static List<MedicalRecord> addMedicalRecords() {
+        boolean continueFlag = true;
 
-        Boolean continueFlag = true;
         while (continueFlag) {
 
             medicalRecordList.add(addMedicalRecord());
-            System.out.println("Medical record add successfully");
+            System.out.println("Medical record added successfully");
 
-            System.out.println("Enter c to add more , and q to exit");
-            if (scanner.nextLine().equalsIgnoreCase("q")) {
+            String choice = InputHandler.getStringInput("Enter 'c' to continue or 'q' to quit:");
+
+            if (choice.equalsIgnoreCase("q")) {
                 continueFlag = false;
             }
         }
+
         return medicalRecordList;
 
     }
