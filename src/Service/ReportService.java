@@ -57,5 +57,17 @@ public class ReportService {
             System.out.println("-------------------");
         }
     }
+    public static void patientStatistics(List<MedicalRecord> records) {
+
+        System.out.println("===== Patient Statistics =====");
+
+        long totalPatients = records.stream()
+                .map(MedicalRecord::getPatientId)
+                .distinct()
+                .count();
+
+        System.out.println("Total Patients: " + totalPatients);
+        System.out.println("Total Records: " + records.size());
+    }
 
 }
