@@ -351,6 +351,21 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         System.out.println("Appointment scheduled successfully");
     }
+    public static void completeAppointment(String appointmentId) {
+
+        for (Appointment appointment : appointmentList) {
+
+            if (appointment.getAppointmentId().equals(appointmentId)) {
+
+                appointment.setStatus("Completed");
+                System.out.println("Appointment marked as completed");
+
+                return;
+            }
+        }
+
+        System.out.println("Appointment not found");
+    }
 
 
     public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
