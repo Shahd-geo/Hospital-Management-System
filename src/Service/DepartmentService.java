@@ -133,6 +133,32 @@ public class DepartmentService  implements Manageable, Searchable {
 
         System.out.println("Department not found.");
     }
+    public static void assignNurseToDepartment(String nurseId, String departmentId) {
+
+        if (HelperUtils.isNull(nurseId) || HelperUtils.isNull(departmentId)) {
+            System.out.println("Invalid data.");
+            return;
+        }
+
+        Nurse nurse = NurseService.getNurseById(nurseId);
+
+        if (HelperUtils.isNull(nurse)) {
+            System.out.println("Nurse not found.");
+            return;
+        }
+
+        for (Department department : departmentList) {
+
+            if (department.getDepartmentId().equalsIgnoreCase(departmentId)) {
+
+                department.getNurses().add(nurse);
+                System.out.println("Nurse assigned successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Department not found.");
+    }
     public static boolean handleDepartmentMenu(Integer departmentOption) {
 
 
@@ -141,18 +167,13 @@ public class DepartmentService  implements Manageable, Searchable {
                 addDepartments();
             }
             case 2 -> {
-                System.out.println(
-                        "Enter Department ID to update");
-
-                String departmentId =
-                        scanner.nextLine();
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
 
                 editDepartment(departmentId);
             }
 
             case 3 -> {
-                System.out.println("Enter department Id to remove");
-                String departmentId = scanner.nextLine();
+                String departmentId = InputHandler.getStringInput("Enter Department ID To remove:");
                 removeDepartment(departmentId);
             }
 
