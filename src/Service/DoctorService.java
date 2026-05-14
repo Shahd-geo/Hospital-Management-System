@@ -14,8 +14,195 @@ import utility.InputHandler;
 public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     public static List<Doctor> doctors = new ArrayList<>();
+    public static void loadSampleDoctors() {
 
+        // =======================
+        // SURGEON (2)
+        // =======================
+        doctors.add(new Surgeon(
+                HelperUtils.generateId("PER"),
+                "Ahmad",
+                "Salim",
+                LocalDate.of(1980, 5, 10),
+                "Male",
+                "90000001",
+                "ahmad@gmail.com",
+                "Muscat",
+                HelperUtils.generateId("DOC"),
+                "Surgery",
+                "MD",
+                15,
+                "DEP1",
+                50.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                2000,
+                List.of("Heart Surgery"),
+                true
+        ));
 
+        doctors.add(new Surgeon(
+                HelperUtils.generateId("PER"),
+                "Khalid",
+                "Nasser",
+                LocalDate.of(1975, 3, 20),
+                "Male",
+                "90000002",
+                "khalid@gmail.com",
+                "Seeb",
+                HelperUtils.generateId("DOC"),
+                "Surgery",
+                "MD",
+                20,
+                "DEP1",
+                60.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                3000,
+                List.of("Brain Surgery"),
+                true
+        ));
+
+        // =======================
+        // CONSULTANTS (3)
+        // =======================
+        doctors.add(new Consultant(
+                HelperUtils.generateId("PER"),
+                "Sara",
+                "Ali",
+                LocalDate.of(1988, 8, 15),
+                "Female",
+                "90000003",
+                "sara@gmail.com",
+                "Bawshar",
+                HelperUtils.generateId("DOC"),
+                "Cardiology",
+                "MD",
+                10,
+                "DEP2",
+                40.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                List.of("Heart", "BP"),
+                true,
+                30
+        ));
+
+        doctors.add(new Consultant(
+                HelperUtils.generateId("PER"),
+                "Omar",
+                "Hassan",
+                LocalDate.of(1985, 11, 5),
+                "Male",
+                "90000004",
+                "omar@gmail.com",
+                "Muscat",
+                HelperUtils.generateId("DOC"),
+                "Dermatology",
+                "MD",
+                12,
+                "DEP2",
+                35.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                List.of("Skin"),
+                false,
+                45
+        ));
+
+        doctors.add(new Consultant(
+                HelperUtils.generateId("PER"),
+                "Noor",
+                "Yousef",
+                LocalDate.of(1990, 2, 2),
+                "Female",
+                "90000005",
+                "noor@gmail.com",
+                "Seeb",
+                HelperUtils.generateId("DOC"),
+                "Neurology",
+                "MD",
+                8,
+                "DEP3",
+                55.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                List.of("Brain"),
+                true,
+                60
+        ));
+
+        // =======================
+        // GP (3)
+        // =======================
+        doctors.add(new GeneralPractitioner(
+                HelperUtils.generateId("PER"),
+                "Huda",
+                "Said",
+                LocalDate.of(1992, 6, 10),
+                "Female",
+                "90000006",
+                "huda@gmail.com",
+                "Muscat",
+                HelperUtils.generateId("DOC"),
+                "General",
+                "MBBS",
+                5,
+                "DEP3",
+                20.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                true,
+                true,
+                true
+        ));
+
+        doctors.add(new GeneralPractitioner(
+                HelperUtils.generateId("PER"),
+                "Majid",
+                "Ali",
+                LocalDate.of(1991, 9, 12),
+                "Male",
+                "90000007",
+                "majid@gmail.com",
+                "Seeb",
+                HelperUtils.generateId("DOC"),
+                "General",
+                "MBBS",
+                6,
+                "DEP3",
+                25.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                true,
+                false,
+                true
+        ));
+
+        doctors.add(new GeneralPractitioner(
+                HelperUtils.generateId("PER"),
+                "Fatma",
+                "Salim",
+                LocalDate.of(1993, 12, 1),
+                "Female",
+                "90000008",
+                "fatma@gmail.com",
+                "Bawshar",
+                HelperUtils.generateId("DOC"),
+                "General",
+                "MBBS",
+                4,
+                "DEP2",
+                22.0,
+                new ArrayList<>(),
+                new ArrayList<>(),
+                false,
+                true,
+                false
+        ));
+
+        System.out.println(" Sample Doctors Loaded Successfully!");
+    }
     public static Doctor addDector() {
         String id = HelperUtils.generateId("PER");
 

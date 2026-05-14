@@ -13,6 +13,7 @@ public class MainApp {
 
 
     static void main(String[] args) {
+        PatientService.loadSamplePatients();
         boolean running = true;
 
         while (running) {
