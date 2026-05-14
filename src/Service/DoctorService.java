@@ -481,6 +481,8 @@ public class DoctorService implements Manageable, Searchable {
         return generalPractitioner;
     }
 
+
+
     public static Surgeon addSurgeon() {
 
         Doctor baseDoctor = addDector();
@@ -489,6 +491,7 @@ public class DoctorService implements Manageable, Searchable {
         int surgeriesCompleted = InputHandler.getIntInput("Enter surgeries completed:", 0, 10000);
 
         boolean emergencyAvailable = InputHandler.getConfirmation("Is emergency surgery available?");
+
 
         Surgeon surgeon =
                 new Surgeon(
@@ -508,8 +511,8 @@ public class DoctorService implements Manageable, Searchable {
                         baseDoctor.getConsultationFee(),
                         baseDoctor.getAvailableSlots(),
                         baseDoctor.getAssignedPatients(),
-                        surgeryType,
                         surgeriesCompleted,
+                        List.of(surgeryType),
                         emergencyAvailable
                 );
 

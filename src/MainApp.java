@@ -56,36 +56,31 @@ public class MainApp {
                         }
                     }
                 }
-              /*  case 2 -> {
+               case 2 -> {
 
                     boolean doctorMenu = true;
 
                     while (doctorMenu){
 
-                        System.out.println(
-                                MenuMessages.DOCTOR_MENU_MESSAGE
-                        );
+                        System.out.println(MenuMessages.DOCTOR_MENU_MESSAGE);
 
-                        int doctorOption =
-                                scanner.nextInt();
+                        int doctorOption = scanner.nextInt();
 
                         scanner.nextLine();
 
 
-                        if (doctorOption == 8){
+                        if (doctorOption == 11){
 
                             doctorMenu = false;
 
                         } else {
 
-                            DoctorService
-                                    .handleDectorMenu(
-                                            doctorOption
-                                    );
+                            DoctorService.handleDectorMenu(doctorOption);
                         }
+
                     }
                 }
-                case 3 -> {
+               /* case 3 -> {
 
                     boolean nurseMenu = true;
 
@@ -206,9 +201,7 @@ public class MainApp {
                 }
                */ case 7 -> {
 
-                    System.out.println(
-                            "Exiting system..."
-                    );
+                    System.out.println("Exiting system...");
 
                     running = false;
                 }
