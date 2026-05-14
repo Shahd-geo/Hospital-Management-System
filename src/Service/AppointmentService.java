@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class AppointmentService  implements Manageable, Searchable, Appointable {
     static List<Appointment> appointmentList = new ArrayList<>();
+
     //add new appointment
     public static Appointment addAppointment() {
 
@@ -47,7 +48,8 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         return appointment;
     }
-    public static List<Appointment> addAppointments(){
+
+    public static List<Appointment> addAppointments() {
         Boolean continueFlag = true;
         while (continueFlag) {
 
@@ -66,10 +68,10 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
     // edit appointment by ID
 
-    public static void editAppointment(String appointmentId){
+    public static void editAppointment(String appointmentId) {
 
-        for(Appointment appointment : appointmentList){
-            if(appointment.getAppointmentId().equals(appointmentId)){
+        for (Appointment appointment : appointmentList) {
+            if (appointment.getAppointmentId().equals(appointmentId)) {
                 appointment.setPatientId(InputHandler.getStringInput("Enter updated patient Id"));
                 appointment.setDoctorId(InputHandler.getStringInput("Enter updated doctor Id"));
                 LocalDate date = InputHandler.getDateInput("Enter updated appointment date");
@@ -86,14 +88,15 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
         }
 
     }
+
     // Remove appointment by ID
-    public static void removeAppointment(String appointmentId){
+    public static void removeAppointment(String appointmentId) {
         boolean removed = appointmentList.removeIf(
                 b -> b.getAppointmentId()
                         .equals(appointmentId)
         );
 
-        if (removed){
+        if (removed) {
 
             System.out.println(
                     "Appointment removed successfully");
@@ -103,11 +106,12 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
             System.out.println("No Appointment found");
         }
     }
-    //retrieve appointment
-    public static Appointment getAppointment(String appointmentId){
 
-        for(Appointment appointment: appointmentList){
-            if(appointment.getAppointmentId().equals(appointmentId)){
+    //retrieve appointment
+    public static Appointment getAppointment(String appointmentId) {
+
+        for (Appointment appointment : appointmentList) {
+            if (appointment.getAppointmentId().equals(appointmentId)) {
                 return appointment;
             }
 
@@ -118,12 +122,12 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
     //get Appointments By Patient
 
-    public static List<Appointment> getAppointmentsByPatient(String patientId){
+    public static List<Appointment> getAppointmentsByPatient(String patientId) {
         List<Appointment> patientAppointments = new ArrayList<>();
 
-        for(Appointment appointment : appointmentList){
+        for (Appointment appointment : appointmentList) {
 
-            if(appointment.getPatientId().equals(patientId)){
+            if (appointment.getPatientId().equals(patientId)) {
                 patientAppointments.add(appointment);
 
             }
@@ -136,8 +140,8 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         List<Appointment> doctorAppointments = new ArrayList<>();
 
-        for(Appointment appointment : appointmentList){
-            if(appointment.getDoctorId().equals(doctorId)){
+        for (Appointment appointment : appointmentList) {
+            if (appointment.getDoctorId().equals(doctorId)) {
 
                 doctorAppointments.add(appointment);
             }
@@ -146,23 +150,24 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
     // get Appointments By Date
 
-    public static List<Appointment> getAppointmentsByDate(LocalDate date){
+    public static List<Appointment> getAppointmentsByDate(LocalDate date) {
 
         List<Appointment> dateAppointments = new ArrayList<>();
 
-        for(Appointment appointment : appointmentList){
-            if(appointment.getAppointmentDate().equals(date)){
+        for (Appointment appointment : appointmentList) {
+            if (appointment.getAppointmentDate().equals(date)) {
                 dateAppointments.add(appointment);
             }
 
         }
         return dateAppointments;
     }
-    // reschedule Appointment
-    public static void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
 
-        for(Appointment appointment : appointmentList){
-            if(appointment.getAppointmentId().equals(appointmentId)){
+    // reschedule Appointment
+    public static void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime) {
+
+        for (Appointment appointment : appointmentList) {
+            if (appointment.getAppointmentId().equals(appointmentId)) {
                 appointment.setAppointmentDate(newDate);
                 appointment.setAppointmentTime(newTime);
                 System.out.println("Appointment rescheduled successfully");
@@ -173,11 +178,11 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
     // Overloaded rescheduleAppointment(String appointmentId, LocalDate newDate)
 
-    public void rescheduleAppointment(String appointmentId, LocalDate newDate){
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate) {
 
         Appointment appointment = getAppointment(appointmentId);
 
-        if (HelperUtils.isNotNull(appointment)){
+        if (HelperUtils.isNotNull(appointment)) {
 
             appointment.setAppointmentDate(newDate);
             appointment.setStatus("Rescheduled");
@@ -191,7 +196,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
 
     // Overloaded rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason)
-    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason){
+    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason) {
         appointment.setAppointmentDate(newDate);
         appointment.setAppointmentTime(newTime);
         appointment.setReason(reason);
@@ -200,13 +205,14 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
         System.out.println("Appointment rescheduled successfully.");
 
     }
+
     // cancel Appointment
     @Override
-    public  void cancelAppointment(String appointmentId){
+    public void cancelAppointment(String appointmentId) {
 
-        for(Appointment appointment : appointmentList){
+        for (Appointment appointment : appointmentList) {
 
-            if(appointment.getAppointmentId().equals(appointmentId)){
+            if (appointment.getAppointmentId().equals(appointmentId)) {
 
                 appointment.setStatus("Cancelled");
 
@@ -221,7 +227,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
     // Overloaded createAppointment(String patientId, String doctorId, LocalDate date)
 
-    public void createAppointment(String patientId, String doctorId, LocalDate date){
+    public void createAppointment(String patientId, String doctorId, LocalDate date) {
 
         Appointment appointment = new Appointment();
 
@@ -241,7 +247,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
 
     //Overloaded createAppointment(String patientId, String doctorId, LocalDate date, String time)
-    public void createAppointment(String patientId, String doctorId, LocalDate date ,String time){
+    public void createAppointment(String patientId, String doctorId, LocalDate date, String time) {
 
         Appointment appointment = new Appointment();
 
@@ -259,8 +265,9 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
 
     }
+
     // Overloaded createAppointment(Appointment appointment)
-    public void createAppointment(Appointment appointment){
+    public void createAppointment(Appointment appointment) {
 
         appointmentList.add(appointment);
 
@@ -270,11 +277,11 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
     }
 
     // Overloaded displayAppointments(LocalDate date)
-    public void displayAppointments(LocalDate date){
+    public void displayAppointments(LocalDate date) {
 
-        for(Appointment appointment: appointmentList){
+        for (Appointment appointment : appointmentList) {
 
-            if(appointment.getAppointmentDate().equals(date)){
+            if (appointment.getAppointmentDate().equals(date)) {
 
                 appointment.displayInfo();
             }
@@ -303,9 +310,10 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
             }
         }
     }
+
     @Override
     public void add(Object entity) {
-        if(HelperUtils.isNull(entity)){
+        if (HelperUtils.isNull(entity)) {
             System.out.println("Appointment cannot be null.");
             return;
         }
@@ -314,36 +322,41 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         System.out.println("Appointment added successfully");
     }
+
     @Override
     public void remove(String id) {
 
         removeAppointment(id);
     }
+
     @Override
-    public List<Appointment>getAll() {
+    public List<Appointment> getAll() {
 
         return appointmentList;
     }
+
     @Override
     public void search(String keyword) {
 
         List<Appointment> appointments = getAppointmentsByPatient(keyword);
 
-        for (Appointment appointment : appointments){
+        for (Appointment appointment : appointments) {
 
             appointment.displayInfo();
         }
     }
+
     @Override
     public void searchById(String id) {
 
         Appointment appointment = getAppointment(id);
 
-        if(HelperUtils.isNotNull(appointment)){
+        if (HelperUtils.isNotNull(appointment)) {
 
             appointment.displayInfo();
         }
     }
+
     @Override
     public void scheduleAppointment(Appointment appointment) {
 
@@ -351,6 +364,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         System.out.println("Appointment scheduled successfully");
     }
+
     public static void completeAppointment(String appointmentId) {
 
         for (Appointment appointment : appointmentList) {
@@ -366,6 +380,7 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         System.out.println("Appointment not found");
     }
+
     public static List<Appointment> getUpcomingAppointments() {
 
         List<Appointment> upcoming = new ArrayList<>();
@@ -384,100 +399,60 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
 
     public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
+        AppointmentService service = new AppointmentService();
         switch (AppointmantOption) {
+
             case 1 -> {
-                addAppointments();
+                service.addAppointments();
             }
+
             case 2 -> {
-                System.out.println(
-                        "Enter appointmentId to update");
-
-                String appointmentId =
-                        scanner.nextLine();
-
-                editAppointment(appointmentId);
+                for (Appointment a : service.getAll()) {
+                    a.displayInfo();
+                }
             }
+
             case 3 -> {
-                System.out.println("Enter appointmentId to remove");
-                String appointmentId = scanner.nextLine();
-                removeAppointment(appointmentId);
+                String patientId = InputHandler.getStringInput("Enter patient Id");
+                List<Appointment> list = service.getAppointmentsByPatient(patientId);
+                for (Appointment a : list) a.displayInfo();
             }
+
             case 4 -> {
-
-            System.out.println("Enter appointmentId to getAppointment");
-
-            String appointmentId = scanner.nextLine();
-
-            Appointment appointment = getAppointment(appointmentId);
-
-            if(HelperUtils.isNotNull(appointment)){
-                appointment.displayInfo();
+                String doctorId = InputHandler.getStringInput("Enter doctor Id");
+                List<Appointment> list = service.getAppointmentsByDoctor(doctorId);
+                for (Appointment a : list) a.displayInfo();
             }
-        }
 
-        case 5 -> {
-
-            System.out.println("Enter patient Id to get Appointments");
-
-            String patientId = scanner.nextLine();
-
-            List<Appointment> appointments = getAppointmentsByPatient(patientId);
-
-            for (Appointment appointment : appointments){
-
-                appointment.displayInfo();
+            case 5 -> {
+                LocalDate date = InputHandler.getDateInput("Enter date");
+                List<Appointment> list = service.getAppointmentsByDate(date);
+                for (Appointment a : list) a.displayInfo();
             }
-        }
-
 
             case 6 -> {
-                System.out.println("Enter Doctor Id to get Appointment");
-
-                String doctorId = scanner.nextLine();
-
-                List<Appointment> appointments = getAppointmentsByDoctor(doctorId);
-
-                for (Appointment appointment : appointments){
-                    appointment.displayInfo();
-                }
-
+                String id = InputHandler.getStringInput("Enter appointment Id");
+                LocalDate newDate = InputHandler.getDateInput("Enter new date");
+                String newTime = InputHandler.getStringInput("Enter new time");
+                service.rescheduleAppointment(id, newDate, newTime);
             }
+
             case 7 -> {
-                System.out.println("Enter date to get appointment");
-
-                String date = scanner.nextLine();
-
-                List<Appointment> appointments = getAppointmentsByDate(LocalDate.parse(date));
-
-                for (Appointment appointment : appointments){
-                    appointment.displayInfo();
-                }
+                String id = InputHandler.getStringInput("Enter appointment Id");
+                service.cancelAppointment(id);
             }
+
             case 8 -> {
-                System.out.println("Enter  appointmentId to reschedule  appointment");
-                String  appointmentId = scanner.nextLine();
-                System.out.println("Enter  newDate to reschedule  appointment");
-                LocalDate newDate= LocalDate.parse(scanner.nextLine());
-                System.out.println("Enter  newTime to reschedule  appointment");
-                String newTime =scanner.nextLine();
-                rescheduleAppointment(appointmentId,newDate,newTime);
-
+                String id = InputHandler.getStringInput("Enter appointment Id");
+                service.completeAppointment(id);
             }
+
             case 9 -> {
-                System.out.println("Enter appointmentId to cancel appointment");
-                String appointmentId = scanner.nextLine();
-                new AppointmentService().cancelAppointment(appointmentId);
-
-
+                List<Appointment> list = service.getUpcomingAppointments();
+                for (Appointment a : list) a.displayInfo();
             }
-
-
         }
+
         return false;
     }
-
 }
-
-
-
-

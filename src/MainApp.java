@@ -108,7 +108,35 @@ public class MainApp {
                         }
                     }
                 }
-             /*   case 4 -> {
+
+                case 4 -> {
+
+                    boolean appointmentMenu = true;
+
+                    while (appointmentMenu){
+
+                        System.out.println(
+                                MenuMessages
+                                        .APPOINTMENT_MENU_MESSAGE
+                        );
+
+                        int appointmentOption =
+                                scanner.nextInt();
+
+                        scanner.nextLine();
+
+
+                        if (appointmentOption == 10){
+
+                            appointmentMenu = false;
+
+                        } else {
+
+                            AppointmentService.handleAppointmentdMenu(appointmentOption);
+                        }
+                    }
+                }
+              /*  case 5 -> {
 
                     boolean medicalRecordMenu = true;
 
@@ -134,36 +162,6 @@ public class MainApp {
                             MedicalRecordService
                                     .handleMedicalRecoredMenu(
                                             recordOption
-                                    );
-                        }
-                    }
-                }
-                case 5 -> {
-
-                    boolean appointmentMenu = true;
-
-                    while (appointmentMenu){
-
-                        System.out.println(
-                                MenuMessages
-                                        .APPOINTMENT_MENU_MESSAGE
-                        );
-
-                        int appointmentOption =
-                                scanner.nextInt();
-
-                        scanner.nextLine();
-
-
-                        if (appointmentOption == 10){
-
-                            appointmentMenu = false;
-
-                        } else {
-
-                            AppointmentService
-                                    .handleAppointmentdMenu(
-                                            appointmentOption
                                     );
                         }
                     }
