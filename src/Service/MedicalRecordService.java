@@ -5,6 +5,7 @@ import Entity.Patient;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import utility.HelperUtils;
+import utility.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,32 +13,32 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MedicalRecordService implements Manageable, Searchable {
-    static Scanner scanner = new Scanner(System.in);
     static List<MedicalRecord> medicalRecordList = new ArrayList<>();
     public static MedicalRecord addMedicalRecord() {
 
         String recordId = HelperUtils.generateId("REC");
-        System.out.println("Enter patient Id :");
-        String patientId = scanner.nextLine();
-        System.out.println("Enter doctor Id :");
-        String doctorId = scanner.nextLine();
-        System.out.println("Enter visit Date:");
-        String visitDate = scanner.nextLine();
-        LocalDate date = LocalDate.parse(visitDate);
-        System.out.println("Enter diagnosis :");
-        String diagnosis = scanner.nextLine();
-        System.out.println("Enter prescription :");
-        String prescription = scanner.nextLine();
-        System.out.println("Enter test Results :");
-        String testResults = scanner.nextLine();
-        System.out.println("Enter notes :");
-        String notes = scanner.nextLine();
+        String patientId = InputHandler.getStringInput("Enter patient Id:");
+        String doctorId = InputHandler.getStringInput("Enter doctor Id:");
+        LocalDate visitDate;
+
+        do {visitDate = InputHandler.getDateInput("Enter visit date (yyyy-MM-dd):");
+
+            if(HelperUtils.isFutureDate(visitDate)){
+
+                System.out.println("Visit Date date cannot be in the future.");
+            }
+
+        } while(HelperUtils.isFutureDate(visitDate));
+        String diagnosis = InputHandler.getStringInput("Enter diagnosis:");
+        String prescription = InputHandler.getStringInput("Enter prescription:");
+        String testResults = InputHandler.getStringInput("Enter test results:");
+        String notes = InputHandler.getStringInput("Enter notes:");
         MedicalRecord medicalRecord =
                 new MedicalRecord(
                         recordId,
                         patientId,
                         doctorId,
-                        date,
+                        visitDate,
                         diagnosis,
                         prescription,
                         testResults,
