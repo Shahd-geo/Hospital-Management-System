@@ -366,6 +366,21 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         System.out.println("Appointment not found");
     }
+    public static List<Appointment> getUpcomingAppointments() {
+
+        List<Appointment> upcoming = new ArrayList<>();
+
+        LocalDate today = LocalDate.now();
+
+        for (Appointment appointment : appointmentList) {
+
+            if (appointment.getAppointmentDate().isAfter(today)) {
+                upcoming.add(appointment);
+            }
+        }
+
+        return upcoming;
+    }
 
 
     public static boolean handleAppointmentdMenu(Integer AppointmantOption) {
