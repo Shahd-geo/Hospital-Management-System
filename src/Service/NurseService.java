@@ -100,6 +100,10 @@ public class NurseService  implements Manageable, Searchable {
 
         System.out.println(" Sample Nurses Loaded Successfully!");
     }
+    public static void initData() {
+        loadSampleNurses();
+    }
+
     public static void testNurses() {
 
         // CRUD test

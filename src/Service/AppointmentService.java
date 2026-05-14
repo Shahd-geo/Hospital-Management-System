@@ -15,6 +15,200 @@ import java.util.Scanner;
 
 public class AppointmentService  implements Manageable, Searchable, Appointable {
     static List<Appointment> appointmentList = new ArrayList<>();
+    private static void loadSampleData() {
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-1", "DOC-1",
+                LocalDate.now().plusDays(1),
+                "10:00",
+                "Scheduled",
+                "Checkup",
+                "None"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-2",
+                "DOC-2",
+                LocalDate.now().plusDays(2),
+                "11:00",
+                "Scheduled",
+                "Headache",
+                "Bring reports"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-3",
+                "DOC-3",
+                LocalDate.now().plusDays(3),
+                "12:00",
+                "Scheduled",
+                "Fever",
+                "First visit"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-1",
+                "DOC-2",
+                LocalDate.now().minusDays(1),
+                "09:00",
+                "Completed",
+                "Follow up",
+                "Done"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-2",
+                "DOC-1",
+                LocalDate.now().plusDays(4),
+                "13:00",
+                "Scheduled",
+                "Back pain",
+                "MRI needed"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-3",
+                "DOC-1",
+                LocalDate.now().plusDays(5),
+                "14:00",
+                "Scheduled",
+                "Flu",
+                "Rest"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-1",
+                "DOC-3",
+                LocalDate.now().plusDays(6),
+                "15:00",
+                "Scheduled",
+                "Eye check",
+                "Glasses"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-2",
+                "DOC-3",
+                LocalDate.now().plusDays(7),
+                "16:00",
+                "Scheduled",
+                "Skin issue",
+                "Dermatology"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-3",
+                "DOC-2",
+                LocalDate.now().plusDays(8),
+                "17:00",
+                "Scheduled",
+                "Allergy",
+                "Test required"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-1",
+                "DOC-1",
+                LocalDate.now().plusDays(9),
+                "10:30",
+                "Scheduled",
+                "Chest pain",
+                "ECG"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-2",
+                "DOC-2",
+                LocalDate.now().plusDays(10),
+                "11:30",
+                "Scheduled",
+                "Stomach pain",
+                "Ultrasound"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-3",
+                "DOC-3",
+                LocalDate.now().plusDays(11),
+                "12:30",
+                "Scheduled",
+                "Headache",
+                "Neurology"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-1",
+                "DOC-2",
+                LocalDate.now().plusDays(12),
+                "13:30",
+                "Scheduled",
+                "Cold",
+                "Medication"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-2",
+                "DOC-1",
+                LocalDate.now().plusDays(13),
+                "14:30",
+                "Scheduled",
+                "Fever",
+                "Blood test"
+        ));
+
+        appointmentList.add(new Appointment(
+                HelperUtils.generateId("APP"),
+                "PAT-3",
+                "DOC-2",
+                LocalDate.now().plusDays(14),
+                "15:30",
+                "Scheduled",
+                "Routine check",
+                "Done"
+        ));
+    }
+    public static void initData() {
+        loadSampleData();
+    }
+    public static void testAppointments() {
+
+        System.out.println("=== ALL APPOINTMENTS ===");
+        for (Appointment a : appointmentList) {
+            a.displayInfo();
+        }
+
+        System.out.println("\n=== BY PATIENT PAT-1 ===");
+        for (Appointment a : getAppointmentsByPatient("PAT-1")) {
+            a.displayInfo();
+        }
+
+        System.out.println("\n=== BY DOCTOR DOC-1 ===");
+        for (Appointment a : getAppointmentsByDoctor("DOC-1")) {
+            a.displayInfo();
+        }
+
+        System.out.println("\n=== UPCOMING APPOINTMENTS ===");
+        for (Appointment a : getUpcomingAppointments()) {
+            a.displayInfo();
+        }
+
+        System.out.println("\n=== TEST COMPLETE ===");
+    }
+
 
     //add new appointment
     public static Appointment addAppointment() {

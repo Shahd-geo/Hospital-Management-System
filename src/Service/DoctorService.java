@@ -203,6 +203,9 @@ public class DoctorService implements Manageable, Searchable {
 
         System.out.println(" Sample Doctors Loaded Successfully!");
     }
+    public static void initData() {
+        loadSampleDoctors();
+    }
     public static void testDoctors() {
 
         // Test CRUD

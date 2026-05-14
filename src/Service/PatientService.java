@@ -269,6 +269,9 @@ public class PatientService  implements Manageable, Searchable {
 
         System.out.println(" Sample patients loaded successfully!");
     }
+    public static void initData() {
+        loadSamplePatients();
+    }
 
 
     //add new patient
