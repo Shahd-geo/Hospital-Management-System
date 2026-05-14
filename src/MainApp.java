@@ -64,11 +64,11 @@ public class MainApp {
                         }
                     }
                 }
-               case 2 -> {
+                case 2 -> {
 
                     boolean doctorMenu = true;
 
-                    while (doctorMenu){
+                    while (doctorMenu) {
 
                         System.out.println(MenuMessages.DOCTOR_MENU_MESSAGE);
 
@@ -77,7 +77,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (doctorOption == 11){
+                        if (doctorOption == 11) {
 
                             doctorMenu = false;
 
@@ -88,11 +88,11 @@ public class MainApp {
 
                     }
                 }
-               case 3 -> {
+                case 3 -> {
 
                     boolean nurseMenu = true;
 
-                    while (nurseMenu){
+                    while (nurseMenu) {
 
                         System.out.println(MenuMessages.NURSE_MENU_MESSAGE
                         );
@@ -102,7 +102,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (nurseOption == 8){
+                        if (nurseOption == 8) {
 
                             nurseMenu = false;
 
@@ -117,7 +117,7 @@ public class MainApp {
 
                     boolean appointmentMenu = true;
 
-                    while (appointmentMenu){
+                    while (appointmentMenu) {
 
                         System.out.println(
                                 MenuMessages
@@ -130,7 +130,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (appointmentOption == 10){
+                        if (appointmentOption == 10) {
 
                             appointmentMenu = false;
 
@@ -140,11 +140,11 @@ public class MainApp {
                         }
                     }
                 }
-               case 5 -> {
+                case 5 -> {
 
                     boolean medicalRecordMenu = true;
 
-                    while (medicalRecordMenu){
+                    while (medicalRecordMenu) {
 
                         System.out.println(MenuMessages.MEDICAL_RECORD_MENU_MESSAGE);
 
@@ -153,7 +153,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (recordOption == 8){
+                        if (recordOption == 8) {
 
                             medicalRecordMenu = false;
 
@@ -166,11 +166,11 @@ public class MainApp {
                         }
                     }
                 }
-               case 6 -> {
+                case 6 -> {
 
                     boolean departmentMenu = true;
 
-                    while (departmentMenu){
+                    while (departmentMenu) {
 
                         System.out.println(
                                 MenuMessages
@@ -183,7 +183,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (departmentOption == 8){
+                        if (departmentOption == 8) {
 
                             departmentMenu = false;
 
@@ -198,19 +198,34 @@ public class MainApp {
                 }
                 case 7 -> {
 
+                    boolean reportMenu = true;
 
+                    while (reportMenu) {
 
-                default -> {
+                        System.out.println(MenuMessages.REPORT_MENU_MESSAGE);
 
-                    System.out.println("Invalid option"
-                    );
+                        int reportOption = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (reportOption == 8) {
+                            reportMenu = false;
+                        } else {
+                            ReportService.handleReportMenu(reportOption);
+                        }
+                    }
                 }
+                case 8 -> {
+                    System.out.println("Exit");
+                    running = false;
+                    {
+                    }
+                }
+                default -> System.out.println("Select a choice from the list");
+
             }
         }
     }
 }
-
-
 
 
 
