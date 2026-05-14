@@ -202,6 +202,20 @@ public class NurseService  implements Manageable, Searchable {
             nurse.displayInfo();
         }
     }
+    public static void assignNurseToPatient(String nurseId, String patientId) {
+
+        Nurse nurse = getNurseById(nurseId);
+
+        if (HelperUtils.isNotNull(nurse)) {
+
+            nurse.getAssignedPatients().add(patientId);
+
+            System.out.println("Patient assigned to nurse successfully");
+
+        } else {
+            System.out.println("Nurse not found");
+        }
+    }
 
 
     public static boolean handleNurseMenu(Integer NurseOption) {
