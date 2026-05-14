@@ -218,7 +218,7 @@ public class DoctorService implements Manageable, Searchable {
         DoctorService service = new DoctorService();
         service.search("Ali");
 
-        System.out.println("Testing done!");
+        System.out.println("Testing  Dector done!");
     }
     public static Doctor addDector() {
         String id = HelperUtils.generateId("PER");

@@ -100,6 +100,25 @@ public class NurseService  implements Manageable, Searchable {
 
         System.out.println(" Sample Nurses Loaded Successfully!");
     }
+    public static void testNurses() {
+
+        // CRUD test
+        System.out.println("Total nurses: " + nurseList.size());
+
+        // Search test
+        List<Nurse> dep1 = getNursesByDepartment("DEP1");
+        System.out.println("DEP1 nurses: " + dep1.size());
+
+        // Shift test
+        List<Nurse> morning = getNursesByShift("Morning");
+        System.out.println("Morning nurses: " + morning.size());
+
+        // Interface test
+        NurseService service = new NurseService();
+        service.search("DEP1");
+
+        System.out.println(" Nurse testing completed");
+    }
 
 
     public static Nurse addNurse() {

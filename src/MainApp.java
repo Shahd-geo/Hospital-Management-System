@@ -17,6 +17,8 @@ public class MainApp {
         PatientService.loadSamplePatients();
         DoctorService.loadSampleDoctors();
         DoctorService.testDoctors();
+        NurseService.loadSampleNurses();
+
         boolean running = true;
 
         while (running) {
