@@ -168,7 +168,7 @@ public class MainApp {
                         }
                     }
                 }
-                case 6 -> {
+               */ case 6 -> {
 
                     boolean departmentMenu = true;
 
@@ -185,7 +185,7 @@ public class MainApp {
                         scanner.nextLine();
 
 
-                        if (departmentOption == 7){
+                        if (departmentOption == 8){
 
                             departmentMenu = false;
 
@@ -198,7 +198,7 @@ public class MainApp {
                         }
                     }
                 }
-               */ case 7 -> {
+                case 7 -> {
 
                     System.out.println("Exiting system...");
 
