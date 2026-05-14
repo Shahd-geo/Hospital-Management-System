@@ -283,7 +283,7 @@ public class NurseService  implements Manageable, Searchable {
         removeNurse(id);
     }
     @Override
-    public List<Nurse> getAll() {
+    public  List<Nurse> getAll() {
 
        return nurseList;
     }

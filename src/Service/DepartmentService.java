@@ -14,7 +14,48 @@ public class DepartmentService  implements Manageable, Searchable {
     static List<Department> departmentList = new ArrayList<>();
     static List<Doctor> doctors = new ArrayList<>();
     static List<Nurse> nurses = new ArrayList<>();
+    static DoctorService doctorService = new DoctorService();
+    static NurseService nurseService = new NurseService();
+    public static void loadSampleDepartments() {
 
+        System.out.println("Loading Department sample data...");
+
+        Department d1 = new Department(
+                HelperUtils.generateId("DEP"),
+                "Emergency",
+                "DOC-1001",
+                doctorService.getAll(),
+                nurseService.getAll(),
+                50,
+                20
+        );
+
+        Department d2 = new Department(
+                HelperUtils.generateId("DEP"),
+                "Cardiology",
+                "DOC-1002",
+                doctorService.getAll(),
+                nurseService.getAll(),
+                40,
+                15
+        );
+
+        Department d3 = new Department(
+                HelperUtils.generateId("DEP"),
+                "Orthopedics",
+                "DOC-1004",
+                doctorService.getAll(),
+                nurseService.getAll(),
+                30,
+                10
+        );
+
+        departmentList.add(d1);
+        departmentList.add(d2);
+        departmentList.add(d3);
+
+        System.out.println("Departments sample data loaded successfully.");
+    }
 
     public static Department addDepartment() {
         String departmentId = HelperUtils.generateId("DEP");

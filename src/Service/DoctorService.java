@@ -568,7 +568,7 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     @Override
-    public List<Doctor> getAll() {
+    public  List<Doctor> getAll() {
 
         return doctors;
     }
