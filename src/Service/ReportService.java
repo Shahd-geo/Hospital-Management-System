@@ -69,5 +69,25 @@ public class ReportService {
         System.out.println("Total Patients: " + totalPatients);
         System.out.println("Total Records: " + records.size());
     }
+    public static void emergencyCasesReport(List<MedicalRecord> records) {
+
+        System.out.println("===== Emergency Cases Report =====");
+
+        boolean found = false;
+
+        for (MedicalRecord r : records) {
+
+            if (r.getDiagnosis() != null &&
+                    r.getDiagnosis().toLowerCase().contains("emergency")) {
+
+                r.displayInfo();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No emergency cases found.");
+        }
+    }
 
 }
