@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import utility.HelperUtils;
+import utility.InputHandler;
 
 public class NurseService  implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
@@ -19,29 +20,45 @@ public class NurseService  implements Manageable, Searchable {
 
     public static Nurse addNurse() {
         String id = HelperUtils.generateId("PER");
-        System.out.println("Enter Nurse First Name : ");
-        String firstNurseName = scanner.nextLine();
-        System.out.println("Enter Nurse Last  Name : ");
-        String lastNurseName = scanner.nextLine();
-        System.out.println("Enter Nurse DOB (yyyy-mm-dd): ");
-        String dateOfBirth = scanner.nextLine();
-        LocalDate DOB = LocalDate.parse(dateOfBirth);
-        System.out.println("Enter Nurse gender :");
-        String gender = scanner.nextLine();
-        System.out.println("Enter Nurse phone number :");
-        String phone = scanner.nextLine();
-        System.out.println("Enter Nurse email :");
-        String email = scanner.nextLine();
-        System.out.println("Enter Nurse address :");
-        String address = scanner.nextLine();
+
+        String firstName = InputHandler.getStringInput("Enter Nurse First Name:");
+        String lastName = InputHandler.getStringInput("Enter Nurse Last Name:");
+        LocalDate DOB;
+
+        do {
+
+            DOB = InputHandler.getDateInput("Enter nurse DOB (yyyy-mm-dd):");
+
+            if (!HelperUtils.isValidAge(DOB)) {
+                System.out.println("Invalid nurse age.");
+            }
+
+        } while (!HelperUtils.isValidAge(DOB));
+
+        String gender = InputHandler.getStringInput("Enter Nurse gender:");
+        String phone = InputHandler.getStringInput("Enter Nurse phone number:");
+        String email = InputHandler.getStringInput("Enter Nurse email:");
+        String address = InputHandler.getStringInput("Enter Nurse address:");
         String nurseId = HelperUtils.generateId("NUR");
-        System.out.println("Enter Nurse department Id :");
-        String departmentId = scanner.nextLine();
-        System.out.println("Enter Nurse shift :");
-        String shift = scanner.nextLine();
-        System.out.println("Enter Nurse qualification :");
-        String qualification = scanner.nextLine();
-        Nurse nurse = new Nurse(id, firstNurseName,lastNurseName, DOB,  gender, phone, email, address, nurseId, departmentId, shift, qualification, assignedPatients);
+        String departmentId = InputHandler.getStringInput("Enter Nurse department Id:");
+        String shift = InputHandler.getStringInput("Enter Nurse shift:");
+        String qualification = InputHandler.getStringInput("Enter Nurse qualification:");
+
+        Nurse nurse = new Nurse(
+                id,
+                firstName,
+                lastName,
+                DOB,
+                gender,
+                phone,
+                email,
+                address,
+                nurseId,
+                departmentId,
+                shift,
+                qualification,
+                new ArrayList<>()
+        );
 
         return nurse;
     }
@@ -53,7 +70,6 @@ public class NurseService  implements Manageable, Searchable {
 
             nurseList.add(addNurse());
             System.out.println("Nurse add successfully");
-
             System.out.println("Enter c to add more , and q to exit");
             if (scanner.nextLine().equalsIgnoreCase("q")) {
                 continueFlag = false;
@@ -67,39 +83,16 @@ public class NurseService  implements Manageable, Searchable {
         for (Nurse nurse : nurseList){
 
             if(nurse.getNurseId().equals(nurseId)){
-
-                System.out.println("Enter updated Nurse first name :");
-                nurse.setFirstName(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse last name :");
-                nurse.setLastName(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse DOB: ");
-                String dateOfBirth = scanner.nextLine();
-                LocalDate DOB = LocalDate.parse(dateOfBirth);
-                nurse.setDateOfBirth(DOB);
-
-                System.out.println("Enter updated Nurse gender :");
-                nurse.setGender(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse phone number :");
-                nurse.setPhoneNumber(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse email :");
-                nurse.setEmail(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse address :");
-                nurse.setAddress(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse department Id :");
-                nurse.setDepartmentId(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse shift :");
-                nurse.setShift(scanner.nextLine());
-
-                System.out.println("Enter updated Nurse qualification :");
-                nurse.setQualification(scanner.nextLine());
-
+                nurse.setFirstName(InputHandler.getStringInput("Enter updated Nurse first name:"));
+                nurse.setLastName(InputHandler.getStringInput("Enter updated Nurse last name:"));
+                nurse.setDateOfBirth(InputHandler.getDateInput("Enter updated Nurse DOB:"));
+                nurse.setGender(InputHandler.getStringInput("Enter updated Nurse gender:"));
+                nurse.setPhoneNumber(InputHandler.getStringInput("Enter updated Nurse phone number:"));
+                nurse.setEmail(InputHandler.getStringInput("Enter updated Nurse email:"));
+                nurse.setAddress(InputHandler.getStringInput("Enter updated Nurse address:"));
+                nurse.setDepartmentId(InputHandler.getStringInput("Enter updated Nurse department Id:"));
+                nurse.setShift(InputHandler.getStringInput("Enter updated Nurse shift:"));
+                nurse.setQualification(InputHandler.getStringInput("Enter updated Nurse qualification:"));
                 System.out.println("Nurse updated successfully");
 
 
