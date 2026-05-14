@@ -1,6 +1,7 @@
 package Service;
 
 import Entity.Appointment;
+import Entity.Department;
 import Entity.MedicalRecord;
 
 import java.time.LocalDate;
@@ -39,6 +40,21 @@ public class ReportService {
         for (String doctorId : count.keySet()) {
             System.out.println("Doctor ID: " + doctorId +
                     " | Cases: " + count.get(doctorId));
+        }
+    }
+    public static void departmentOccupancyReport(List<Department> departments) {
+
+        System.out.println("===== Department Occupancy Report =====");
+
+        for (Department d : departments) {
+
+            int occupied = d.getBedCapacity() - d.getAvailableBeds();
+            double percent = (occupied * 100.0) / d.getBedCapacity();
+
+            System.out.println(d.getDepartmentName());
+            System.out.println("Occupied: " + occupied);
+            System.out.println("Occupancy %: " + percent);
+            System.out.println("-------------------");
         }
     }
 
