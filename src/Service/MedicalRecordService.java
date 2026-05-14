@@ -204,6 +204,17 @@ public class MedicalRecordService implements Manageable, Searchable {
             medicalRecord.displayInfo();
         }
     }
+    public static void viewAllRecords() {
+
+        if (medicalRecordList.isEmpty()) {
+            System.out.println("No records found.");
+            return;
+        }
+
+        for (MedicalRecord record : medicalRecordList) {
+            record.displayInfo();
+        }
+    }
 
 
 
