@@ -15,26 +15,36 @@ import java.util.Scanner;
 
 public class AppointmentService  implements Manageable, Searchable, Appointable {
     static List<Appointment> appointmentList = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
     //add new appointment
     public static Appointment addAppointment() {
 
         String appointmentId = HelperUtils.generateId("APP");
 
         String patientId = InputHandler.getStringInput("Enter patient id");
-        System.out.println("Enter doctor Id :");
-        String doctorId = scanner.nextLine();
-        System.out.println("Enter appointment Date :");
-        LocalDate date = InputHandler.getDateInput("Enter appoi date ");
-        System.out.println("Enter appointment Time :");
-        String appointmentTime = scanner.nextLine();
-        System.out.println("Enter status :");
-        String status = scanner.nextLine();
-        System.out.println("Enter reason :");
-        String reason = scanner.nextLine();
-        System.out.println("Enter notes :");
-        String notes = scanner.nextLine();
-        Appointment appointment = new Appointment(appointmentId, patientId, doctorId, date, appointmentTime, status, reason, notes);
+
+        String doctorId = InputHandler.getStringInput("Enter doctor id");
+
+        LocalDate date = InputHandler.getDateInput("Enter appointment date");
+
+        String appointmentTime = InputHandler.getStringInput("Enter appointment time");
+
+        String status = InputHandler.getStringInput("Enter status");
+
+        String reason = InputHandler.getStringInput("Enter reason");
+
+        String notes = InputHandler.getStringInput("Enter notes");
+
+        Appointment appointment = new Appointment(
+                appointmentId,
+                patientId,
+                doctorId,
+                date,
+                appointmentTime,
+                status,
+                reason,
+                notes
+        );
+
         return appointment;
     }
     public static List<Appointment> addAppointments(){
@@ -45,9 +55,11 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
             System.out.println("Appointment add successfully");
 
             System.out.println("Enter c to add more , and q to exit");
-            if (scanner.nextLine().equalsIgnoreCase("q")) {
+            String choice = InputHandler.getStringInput("Enter c to add more , and q to exit");
+            if (choice.equalsIgnoreCase("q")) {
                 continueFlag = false;
             }
+
         }
         return appointmentList;
 
@@ -58,30 +70,14 @@ public class AppointmentService  implements Manageable, Searchable, Appointable 
 
         for(Appointment appointment : appointmentList){
             if(appointment.getAppointmentId().equals(appointmentId)){
-
-                System.out.println("Enter updated patient Id :");
-                appointment.setPatientId(scanner.nextLine());
-
-                System.out.println("Enter updated doctor Id :");
-                appointment.setDoctorId(scanner.nextLine());
-
-                System.out.println("Enter updated appointment Date :");
-                String appointmentDate = scanner.nextLine();
-                LocalDate date = LocalDate.parse(appointmentDate);
+                appointment.setPatientId(InputHandler.getStringInput("Enter updated patient Id"));
+                appointment.setDoctorId(InputHandler.getStringInput("Enter updated doctor Id"));
+                LocalDate date = InputHandler.getDateInput("Enter updated appointment date");
                 appointment.setAppointmentDate(date);
-
-                System.out.println("Enter updated appointment Time :");
-                appointment.setAppointmentTime(scanner.nextLine());
-
-                System.out.println("Enter updated status :");
-                appointment.setStatus(scanner.nextLine());
-
-                System.out.println("Enter updated reason :");
-                appointment.setReason(scanner.nextLine());
-
-                System.out.println("Enter updated notes :");
-                appointment.setNotes(scanner.nextLine());
-
+                appointment.setAppointmentTime(InputHandler.getStringInput("Enter updated appointment time"));
+                appointment.setStatus(InputHandler.getStringInput("Enter updated status"));
+                appointment.setReason(InputHandler.getStringInput("Enter updated reason"));
+                appointment.setNotes(InputHandler.getStringInput("Enter updated notes"));
                 System.out.println("Appointment updated successfully");
 
 
