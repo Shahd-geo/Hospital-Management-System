@@ -16,17 +16,18 @@ public class DepartmentService  implements Manageable, Searchable {
     static List<Nurse> nurses = new ArrayList<>();
 
 
-    public static Department addDepartment(){
+    public static Department addDepartment() {
         String departmentId = HelperUtils.generateId("DEP");
         String departmentName = InputHandler.getStringInput("Enter department Name:");
         String headDoctorId = InputHandler.getStringInput("Enter department head DoctorId:");
         int bedCapacity = InputHandler.getIntInput("Enter department bed Capacity:");
         int availableBeds = InputHandler.getIntInput("Enter department available Beds:");
-        Department department = new Department(departmentId,departmentName,headDoctorId,doctors,nurses,bedCapacity,availableBeds);
+        Department department = new Department(departmentId, departmentName, headDoctorId, doctors, nurses, bedCapacity, availableBeds);
 
         return department;
 
     }
+
     public static List<Department> addDepartments() {
 
         boolean continueFlag = true;
@@ -48,10 +49,10 @@ public class DepartmentService  implements Manageable, Searchable {
     }
     // UPDATE department
 
-    public static void editDepartment(String departmentId){
+    public static void editDepartment(String departmentId) {
 
-        for(Department department : departmentList){
-            if(department.getDepartmentId().equals(departmentId)){
+        for (Department department : departmentList) {
+            if (department.getDepartmentId().equals(departmentId)) {
                 String newName = InputHandler.getStringInput("Enter updated department Name:");
                 department.setDepartmentName(newName);
                 String newHeadDoctorId = InputHandler.getStringInput("Enter updated department head DoctorId:");
@@ -68,6 +69,7 @@ public class DepartmentService  implements Manageable, Searchable {
         }
 
     }
+
     // remove department by ID
     public static void removeDepartment(String departmentId) {
         boolean removed = departmentList.removeIf(
@@ -85,12 +87,13 @@ public class DepartmentService  implements Manageable, Searchable {
             System.out.println("No Department found");
         }
     }
+
     //retrieve department
-    public static Department getDepartmentById(String departmentId){
+    public static Department getDepartmentById(String departmentId) {
 
-        for(Department department: departmentList){
+        for (Department department : departmentList) {
 
-            if(department.getDepartmentId().equals(departmentId)){
+            if (department.getDepartmentId().equals(departmentId)) {
                 return department;
             }
 
@@ -98,10 +101,11 @@ public class DepartmentService  implements Manageable, Searchable {
         System.out.println("department not found");
         return null;
     }
-    // display All Departments
-    public static void displayAllDepartments(){
 
-        for(Department department : departmentList){
+    // display All Departments
+    public static void displayAllDepartments() {
+
+        for (Department department : departmentList) {
             department.displayInfo();
         }
     }
@@ -133,6 +137,56 @@ public class DepartmentService  implements Manageable, Searchable {
 
         System.out.println("Department not found.");
     }
+
+    @Override
+    public void add(Object entity) {
+        if (HelperUtils.isNull(entity)) {
+            System.out.println(
+                    "Department cannot be null.");
+            return;
+        }
+
+        departmentList.add((Department) entity);
+
+        System.out.println(
+                "Department added successfully");
+    }
+
+    @Override
+    public void remove(String id) {
+
+        removeDepartment(id);
+    }
+
+    @Override
+    public List<Department> getAll() {
+
+        return departmentList;
+    }
+
+    @Override
+    public void search(String keyword) {
+
+        Department department = getDepartmentById(keyword);
+
+        if (HelperUtils.isNotNull(department)) {
+
+            department.displayInfo();
+        }
+    }
+
+    @Override
+    public void searchById(String id) {
+
+        Department department =
+                getDepartmentById(id);
+
+        if (HelperUtils.isNotNull(department)) {
+
+            department.displayInfo();
+        }
+    }
+
     public static void assignNurseToDepartment(String nurseId, String departmentId) {
 
         if (HelperUtils.isNull(nurseId) || HelperUtils.isNull(departmentId)) {
@@ -159,6 +213,7 @@ public class DepartmentService  implements Manageable, Searchable {
 
         System.out.println("Department not found.");
     }
+
     public static void viewDepartmentStatistics(String departmentId) {
 
         Department department = getDepartmentById(departmentId);
@@ -178,96 +233,62 @@ public class DepartmentService  implements Manageable, Searchable {
         int occupied = department.getBedCapacity() - department.getAvailableBeds();
         System.out.println("Occupied Beds: " + occupied);
     }
-    public static boolean handleDepartmentMenu(Integer departmentOption) {
 
+    public static boolean handleDepartmentMenu(Integer departmentOption) {
 
         switch (departmentOption) {
             case 1 -> {
                 addDepartments();
             }
+
             case 2 -> {
-                String departmentId = InputHandler.getStringInput("Enter Department ID:");
-
-                editDepartment(departmentId);
-            }
-
-            case 3 -> {
-                String departmentId = InputHandler.getStringInput("Enter Department ID To remove:");
-                removeDepartment(departmentId);
-            }
-
-            case 4 -> {
-                System.out.println("Enter department Id to get department");
-                String departmentId = scanner.nextLine();
-
-                Department department = getDepartmentById(departmentId);
-
-                if(HelperUtils.isNotNull(department)){
-                    department.displayInfo();
-                }
-
-
-            }
-            case 5 -> {
                 displayAllDepartments();
             }
 
-            case 6 -> {
-                System.out.println("Enter Doctor Id  to assign doctor to department ");
-                String doctorId = scanner.nextLine();
-                System.out.println("Enter department Id  to assign doctor to department ");
-                String departmentId = scanner.nextLine();
+
+            case 3 -> {
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
+                Department department = getDepartmentById(departmentId);
+
+                if (HelperUtils.isNotNull(department)) {
+                    department.displayInfo();
+                }
+            }
+
+
+            case 4 -> {
+                String doctorId = InputHandler.getStringInput("Enter Doctor ID:");
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
+
                 assignDoctorToDepartment(doctorId, departmentId);
             }
 
+
+            case 5 -> {
+                String nurseId = InputHandler.getStringInput("Enter Nurse ID:");
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
+
+                assignNurseToDepartment(nurseId, departmentId);
+            }
+
+
+            case 6 -> {
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
+                editDepartment(departmentId);
+            }
+
+            case 7 -> {
+                String departmentId = InputHandler.getStringInput("Enter Department ID:");
+                viewDepartmentStatistics(departmentId);
+            }
+
+            default -> {
+                System.out.println("Invalid option.");
+            }
         }
+
         return false;
     }
-    @Override
-    public void add(Object entity) {
-        if(HelperUtils.isNull(entity)){
-            System.out.println(
-                    "Department cannot be null.");
-            return;
-        }
-
-        departmentList.add((Department) entity);
-
-        System.out.println(
-                "Department added successfully");
-    }
-    @Override
-    public void remove(String id) {
-
-        removeDepartment(id);
-    }
-    @Override
-    public List<Department> getAll() {
-
-        return departmentList;
-    }
-    @Override
-    public void search(String keyword) {
-
-        Department department = getDepartmentById(keyword);
-
-        if(HelperUtils.isNotNull(department)){
-
-            department.displayInfo();
-        }
-    }
-    @Override
-    public void searchById(String id) {
-
-        Department department =
-                getDepartmentById(id);
-
-        if(HelperUtils.isNotNull(department)){
-
-            department.displayInfo();
-        }
-    }
-
 }
 
 
