@@ -1,5 +1,6 @@
 package Service;
 
+import Entity.Consultant;
 import Entity.Doctor;
 import Entity.Patient;
 import Interfaces.Manageable;
@@ -371,6 +372,63 @@ public class DoctorService implements Manageable, Searchable {
         if(HelperUtils.isNotNull(doctor)){
             doctor.displayInfo();
         }
+    }
+    public static Consultant addConsultant(){
+
+        Doctor baseDoctor = addDector();
+
+        List<String> consultationTypes = new ArrayList<>();
+
+        boolean loop = true;
+
+        while(loop){
+
+            consultationTypes.add(InputHandler.getStringInput("Enter consultation type:"));
+
+            String choice = InputHandler.getStringInput("Enter c to continue or q to quit:"
+                    );
+
+            if(choice.equalsIgnoreCase("q")){
+
+                loop = false;
+            }
+        }
+
+        boolean onlineConsultationAvailable = InputHandler.getConfirmation("Is online consultation available?"
+                );
+
+        int consultationDuration = InputHandler.getIntInput("Enter consultation duration in minutes:", 1, 300
+                );
+
+        Consultant consultant = new Consultant(
+
+                        baseDoctor.getId(),
+                        baseDoctor.getFirstName(),
+                        baseDoctor.getLastName(),
+                        baseDoctor.getDateOfBirth(),
+                        baseDoctor.getGender(),
+                        baseDoctor.getPhoneNumber(),
+                        baseDoctor.getEmail(),
+                        baseDoctor.getAddress(),
+                        baseDoctor.getDoctorId(),
+                        baseDoctor.getSpecialization(),
+                        baseDoctor.getQualification(),
+                        baseDoctor.getExperienceYears(),
+                        baseDoctor.getDepartmentId(),
+                        baseDoctor.getConsultationFee(),
+                        baseDoctor.getAvailableSlots(),
+                        baseDoctor.getAssignedPatients(),
+
+                        consultationTypes,
+                        onlineConsultationAvailable,
+                        consultationDuration
+                );
+
+        doctors.add(consultant);
+
+        System.out.println("Consultant added successfully.");
+
+        return consultant;
     }
 
 
