@@ -22,6 +22,7 @@ public class MainApp {
         AppointmentService.initData();
         AppointmentService.testAppointments();
         DepartmentService.loadSampleDepartments();
+        MedicalRecordService.loadSampleMedicalRecords();
         boolean running = true;
 
         while (running) {
