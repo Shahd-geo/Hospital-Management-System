@@ -159,6 +159,25 @@ public class DepartmentService  implements Manageable, Searchable {
 
         System.out.println("Department not found.");
     }
+    public static void viewDepartmentStatistics(String departmentId) {
+
+        Department department = getDepartmentById(departmentId);
+
+        if (HelperUtils.isNull(department)) {
+            System.out.println("Department not found.");
+            return;
+        }
+
+        System.out.println("===== Department Statistics =====");
+        System.out.println("Name: " + department.getDepartmentName());
+        System.out.println("Doctors: " + department.getDoctors().size());
+        System.out.println("Nurses: " + department.getNurses().size());
+        System.out.println("Bed Capacity: " + department.getBedCapacity());
+        System.out.println("Available Beds: " + department.getAvailableBeds());
+
+        int occupied = department.getBedCapacity() - department.getAvailableBeds();
+        System.out.println("Occupied Beds: " + occupied);
+    }
     public static boolean handleDepartmentMenu(Integer departmentOption) {
 
 
