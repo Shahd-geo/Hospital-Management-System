@@ -139,19 +139,15 @@ public class MainApp {
                         }
                     }
                 }
-              /*  case 5 -> {
+               case 5 -> {
 
                     boolean medicalRecordMenu = true;
 
                     while (medicalRecordMenu){
 
-                        System.out.println(
-                                MenuMessages
-                                        .MEDICAL_RECORD_MENU_MESSAGE
-                        );
+                        System.out.println(MenuMessages.MEDICAL_RECORD_MENU_MESSAGE);
 
-                        int recordOption =
-                                scanner.nextInt();
+                        int recordOption = scanner.nextInt();
 
                         scanner.nextLine();
 
@@ -169,7 +165,7 @@ public class MainApp {
                         }
                     }
                 }
-               */ case 6 -> {
+               case 6 -> {
 
                     boolean departmentMenu = true;
 
