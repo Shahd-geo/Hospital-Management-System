@@ -226,63 +226,56 @@ public class NurseService  implements Manageable, Searchable {
                 addNurses();
             }
             case 2 -> {
-                System.out.println(
-                        "Enter nurse ID to update");
-
-                String nurseId =
-                        scanner.nextLine();
-
-                editNurse(nurseId);
+                displayAllNurses();
             }
             case 3 -> {
-                System.out.println("Enter nurse Id to remove");
-                String nurseId = scanner.nextLine();
-                removeNurse(nurseId);
+                String department = InputHandler.getStringInput("Enter Department Id:");
+                for (Nurse nurse : getNursesByDepartment(department)) {
+                    nurse.displayInfo();
+                }
             }
 
             case 4 -> {
-                System.out.println("Enter nurse Id to getNurseById");
-                String nurseId = scanner.nextLine();
-                Nurse nurse = getNurseById(nurseId);
-                if(HelperUtils.isNotNull(nurse)){
+                String shift = InputHandler.getStringInput("Enter shift:");
 
+                for (Nurse nurse : getNursesByShift(shift)) {
                     nurse.displayInfo();
                 }
             }
 
             case 5 -> {
-                displayAllNurses();
+                String nurseId = InputHandler.getStringInput("Enter nurse ID:");
+                String patientId = InputHandler.getStringInput("Enter patient ID:");
+
+                assignNurseToPatient(nurseId, patientId);
             }
 
             case 6 -> {
-                System.out.println("Enter Department  Id to search ");
-
-                String department = scanner.nextLine();
-
-                List<Nurse> nurses = getNursesByDepartment(department);
-                for (Nurse nurse : nurses){
-
-                    nurse.displayInfo();
-                }
+                String nurseId = InputHandler.getStringInput("Enter nurse ID:");
+                editNurse(nurseId);
             }
 
             case 7 -> {
-                System.out.println("Enter shift time ");
-                String shift = scanner.nextLine();
+                String nurseId = InputHandler.getStringInput("Enter nurse ID:");
+                removeNurse(nurseId);
+            }
+            case 8 -> {
 
-                List<Nurse> nurses = getNursesByShift(shift);
-                for (Nurse nurse : nurses){
-
-                    nurse.displayInfo();
-                }
-
-
+                return true;
             }
 
+                default -> {
+
+                    System.out.println("Invalid option."
+                    );
+                }
         }
+
         return false;
     }
-
 }
+
+
+
 
 
